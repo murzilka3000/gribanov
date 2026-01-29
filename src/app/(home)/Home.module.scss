@@ -1,0 +1,76 @@
+.hero {
+  padding-top: 206px;
+  .hero__container {
+    display: flex;
+    gap: 170px;
+    .hero__header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1.2;
+      .hero__title_wrapper {
+        display: flex;
+        gap: 31px;
+        align-items: flex-end;
+        .hero__title {
+          font-weight: 500;
+          font-size: 82px;
+          line-height: 100%;
+          letter-spacing: -0.02em;
+          color: #24282e;
+        }
+        .hero__decoration {
+          background-image: url("/images/hero.png");
+          @include bg-cover;
+          aspect-ratio: 1/1;
+          border-radius: 15px;
+          min-width: 211px;
+        }
+      }
+      .hero__achievements {
+        display: flex;
+        p {
+          flex: 1;
+        }
+      }
+    }
+    .hero__body {
+      flex: 1;
+      p,
+      span {
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+      }
+      p {
+        color: #173969;
+      }
+      span {
+        display: inline-block;
+      }
+      .hero__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        img {
+            margin-top: 10px;
+        }
+      }
+      .hero__list {
+        & > :first-child {
+            color: #1c65cc;
+        }
+        & > :nth-child(2) {
+            color: #675c51;
+        }
+        & > :nth-child(3) {
+            color: #24282e;
+        }
+        & > :nth-child(4){
+            color: #fe5a00;
+        }
+      }
+    }
+  }
+}

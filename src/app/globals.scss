@@ -1,0 +1,19 @@
+@use "@/styles/reset";
+
+.section_padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+}
