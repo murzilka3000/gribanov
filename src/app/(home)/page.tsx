@@ -3,6 +3,7 @@ import s from "./Home.module.scss";
 import clsx from "clsx";
 import { Hero } from "@/types";
 import Link from "next/link";
+import Image from "next/image";
 import HomeBigCard from "@/components/sections/HomeBigCard";
 
 const Page = () => {
@@ -45,6 +46,97 @@ const Page = () => {
       href: "/#4",
       text: "Springle",
       img: "/icons/home_nav-arr-3.svg",
+    },
+  ];
+
+  const small_card = [
+    {
+      img: "/images/small-card-1.png",
+      tag_1: "Бизнес",
+      tag_2: "Интервью",
+      title: "Решение на миллион: “В бизнесе важно быть честным с собой”",
+      data: "28 октября  2025, tg.ru",
+      link: "https://t.me/gribanov_channel/229",
+    },
+    {
+      img: "/images/small-card-2.png",
+      tag_1: "Бизнес",
+      tag_2: "Публикация",
+      title: "Кого я никогда не найму на работу: бенчмарк для руководителей",
+      data: "3 июля 2025, tg.ru",
+      link: "https://t.me/gribanov_channel/176",
+    },
+    {
+      img: "/images/small-card-3.png",
+      tag_1: "Бизнес",
+      tag_2: "Видео",
+      title: "Как сделать бизнес-премию и повысить имидж бренда",
+      data: "24 февраля 2025, vk.ru",
+      link: "https://vkvideo.ru/video-227184791_456239128",
+    },
+    {
+      img: "/images/small-card-4.png",
+      tag_1: "Банки",
+      tag_2: "Публикация",
+      title: "Без доверия работать  с чувствительными данными невозможно",
+      data: "14 декабря 2023, komersant.ru",
+      link: "https://www.kommersant.ru/doc/6381155",
+    },
+    {
+      img: "/images/small-card-5.png",
+      tag_1: "Бизнес",
+      tag_2: "Интервью",
+      title: "Киношколы — это хардкор для сильных духом",
+      data: "06 декабря 2023, rb.ru",
+      link: "https://rb.ru/longread/yuri-gribanov-about-tseh/",
+    },
+    {
+      img: "/images/small-card-6.png",
+      tag_1: "Медиа",
+      tag_2: "Публикация",
+      title: "Как мы создавали Frank Media",
+      data: "22 апреля 2023, vc.ru",
+      link: "https://vc.ru/media/673775-kak-my-sozdavali-frank-media-i-pochemu-reshili-perevesti-ego-na-novyi-domen",
+    },
+    {
+      img: "/images/small-card-7.png",
+      tag_1: "Банки",
+      tag_2: "Публикация",
+      title:
+        "Конец эпохи депозитов: как меняется рынок сбережений в условиях низких ставок",
+      data: "21 марта 2021, forbes.ru",
+      link: "https://www.forbes.ru/finansy-i-investicii/424383-konec-epohi-depozitov-kak-menyaetsya-rynok-sberezheniy-v-usloviyah",
+    },
+    {
+      img: "/images/small-card-8.png",
+      tag_1: "Финансы",
+      tag_2: "Публикация",
+      title: "Дойдут ли пожертвованные деньги или попадут  к мошенникам?",
+      data: "03 июня 2017, forbes.ru",
+      link: "https://www.forbes.ru/finansy-i-investicii/424383-konec-epohi-depozitov-kak-menyaetsya-rynok-sberezheniy-v-usloviyah",
+    },
+  ];
+
+  const books = [
+    {
+      year: "2025",
+      img: "/images/book-1.png",
+      link: "https://vc.ru/books/2683512-rekomendatsii-knig-2025-god",
+    },
+    {
+      year: "2024",
+      img: "/images/book-2.png",
+      link: "https://vc.ru/books/1751344-chto-iz-prochitannogo-mnoi-v-2024-godu-ya-mogu-rekomendovat-vam",
+    },
+    {
+      year: "2023",
+      img: "/images/book-3.png",
+      link: "https://vc.ru/books/1036607-knigi-kotorye-ya-prochital-v-2023-godu",
+    },
+    {
+      year: "2022",
+      img: "/images/book-4.png",
+      link: "https://vc.ru/books/580954-knigi-prochitannye-v-2022-godu",
     },
   ];
 
@@ -167,7 +259,7 @@ const Page = () => {
             description="Родившись как идея для бизнеса на съемочной площадке фильма ЭТАЖИзнь, ЦЕХ стал творческим крылом экосистемы Frank. Студия ЦЕХ помогает упаковывать идеи и сообщения Frank RG, Frank Media и Springle в увлекательный видео-продукт. А киношкола ЦЕХ взращивает молодое поколение кинематографистов."
             href="https://tseh.company"
             intro="ЦЕХ — это экосистема!
-Мы сами снимаем кино и учим этому других."
+  Мы сами снимаем кино и учим этому других."
           />
         </div>
 
@@ -180,11 +272,15 @@ const Page = () => {
               </h2>
               <div className={s.home_links_cont}>
                 <div className={s.home_links}>
-                  <a href="">
+                  <a
+                    href="https://www.bigchange.ru/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <p>Большая Перемена</p>
                     <img src="/icons/home_nav-arr-2.svg" alt="" />
                   </a>
-                  <a href="">
+                  <a href="https://fondpravmir.ru/">
                     <p>Правмир</p>
                     <img src="/icons/home_nav-arr-2.svg" alt="" />
                   </a>
@@ -194,6 +290,109 @@ const Page = () => {
           </div>
         </section>
       </div>
+
+      <section className="section_padding">
+        <div className="wrapper">
+          <div className={s.small_cards_home}>
+            <h2>
+              Публикации, интервью <br /> и видео
+            </h2>
+
+            {small_card.map((t) => {
+              return (
+                <div key={t.title}>
+                  <Image
+                    src={t.img}
+                    alt={t.img}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                  <div className={s.tags}>
+                    <p>{t.tag_1}</p>
+                    <p>{t.tag_2}</p>
+                  </div>
+                  <h3>{t.title}</h3>
+                  <div className={s.small_card_bottom}>
+                    <p>{t.data}</p>
+                    <a href={t.link} target="_blank" rel="noopener noreferrer">
+                      Читать
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className={clsx(s.books_section, "section-padding")}>
+        <div className="wrapper">
+          <div>
+            <div className={s.books_texts}>
+              <h2>
+                Книги, которые <br /> я рекомендую прочитать
+              </h2>
+              <p>
+                Книги — это бесконечный источник знаний, идей, вдохновения и
+                утешения. К сожалению, чтение требует времени и дисциплины.
+                Чтобы помочь себе и своим коллегам в поисках сил и времени для
+                книг, мы создали внутри Frank RG традицию делиться рецензиями на
+                прочитанные книги. Это помогает найти свою следующую книгу и
+                дополнительно мотивирует прочитать быстрее и больше.
+              </p>
+            </div>
+            <div className={s.books}>
+              {books.map((t) => {
+                return (
+                  <div key={t.img}>
+                    <p>{t.year}</p>
+                    <Image
+                      src={t.img}
+                      alt={t.img}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                    <a href={t.link} target="_blank" rel="noopener noreferrer">
+                      Читать
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={clsx(s.tg_home, "sectiob-padding")}>
+        <div className="wrapper">
+          <div>
+            <h2>Канал «ГРИБАНОВ»</h2>
+            <div className={s.tg_cont}>
+              <div>
+                <p className={s.subtitle_tg}>
+                  Веду авторский тг-канал для руководителей и тех, кто хочет ими
+                  стать
+                </p>
+                <p className={s.tg_tag}>@gribanov_channel</p>
+                <a
+                  href="https://t.me/+WbUPnCLcqLxjM2Fi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Читать канал
+                </a>
+              </div>
+              <div>
+                <img src="/icons/tg.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
