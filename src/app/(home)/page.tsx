@@ -181,6 +181,7 @@ const Page = () => {
             </div>
           </div>
         </section>
+        
         <section className={clsx(s.home_gallery, "section_padding")}>
           <div className="wrapper">
             <div className={s.home_gallery_cont}>
