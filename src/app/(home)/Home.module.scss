@@ -113,7 +113,8 @@
 }
 
 .home_all_projects {
-    margin-top: 78px;
+  margin-top: 78px;
+  margin-bottom: 119px;
 }
 
 .home_all_projects_cont {
@@ -190,4 +191,57 @@
       }
     }
   }
+}
+
+.homeCard_cont {
+  & > :not(:last-child) {
+    margin-bottom: 80px;
+  }
+  & > :last-child {
+    margin-bottom: 110px;
+  }
+}
+
+.home_top_cont {
+  background: #e9edf1;
+  padding-bottom: 110px;
+}
+
+.home_text_cont {
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #24282e;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    border-bottom: 3px solid #24282e;
+    gap: 20px;
+    p {
+      font-weight: 500;
+      font-size: 52px;
+      line-height: 150%;
+      letter-spacing: -0.02em;
+      color: #24282e;
+    }
+  }
+}
+
+
+.home_links {
+  max-width: 655px;
+  & > :first-child {
+    margin-bottom: 20px;
+  }
+}
+
+.home_links_cont {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -50px;
 }
