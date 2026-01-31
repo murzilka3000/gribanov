@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface HomeBigCardProps {
   image: string;
-  label: string;
+  label?: string;
   intro: string;
   href: string;
   description: string;
@@ -24,14 +24,14 @@ const HomeBigCard = ({
         <div className={s.home_big_card_cont}>
           <Image
             src={image}
-            alt={label}
+            alt={label || ""}
             width={0}
             height={0}
             sizes="100vw"
             style={{ width: "100%", height: "auto" }}
           />
 
-          <p className={s.sm_text}>{label}</p>
+          {label && <p className={s.sm_text}>{label}</p>}
 
           <div className={s.bottom_cont}>
             <div>
