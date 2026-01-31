@@ -43,6 +43,39 @@ const editors = [
   },
 ];
 
+const media_cards = [
+  {
+    img: "/images/media_cards-1.png",
+    tag_1: "Сбербанк",
+    tag_2: "Санкции",
+    tag_3: "Банки Росии",
+    title:
+      "Как Сберу приходится конкурировать за клиентов | Кирилл Царев, первый зампред Сбербанка",
+    data: "21 июня 2024, frankmedia.ru",
+    link: "https://frankmedia.ru/167759",
+  },
+  {
+    img: "/images/media_cards-2.png",
+    tag_1: "Платежная система",
+    tag_2: "Банки",
+    tag_3: "Mir pay",
+    title:
+      "Будущее платежных систем в России: платежи за рубеж и бесконтактная оплата | Владимир Комлев, НСПК",
+    data: "12 декабря 2023, frankmedia.ru",
+    link: "https://frankmedia.ru/148841",
+  },
+  {
+    img: "/images/media_cards-3.png",
+    tag_1: "НПФ",
+    tag_2: "Пенсия",
+    tag_3: "Накопительная пенсия",
+    title:
+      'Как правильно копить на пенсию и на чем зарабатывают пенсионные фонды? | Куратор НПФ ГК "Регион"',
+    data: "18 сентября 2023, frankmedia.ru",
+    link: "https://frankmedia.ru/139019",
+  },
+];
+
 const page = () => {
   return (
     <main>
@@ -123,16 +156,177 @@ const page = () => {
                 {editors.map((t) => {
                   return (
                     <div key={t.img} className={s.editors_item}>
-                      <div>
-                        <div>
-                          <p>{t.tag}</p>
+                      <div className={s.editors_item_left}>
+                        <div className={s.editors_top}>
+                          <span>{t.tag}</span>
                           <h3>{t.title}</h3>
                         </div>
-                        <div>
+                        <div className={s.desc}>
                           <p dangerouslySetInnerHTML={{ __html: t.deck }} />
                         </div>
                       </div>
-                      <div style={{ backgroundImage: `url(${t.img})` }}></div>
+                      <div
+                        className={s.editors_img}
+                        style={{ backgroundImage: `url(${t.img})` }}
+                      ></div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={clsx(s.standards, "section-padding")}>
+          <div className="wrapper">
+            <div className={s.standards__inner}>
+              <h2 className={s.standards__title}>Стандарты и ценности</h2>
+              <p className={s.standards__description}>
+                При создании текстов мы ориентируемся на потребности нашей
+                аудитории, которая состоит как из обычных потребителей
+                финансовых услуг, так и профессионалов из сферы финансов.
+              </p>
+
+              <div className={s.standards__list}>
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-1.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>
+                    Точность и объективность
+                  </h3>
+                  <p className={s.standart_item__text}>
+                    Frank Media — издание, основанное на журналистике факта.
+                    Точность и объективность при передаче информации мы ставим
+                    во главу угла. Никакой общественно значимый доказанный факт
+                    не может быть сознательно скрыт от читателя.
+                  </p>
+                </div>
+
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-2.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>Конфиденциальность</h3>
+                  <p className={s.standart_item__text}>
+                    Наши источники надежно скрыты, но мы тщательно проверяем,
+                    чтобы они не были связаны между собой. Мы никому и никогда
+                    не раскрываем наши источники, в том числе властям.
+                  </p>
+                </div>
+              </div>
+
+              <div className={s.standards__list_2}>
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-3.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>Плюрализм</h3>
+                  <p className={s.standart_item__text}>
+                    Возможность высказаться должна быть предоставлена каждой
+                    стороне. Мы не делим героев наших материалов на «своих» и
+                    «чужих».
+                  </p>
+                </div>
+
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-4.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>Беспристрастность</h3>
+                  <p className={s.standart_item__text}>
+                    Журналисты Frank Media должны избегать конфликта интересов в
+                    любых обстоятельствах. А если такой конфликт присутствует у
+                    кого-то из авторов, мы честно его раскрываем.
+                  </p>
+                </div>
+
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-5.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>Честность</h3>
+                  <p className={s.standart_item__text}>
+                    Мы не платим за информацию и не берем никаких взяток,
+                    включая информационные.
+                  </p>
+                </div>
+              </div>
+
+              <div className={s.standards__list}>
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-6.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>
+                    Точность и объективность
+                  </h3>
+                  <p className={s.standart_item__text}>
+                    Frank Media — издание, основанное на журналистике факта.
+                    Точность и объективность при передаче информации мы ставим
+                    во главу угла. Никакой общественно значимый доказанный факт
+                    не может быть сознательно скрыт от читателя.
+                  </p>
+                </div>
+
+                <div className={s.standart_item}>
+                  <img
+                    src="/icons/s-7.svg"
+                    alt=""
+                    className={s.standart_item__icon}
+                  />
+                  <h3 className={s.standart_item__title}>Конфиденциальность</h3>
+                  <p className={s.standart_item__text}>
+                    Наши источники надежно скрыты, но мы тщательно проверяем,
+                    чтобы они не были связаны между собой. Мы никому и никогда
+                    не раскрываем наши источники, в том числе властям.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={s.video_media}>
+          <div className="wrapper">
+            <div className={s.video_media__inner}>
+              <h2 className={s.video_media__title}>Видео Frank Media</h2>
+              <div className={s.video_media__grid}>
+                {media_cards.map((t) => {
+                  return (
+                    <div key={t.img} className={s.media_card}>
+                      <img src={t.img} alt="" className={s.media_card__img} />
+                      <div className={s.media_card__tags}>
+                        <span className={s.media_card__tag}>{t.tag_1}</span>
+                        <span className={s.media_card__tag}>{t.tag_2}</span>
+                        <span className={s.media_card__tag}>{t.tag_3}</span>
+                      </div>
+                      <div className={s.media_card__content}>
+                        <h3 className={s.media_card__title}>{t.title}</h3>
+                        <div className={s.media_card__footer}>
+                          <p className={s.media_card__date}>{t.data}</p>
+                          <a
+                            href={t.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={s.media_card__link}
+                          >
+                            Смотреть
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
