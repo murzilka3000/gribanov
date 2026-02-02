@@ -1,0 +1,249 @@
+.hero {
+  background: #fe5a00;
+  padding-top: 154px;
+  padding-bottom: 67px;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  z-index: 2;
+  * {
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+}
+
+.bg_orange {
+  background: #fff3ed;
+  margin-top: -30px;
+}
+
+.ultimate {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
+
+.ultimate__container {
+  display: flex;
+  gap: 20px;
+  & > :first-child {
+    flex: 1;
+  }
+  & > :last-child {
+    flex: 1.4;
+  }
+  .ultimate__image_wrapper {
+    img {
+      width: 100%;
+    }
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #fe5a00;
+    margin-bottom: 40px;
+  }
+  .ultimate__quote {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    p {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 130%;
+      color: #24282e;
+    }
+  }
+  figcaption {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #616161;
+    margin-top: 30px;
+    display: inline-block;
+  }
+}
+
+.spr_prod {
+  padding-bottom: 140px;
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #fe5a00;
+    margin-bottom: 60px;
+  }
+
+  .spr_prod_cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    div {
+      border-radius: 16px;
+      padding: 40px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      h3 {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 130%;
+        color: #24282e;
+      }
+      p {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 122%;
+        color: #24282e;
+      }
+    }
+  }
+}
+
+.corporate_sport {
+  h2 {
+    font-weight: 500;
+    font-size: 82px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #fe5a00;
+    margin-bottom: 40px;
+  }
+  .corporate_sport__subtitle {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000;
+    margin-bottom: 60px;
+  }
+
+  .corporate_sport__column {
+    h3 {
+      font-weight: 500;
+      font-size: 52px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: #fe5a00;
+      margin-bottom: 40px;
+    }
+  }
+
+  .corporate_sport__content {
+    display: flex;
+    gap: 73px;
+    & > :last-child {
+      flex: 5;
+      h3 {
+        color: #675c51;
+      }
+    }
+    & > :first-child {
+      flex: 5;
+    }
+    & > :nth-child(2) {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.corporate_sport__column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  p {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #24282e;
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px 40px;
+    height: 124px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.corporate_sport {
+  padding-bottom: 140px;
+}
+
+.springle_info {
+  padding-bottom: 140px;
+  h3 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #fe5a00;
+  }
+  p {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #24282e;
+  }
+  .springle_info__block {
+    display: flex;
+    gap: 20px;
+    & > :first-child {
+      flex: 1;
+    }
+    & > :last-child {
+      flex: 1;
+    }
+  }
+
+  .springle_info__container {
+    & > :first-child {
+      margin-bottom: 140px;
+    }
+  }
+
+  .springle_info__text_group {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.video_container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 40px;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 15px;
+  }
+}
+
+.video {
+  margin-bottom: 140px;
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #fe5a00;
+    margin-bottom: 60px;
+  }
+}
+
+.img_7 {
+  img {
+    width: 100%;
+  }
+}

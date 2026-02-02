@@ -339,3 +339,148 @@
     }
   }
 }
+
+.socials {
+  padding-bottom: 84px;
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #675c51;
+    margin-bottom: 60px;
+  }
+
+  .socials__grid {
+    display: flex;
+    gap: 20px;
+    & > :first-child {
+      flex: 1;
+    }
+    & > :last-child {
+      flex: 1.8;
+    }
+    .social_card {
+      border-radius: 24px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .socials__column_1 {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      & > :first-child,
+      & > :last-child {
+        flex: 1;
+      }
+      .social_card {
+        position: relative;
+        padding: 30px;
+        min-height: 351px;
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+    }
+
+    .socials__column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      & > :first-child {
+        flex: 3.4;
+      }
+      & > :last-child {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.social_card__link {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #675c51;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.social_card__desc {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 122%;
+  color: #c5c5c5;
+  margin-bottom: 10px;
+}
+
+.social_card__handle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 122%;
+  color: #616161;
+}
+
+.social_card_y {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.socials__subgrid {
+  display: flex;
+  gap: 20px;
+  & > :first-child {
+    flex: 1;
+  }
+  & > :last-child {
+    flex: 2;
+  }
+}
+
+.social_card_z {
+  position: relative;
+  padding: 30px;
+  img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.socials__mini_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  & > :first-child {
+    flex: 1;
+  }
+  & > :last-child {
+    flex: 2;
+  }
+
+  .social_card_vk {
+    display: flex;
+    justify-content: space-between;
+
+    .social_card__info {
+      padding: 30px;
+    }
+  }
+}
+
+.social_card_rut {
+  padding: 30px;
+  position: relative;
+  img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
