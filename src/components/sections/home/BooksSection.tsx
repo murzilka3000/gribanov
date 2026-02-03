@@ -6,7 +6,7 @@ import { BookCard } from "@/components/ui/BookCard";
 
 export const BooksSection = () => {
   return (
-    <section className={clsx(s.books_section, "section-padding")}>
+    <section className={clsx(s.books_section, "section_padding")}>
       <div className="wrapper">
         <div>
           <div className={s.books_texts}>
@@ -15,7 +15,11 @@ export const BooksSection = () => {
             </h2>
             <p>
               Книги — это бесконечный источник знаний, идей, вдохновения и
-              утешения... (текст сокращен для примера, вставь полный)
+              утешения. К сожалению, чтение требует времени и дисциплины. Чтобы
+              помочь себе и своим коллегам в поисках сил и времени для книг, мы
+              создали внутри Frank RG традицию делиться рецензиями на
+              прочитанные книги. Это помогает найти свою следующую книгу и
+              дополнительно мотивирует прочитать быстрее и больше.
             </p>
           </div>
           <div className={s.books}>
