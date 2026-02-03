@@ -12,6 +12,8 @@ import {
   ProductItem,
   AwardItem,
   MerchItem,
+  SpringleProductItem,
+  SpringleValueItem,
 } from "@/types";
 
 export const heroItems: HeroItem[] = [
@@ -393,4 +395,40 @@ export const merchGroupBottom: MerchItem[] = [
     title: "Frank RG значки",
     subtitle: "Коллекция 2018 г.",
   },
+];
+
+export const springleProducts: SpringleProductItem[] = [
+  {
+    img: "/icons/spr-1.svg",
+    title: "Организация внутрикорпоративных турниров",
+    text: "Отдельное мероприятие или часть корпоративной спартакиады",
+  },
+  {
+    img: "/icons/spr-2.svg",
+    title: "Организация турнира между компаниями",
+    text: "Однодневный турнир по алтимат фрисби для 4-8 команд",
+  },
+  {
+    img: "/icons/spr-3.svg",
+    title: "Организация любительского чемпионата",
+    text: "Календарь игр алтимат фрисби на 7-8 месяцев для 15-20 команд",
+  },
+];
+
+export const springleBusinessValues: SpringleValueItem[] = [
+  { text: "Равенство, равные возможности" },
+  { text: "Здоровая конкуренция, лидерство" },
+  { text: "Развитие, ответственность, вовлечение" },
+  { text: "Демократичность, инициатива, меритократия" },
+  { text: "Открытость, доверие" },
+  { text: "Позитивные отношения в команде" },
+];
+
+export const springleFrisbeeValues: SpringleValueItem[] = [
+  { text: "Гендерно-смешанные команды" },
+  { text: "Уважение к соперникам" },
+  { text: "Самоорганизация команд" },
+  { text: "Отсутствие судей" },
+  { text: "Честная игра" },
+  { text: "Неконтактный спорт" },
 ];

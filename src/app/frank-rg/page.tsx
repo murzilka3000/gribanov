@@ -1,6 +1,3 @@
-import React from "react";
-
-// Импорт секций
 import { HeroRgSection } from "@/components/sections/frank-rg/HeroRgSection";
 import { MapSection } from "@/components/sections/frank-rg/MapSection";
 import { AdvantagesSection } from "@/components/sections/frank-rg/AdvantagesSection";

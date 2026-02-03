@@ -94,3 +94,17 @@ export interface MerchItem {
   title: string;
   subtitle: string;
 }
+
+
+
+// Продукт Springle (3 карточки)
+export interface SpringleProductItem {
+  img: string;
+  title: string;
+  text: string;
+}
+
+// Элемент списка ценностей (Бизнес/Фрисби)
+export interface SpringleValueItem {
+  text: string;
+}
