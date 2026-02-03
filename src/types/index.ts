@@ -36,3 +36,33 @@ export interface BookItem {
   img: string;
   link: string;
 }
+
+
+// Редактор
+export interface EditorItem {
+  tag: string;
+  title: string;
+  deck: string; // HTML контент
+  img: string;
+}
+
+// Медиа карточка (Видео/Статья)
+export interface MediaItem {
+  img: string;
+  tags: string[]; // Объединим теги в массив для удобства
+  title: string;
+  date: string;
+  link: string;
+}
+
+// Карточка стандарта/ценности
+export interface StandardItem {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+// Логотип партнера
+export interface PartnerLogo {
+  img: string;
+}
