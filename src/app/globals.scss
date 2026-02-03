@@ -15,10 +15,24 @@
   margin: 0 auto;
 }
 
-*, *::after, *::before {
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 body {
-    font-family: $font-family;
+  font-family: $font-family;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 1 !important;
+  background: transparent!important;
+  border: 1px solid #dac27e!important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #dac27e !important;
 }
