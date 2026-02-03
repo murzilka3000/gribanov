@@ -66,3 +66,31 @@ export interface StandardItem {
 export interface PartnerLogo {
   img: string;
 }
+
+
+
+// Преимущество (цифры и иконки)
+export interface AdvantageItem {
+  img: string;
+  number: string;
+  text: string;
+}
+
+// Продукт (Frank 360 и т.д.)
+export interface ProductItem {
+  title: string;
+  text: string;
+}
+
+// Награда (список внизу)
+export interface AwardItem {
+  id: number;
+  text: string;
+}
+
+// Товар (Мерч)
+export interface MerchItem {
+  img: string;
+  title: string;
+  subtitle: string;
+}

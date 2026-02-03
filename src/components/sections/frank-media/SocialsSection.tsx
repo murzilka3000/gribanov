@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import Image from "next/image";
 import s from "@/app/frank-media/FrankMedia.module.scss";
 
 export const SocialsSection = () => {
@@ -10,7 +9,6 @@ export const SocialsSection = () => {
         <div className={s.socials__inner}>
           <h2 className={s.socials__title}>Наши социальные сети</h2>
           <div className={s.socials__grid}>
-            {/* Левая колонка с Telegram */}
             <div className={s.socials__column_1}>
               <div className={s.social_card}>
                 <a
@@ -23,11 +21,9 @@ export const SocialsSection = () => {
                 </a>
                 <p className={s.social_card__desc}>Канал про финансы</p>
                 <p className={s.social_card__handle}>@frank_media</p>
-                <Image
+                <img
                   src="/icons/tg-1.svg"
                   alt="Telegram"
-                  width={32}
-                  height={32}
                   className={s.social_card__icon}
                 />
               </div>
@@ -42,17 +38,13 @@ export const SocialsSection = () => {
                 </a>
                 <p className={s.social_card__desc}>Канал про инвестиции</p>
                 <p className={s.social_card__handle}>@fm_invest</p>
-                <Image
+                <img
                   src="/icons/tg-1.svg"
                   alt="Telegram"
-                  width={32}
-                  height={32}
                   className={s.social_card__icon}
                 />
               </div>
             </div>
-
-            {/* Правая колонка (Дзен, ВК, Рутуб, Ютуб) */}
             <div className={s.socials__column}>
               <div className={s.socials__subgrid}>
                 <div className={clsx(s.social_card, s.social_card_z)}>
@@ -65,11 +57,9 @@ export const SocialsSection = () => {
                     Дзен
                   </a>
                   <p className={s.social_card__handle}>@frank_media</p>
-                  <Image
+                  <img
                     src="/icons/zen.svg"
                     alt="Дзен"
-                    width={32}
-                    height={32}
                     className={s.social_card__icon}
                   />
                 </div>
@@ -87,11 +77,9 @@ export const SocialsSection = () => {
                       </a>
                       <p className={s.social_card__handle}>@frank_media</p>
                     </div>
-                    <Image
+                    <img
                       src="/icons/vk.svg"
                       alt="VK"
-                      width={32}
-                      height={32}
                       className={s.social_card__icon}
                     />
                   </div>
@@ -106,11 +94,9 @@ export const SocialsSection = () => {
                       Rutube
                     </a>
                     <p className={s.social_card__handle}>@frank_media</p>
-                    <Image
+                    <img
                       src="/icons/rub.svg"
                       alt="Rutube"
-                      width={32}
-                      height={32}
                       className={s.social_card__icon}
                     />
                   </div>
@@ -129,11 +115,9 @@ export const SocialsSection = () => {
                   </a>
                   <p className={s.social_card__handle}>@frank_media</p>
                 </div>
-                <Image
+                <img
                   src="/icons/y.svg"
                   alt="YouTube"
-                  width={32}
-                  height={32}
                   className={s.social_card__icon}
                 />
               </div>

@@ -8,6 +8,10 @@ import {
   MediaItem,
   PartnerLogo,
   StandardItem,
+  AdvantageItem,
+  ProductItem,
+  AwardItem,
+  MerchItem,
 } from "@/types";
 
 export const heroItems: HeroItem[] = [
@@ -281,5 +285,112 @@ export const standardsGroup3: StandardItem[] = [
     icon: "/icons/s-7.svg",
     title: "Конфиденциальность",
     text: "Наши источники надежно скрыты, но мы тщательно проверяем, чтобы они не были связаны между собой. Мы никому и никогда не раскрываем наши источники, в том числе властям.",
+  },
+];
+
+export const frankRgAdvantages: AdvantageItem[] = [
+  {
+    img: "/icons/advantages-1.svg",
+    number: "17",
+    text: "лет на рынке",
+  },
+  {
+    img: "/icons/advantages-2.svg",
+    number: "50+",
+    text: "аналитических продуктов",
+  },
+  {
+    img: "/icons/advantages-3.svg",
+    number: "95%",
+    text: "доля клиентов рынка",
+  },
+  {
+    img: "/icons/advantages-4.svg",
+    number: "500+",
+    text: "млн рублей выручка в 2025 г.",
+  },
+];
+
+export const frankRgProducts: ProductItem[] = [
+  {
+    title: "Frank 360",
+    text: "Масштабный срез рынка, который проводится раз в год. Идея проекта — объединить многочисленные исследования, которые банки привыкли заказывать у разных профильных экспертов, и самостоятельно свести их в единый отчёт.",
+  },
+  {
+    title: "Бенчмарк",
+    text: "Анализ данных, необходимых для принятия бизнес-решений в различных сферах, например: анализ ставок по вкладам, кредитам и накопительным счетам, фактических ставок по ипотеке и объёмов ипотечных портфелей, предложения для малого и среднего бизнеса и другие.",
+  },
+  {
+    title: "Индивидуальный проект",
+    text: "Исследования неочевидных сегментов. Выявление рыночных и технологических трендов на банковском рынке, оценка перспектив и возможностей, анализ предпочтения клиентов, а также обучение работе с информацией и развитие профессионального сообщества для обмена опытом и идеями.",
+  },
+];
+
+export const frankRgAwards: AwardItem[] = [
+  {
+    id: 1,
+    text: 'Победа в категории - "Human Resources" Cannes Corporate Media & TV Awards (2019, Франция, Канны)',
+  },
+  {
+    id: 2,
+    text: "Лучший режиссер - Indian Cine Film Festival (2019, Индия, Мумбаи)",
+  },
+  {
+    id: 3,
+    text: "Лучшая музыка - Indian Cine Film Festival (2019, Индия, Мумбаи)",
+  },
+  {
+    id: 4,
+    text: "Лучший короткометражный фильм - Надымский Международный Фильм Фестиваль (2019, Россия, Надым)",
+  },
+  {
+    id: 5,
+    text: "Лучший короткометражный фильм - Всероссийский Молодежный Кинофестиваль позитивного кино (2019, Россия, Пермь)",
+  },
+  {
+    id: 6,
+    text: "Лучшая музыка - Indian Cine Film Festival (2019, Индия, Мумбаи)",
+  },
+];
+
+// Товары: Верхний ряд (2 шт)
+export const merchGroupTop: MerchItem[] = [
+  {
+    img: "/images/p-1.png",
+    title: "Frank RG поло",
+    subtitle: "Коллекция 2018 г.",
+  },
+  {
+    img: "/images/p-2.png",
+    title: "Frank RG пакет",
+    subtitle: "Коллекция 2019 г.",
+  },
+];
+
+// Товары: Средний ряд (1 шт)
+export const merchGroupMiddle: MerchItem[] = [
+  {
+    img: "/images/p-3.png",
+    title: "Frank RG Love is...",
+    subtitle: "Коллекция 2022 г.",
+  },
+];
+
+// Товары: Нижний ряд (3 шт)
+export const merchGroupBottom: MerchItem[] = [
+  {
+    img: "/images/p-4.png",
+    title: "Frank RG диск",
+    subtitle: "Коллекция 2023 г.",
+  },
+  {
+    img: "/images/p-5.png",
+    title: "Frank RG футболка",
+    subtitle: "Коллекция 2024 г.",
+  },
+  {
+    img: "/images/p-6.png",
+    title: "Frank RG значки",
+    subtitle: "Коллекция 2018 г.",
   },
 ];

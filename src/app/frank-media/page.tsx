@@ -1,7 +1,5 @@
 import React from "react";
 import s from "./FrankMedia.module.scss";
-
-// Импорт секций
 import { HeroMediaSection } from "@/components/sections/frank-media/HeroMediaSection";
 import { AboutSection } from "@/components/sections/frank-media/AboutSection";
 import { QuoteSection } from "@/components/sections/frank-media/QuoteSection";
