@@ -1,8 +1,7 @@
 import HomeBigCard from "@/components/sections/HomeBigCard";
-import React from "react";
 import s from "./Springle.module.scss";
 import clsx from "clsx";
-import { text } from "stream/consumers";
+import Link from "next/link";
 
 const products_springle = [
   {
@@ -237,24 +236,33 @@ const page = () => {
           </div>
         </section>
 
-        <section>
+        <section className={clsx(s.last_spr, "section_padding")}>
           <div className="wrapper">
-            <div>
-              <div>
-                <div>
-                  <h2>Свяжитесь с нами</h2>
+            <div className={s.last_spr__container}>
+              <div className={s.last_spr__info}>
+                <div className={s.last_spr__header}>
+                  <h2 className={s.last_spr__title}>Свяжитесь с нами</h2>
                 </div>
-                <div>
-                  <p>Галина Губанова</p>
-                  <p>Руководитель проекта</p>
-                  <a href="">+7 903 009 98 74</a>
+                <div className={s.last_spr__contact}>
+                  <p className={s.last_spr__name}>Галина Губанова</p>
+                  <p className={s.last_spr__position}>Руководитель проекта</p>
+                  <a href="tel:+79030099874" className={s.last_spr__phone}>
+                    +7 903 009 98 74
+                  </a>
                 </div>
-                <div>
-                  <a href="https://springle.ru/tournaments">Перейти на сайт</a>
+                <div className={s.last_spr__cta_wrapper}>
+                  <Link
+                    href="https://springle.ru/tournaments"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={s.last_spr__link}
+                  >
+                    Перейти на сайт
+                  </Link>
                 </div>
               </div>
-              <div>
-                <img src="" alt="" />
+              <div className={s.last_spr__image_wrapper}>
+                <img src="/images/last-spr.png" alt="" />
               </div>
             </div>
           </div>
