@@ -29,10 +29,26 @@ body {
   width: 20px !important;
   height: 20px !important;
   opacity: 1 !important;
-  background: transparent!important;
-  border: 1px solid #dac27e!important;
+  background: transparent !important;
+  border: 1px solid #dac27e !important;
 }
 
 .swiper-pagination-bullet-active {
   background: #dac27e !important;
+}
+
+p,
+li,
+span,
+a {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
