@@ -42,6 +42,9 @@ const HomeBigCard = ({
             </div>
             <div>
               <p>{description}</p>
+              <Link className={s.mob_link} href={href} target="_blank" rel="noopener noreferrer">
+                Перейти на сайт
+              </Link>
             </div>
           </div>
         </div>

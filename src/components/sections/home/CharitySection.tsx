@@ -1,9 +1,10 @@
 import React from "react";
 import s from "@/app/(home)/Home.module.scss";
+import clsx from "clsx";
 
 export const CharitySection = () => {
   return (
-    <section className="section_padding">
+    <section className={clsx(s.mob_445, "section_padding")}>
       <div className="wrapper">
         <div className={s.home_text_cont}>
           <h2>

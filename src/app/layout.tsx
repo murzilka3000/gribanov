@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${manrope.variable} ${inter.variable}`}>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -11,10 +11,22 @@ export const HeroSection = () => {
           <div className={s.hero__header}>
             <div className={s.hero__title_wrapper}>
               <div className={s.hero__decoration}></div>
-              <h1 className={s.hero__title}>
-                Юрий
-                <br /> Грибанов
-              </h1>
+              <div className={s.flex_4343}>
+                <h1 className={s.hero__title}>
+                  Юрий
+                  <br /> Грибанов
+                </h1>
+                <div>
+                  <p className={s.hero__achievement_text}>
+                    ТОП-100 крупнейших <br /> консалтинговых компаний <br /> по
+                    версии RAEX
+                  </p>
+                  <p className={s.hero__achievement_text}>
+                    ТОП-2 самых цитируемых <br /> финансовых СМИ по версии{" "}
+                    <br /> Медиалогии
+                  </p>
+                </div>
+              </div>
             </div>
             <div className={s.hero__achievements}>
               <p className={s.hero__achievement_text}>

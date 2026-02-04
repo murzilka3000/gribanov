@@ -22,7 +22,7 @@ const Page = () => {
 
       <PublicationsSection />
       <BooksSection />
-      <TelegramSection />
+      {/* <TelegramSection /> */}
     </main>
   );
 };
