@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import s from "@/app/(home)/Home.module.scss";
 import { heroItems } from "@/lib/data";
+import Link from "next/link";
 
 export const HeroSection = () => {
   return (
@@ -43,10 +44,10 @@ export const HeroSection = () => {
             <p className={s.hero__subtitle}>Предприниматель,</p>
             <ul className={s.hero__list}>
               {heroItems.map((t, index) => (
-                <li key={index} className={s.hero__item}>
+                <Link href={t.link} key={index} className={s.hero__item}>
                   <img className={s.hero__icon} src={t.img} alt="" />
                   <span className={s.hero__text}>{t.span}</span>
-                </li>
+                </Link>
               ))}
             </ul>
           </div>

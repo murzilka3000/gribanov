@@ -4,9 +4,16 @@
   padding-top: 63px;
   padding-bottom: 63px;
   margin-top: -50px;
+  @media screen and (max-width: 686px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
   .footer_cont {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media screen and (max-width: 686px) {
+      grid-template-columns: 1fr;
+    }
   }
   a {
     display: flex;
@@ -18,6 +25,9 @@
       font-size: 32px;
       line-height: 130%;
       color: #fff;
+      @media screen and (max-width: 686px) {
+        font-size: 22px;
+      }
     }
   }
   .footer_links {
@@ -31,5 +41,16 @@
     font-size: 32px;
     line-height: 130%;
     color: #fff;
+    @media screen and (max-width: 686px) {
+      font-size: 22px;
+      margin-bottom: 50px;
+    }
+  }
+}
+@media screen and (max-width: 686px) {
+  .footer_links {
+    img {
+      width: 50px;
+    }
   }
 }

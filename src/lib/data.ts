@@ -20,39 +20,43 @@ export const heroItems: HeroItem[] = [
   {
     img: "/icons/hero-arr-1.svg",
     span: "Консалтинговая компания,",
+    link: '/frank-rg'
   },
   {
     img: "/icons/hero-arr-2.svg",
     span: "Деловое медиа,",
+    link: '/frank-media'
   },
   {
     img: "/icons/hero-arr-3.svg",
     span: "Киношкола и продакшн студия,",
+    link: '/tsech'
   },
   {
     img: "/icons/hero-arr-4.svg",
     span: "Спортивная корпоративная лига",
+    link: '/springle'
   },
 ];
 
 export const homeNavItems: NavItem[] = [
   {
-    href: "/#1",
+    href: "/frank-rg",
     text: "Frank RG",
     img: "/icons/home_nav-arr-1.svg",
   },
   {
-    href: "/#2",
+    href: "/frank-media",
     text: "Frank Media",
     img: "/icons/home_nav-arr-1.svg",
   },
   {
-    href: "/#3",
+    href: "/tsech",
     text: "Киношкола ЦЕХ",
     img: "/icons/home_nav-arr-2.svg",
   },
   {
-    href: "/#4",
+    href: "/springle",
     text: "Springle",
     img: "/icons/home_nav-arr-3.svg",
   },

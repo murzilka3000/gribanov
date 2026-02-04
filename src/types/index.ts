@@ -2,6 +2,7 @@
 export interface HeroItem {
   img: string;
   span: string;
+  link: string;
 }
 
 // Элемент навигации по проектам (стрелочки с ссылками)
@@ -37,7 +38,6 @@ export interface BookItem {
   link: string;
 }
 
-
 // Редактор
 export interface EditorItem {
   tag: string;
@@ -67,8 +67,6 @@ export interface PartnerLogo {
   img: string;
 }
 
-
-
 // Преимущество (цифры и иконки)
 export interface AdvantageItem {
   img: string;
@@ -94,8 +92,6 @@ export interface MerchItem {
   title: string;
   subtitle: string;
 }
-
-
 
 // Продукт Springle (3 карточки)
 export interface SpringleProductItem {

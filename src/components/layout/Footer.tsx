@@ -38,7 +38,7 @@ const footer = [
 
 const Footer = () => {
   return (
-    <footer className={clsx(s.footer, "section-padding")}>
+    <footer className={clsx(s.footer, "section_padding")}>
       <div className="wrapper">
         <div className={s.footer_cont}>
           <p className={s.footer_text}>Подписывайтесь <br /> на мои соцсети</p>
