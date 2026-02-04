@@ -4,7 +4,7 @@ import s from "@/app/(home)/Home.module.scss";
 
 export const TelegramSection = () => {
   return (
-    <section className={clsx(s.tg_home, "section-padding")}>
+    <section className={s.tg_home}>
       <div className="wrapper">
         <div>
           <h2>Канал «ГРИБАНОВ»</h2>
