@@ -25,6 +25,21 @@ export const GallerySection = () => {
             <img src="/images/home_gallery-5.png" alt="Юрий Грибанов фото 5" />
           </div>
         </div>
+        <div className={s.mob_gal}>
+          <div className={s.mob_gal_grid}>
+            <div>
+              <img src="/images/mob-1.png" alt="" />
+              <img src="/images/mob-2.png" alt="" />
+            </div>
+            <div>
+              <img src="/images/mob-3.png" alt="" />
+              <img src="/images/mob-4.png" alt="" />
+            </div>
+          </div>
+          <div className={s.mob_gal_last}>
+            <img src="/images/mob-5.png" alt="" />
+          </div>
+        </div>
       </div>
     </section>
   );

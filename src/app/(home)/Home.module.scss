@@ -146,7 +146,7 @@
     border-radius: 15px;
   }
   @media screen and (max-width: 767px) {
-    flex-direction: column;
+    display: none;
   }
 
   .home_gallery_left {
@@ -765,5 +765,40 @@
   .hero__achievement_text span {
     font-weight: 700;
     color: #000;
+  }
+}
+
+.mob_gal {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .mob_gal {
+    display: block;
+    img {
+      width: 100%;
+    }
+  }
+
+  .mob_gal_grid {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 14px;
+    gap: 14px;
+    & > :first-child {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    & > :last-child {
+      flex: 1.3;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+  }
+  .mob_gal_last {
+    max-width: 230px;
   }
 }
