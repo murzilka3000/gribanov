@@ -66,6 +66,10 @@
         display: flex;
         p {
           flex: 1;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 122%;
+          color: #616161;
         }
         @media screen and (max-width: 1080px) {
           display: none;
@@ -219,6 +223,7 @@
         color: #24282e;
         @media screen and (max-width: 600px) {
           font-size: 22px;
+          line-height: 110%;
         }
       }
       & > :last-child {
@@ -296,6 +301,9 @@
       }
       & > :not(:last-child) {
         margin-bottom: 20px;
+        @media screen and (max-width: 767px) {
+          margin-bottom: 10px;
+        }
       }
     }
   }
@@ -417,6 +425,10 @@
     gap: 6px;
     margin-top: 30px;
     margin-bottom: 21px;
+    @media screen and (max-width: 767px) {
+      margin-top: 18px;
+      margin-bottom: 0;
+    }
     span {
       font-weight: 500;
       font-size: 16px;
@@ -533,7 +545,7 @@
 .books_texts {
   display: flex;
   justify-content: space-between;
-  gap: 200px;
+  gap: 65px;
   margin-bottom: 20px;
   @media screen and (max-width: 1142px) {
     gap: 100px;
@@ -746,5 +758,12 @@
   .home_links_cont {
     justify-content: flex-start;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero__achievement_text span {
+    font-weight: 700;
+    color: #000;
   }
 }

@@ -19,11 +19,11 @@ export const HeroSection = () => {
                 </h1>
                 <div>
                   <p className={s.hero__achievement_text}>
-                    ТОП-100 крупнейших <br /> консалтинговых компаний <br /> по
+                    <span>ТОП-100</span> крупнейших <br /> консалтинговых компаний <br /> по
                     версии RAEX
                   </p>
                   <p className={s.hero__achievement_text}>
-                    ТОП-2 самых цитируемых <br /> финансовых СМИ по версии{" "}
+                    <span>ТОП-2</span> самых цитируемых <br /> финансовых СМИ по версии{" "}
                     <br /> Медиалогии
                   </p>
                 </div>

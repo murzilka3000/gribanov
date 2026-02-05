@@ -21,7 +21,11 @@ export const CharitySection = () => {
                 <p>Большая Перемена</p>
                 <img src="/icons/home_nav-arr-2.svg" alt="" />
               </a>
-              <a href="https://fondpravmir.ru/">
+              <a
+                href="https://fondpravmir.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <p>Правмир</p>
                 <img src="/icons/home_nav-arr-2.svg" alt="" />
               </a>

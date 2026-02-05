@@ -20,22 +20,22 @@ export const heroItems: HeroItem[] = [
   {
     img: "/icons/hero-arr-1.svg",
     span: "Консалтинговая компания,",
-    link: '/frank-rg'
+    link: "/frank-rg",
   },
   {
     img: "/icons/hero-arr-2.svg",
     span: "Деловое медиа,",
-    link: '/frank-media'
+    link: "/frank-media",
   },
   {
     img: "/icons/hero-arr-3.svg",
     span: "Киношкола и продакшн студия,",
-    link: '/tsech'
+    link: "/tsech",
   },
   {
     img: "/icons/hero-arr-4.svg",
     span: "Спортивная корпоративная лига",
-    link: '/springle'
+    link: "/springle",
   },
 ];
 
@@ -92,8 +92,7 @@ export const mainProjects: ProjectCardData[] = [
   {
     label: "Сооснователь и продюсер студии и киношколы ЦЕХ",
     image: "/images/img-4.png",
-    intro:
-      "ЦЕХ — это экосистема! Мы работаем в сфере медиа-контента и развиваем другие направления в области кино — от дополнительного образования до аренды декораций в съёмочных локациях.",
+    intro: "ЦЕХ — это экосистема! Мы сами снимаем кино и учим этому других.",
     href: "https://tseh.company",
     description:
       "Родившись как идея для бизнеса на съемочной площадке фильма «ЭТАЖИзнь», ЦЕХ стал творческим крылом экосистемы Frank. Студия ЦЕХ помогает упаковывать идеи и сообщения Frank RG, Frank Media и Springle в увлекательный видео-продукт. А киношкола взращивает молодое поколение кинематографистов.",
@@ -108,6 +107,7 @@ export const publications: PublicationItem[] = [
     title: "Решение на миллион: “В бизнесе важно быть честным с собой”",
     date: "28 октября 2025, tg.ru",
     link: "https://t.me/gribanov_channel/229",
+    button: "Смотреть",
   },
   {
     img: "/images/small-card-2.png",
@@ -116,6 +116,7 @@ export const publications: PublicationItem[] = [
     title: "Кого я никогда не найму на работу: бенчмарк для руководителей",
     date: "3 июля 2025, tg.ru",
     link: "https://t.me/gribanov_channel/176",
+    button: "Читать",
   },
   {
     img: "/images/small-card-3.png",
@@ -124,6 +125,7 @@ export const publications: PublicationItem[] = [
     title: "Как сделать бизнес-премию и повысить имидж бренда",
     date: "24 февраля 2025, vk.ru",
     link: "https://vkvideo.ru/video-227184791_456239128",
+    button: "Смотреть",
   },
   {
     img: "/images/small-card-4.png",
@@ -132,6 +134,7 @@ export const publications: PublicationItem[] = [
     title: "Без доверия работать с чувствительными данными невозможно",
     date: "14 декабря 2023, komersant.ru",
     link: "https://www.kommersant.ru/doc/6381155",
+    button: "Читать",
   },
   {
     img: "/images/small-card-5.png",
@@ -140,6 +143,7 @@ export const publications: PublicationItem[] = [
     title: "Киношколы — это хардкор для сильных духом",
     date: "06 декабря 2023, rb.ru",
     link: "https://rb.ru/longread/yuri-gribanov-about-tseh/",
+    button: "Читать",
   },
   {
     img: "/images/small-card-6.png",
@@ -148,6 +152,7 @@ export const publications: PublicationItem[] = [
     title: "Как мы создавали Frank Media",
     date: "22 апреля 2023, vc.ru",
     link: "https://vc.ru/media/673775-kak-my-sozdavali-frank-media-i-pochemu-reshili-perevesti-ego-na-novyi-domen",
+    button: "Читать",
   },
   {
     img: "/images/small-card-7.png",
@@ -157,6 +162,7 @@ export const publications: PublicationItem[] = [
       "Конец эпохи депозитов: как меняется рынок сбережений в условиях низких ставок",
     date: "21 марта 2021, forbes.ru",
     link: "https://www.forbes.ru/finansy-i-investicii/424383-konec-epohi-depozitov-kak-menyaetsya-rynok-sberezheniy-v-usloviyah",
+    button: "Читать",
   },
   {
     img: "/images/small-card-8.png",
@@ -164,7 +170,8 @@ export const publications: PublicationItem[] = [
     tag_2: "Публикация",
     title: "Дойдут ли пожертвованные деньги или попадут к мошенникам?",
     date: "03 июня 2017, forbes.ru",
-    link: "https://www.forbes.ru/finansy-i-investicii/424383-konec-epohi-depozitov-kak-menyaetsya-rynok-sberezheniy-v-usloviyah",
+    link: "https://www.forbes.ru/finansy-i-investicii/345535-ot-chistogo-serdca-doydut-li-pozhertvovannye-dengi-do-bolnyh-i-bezdomnyh ",
+    button: "Читать",
   },
 ];
 

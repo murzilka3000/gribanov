@@ -10,6 +10,7 @@ export const PublicationCard = ({
   title,
   date,
   link,
+  button,
 }: PublicationItem) => {
   return (
     <article className={s.small_card}>
@@ -29,7 +30,7 @@ export const PublicationCard = ({
       <div className={s.small_card_bottom}>
         <time className={s.date}>{date}</time>
         <a href={link} target="_blank" rel="noopener noreferrer">
-          Читать
+          {button}
         </a>
       </div>
     </article>

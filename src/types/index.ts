@@ -29,6 +29,7 @@ export interface PublicationItem {
   title: string;
   date: string; // В коде было 'data', лучше назвать 'date'
   link: string;
+  button: string
 }
 
 // Карточка книги
