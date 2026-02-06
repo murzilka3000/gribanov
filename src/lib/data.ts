@@ -16,7 +16,56 @@ import {
   SpringleValueItem,
 } from "@/types";
 
-export const heroItems: HeroItem[] = [
+export const fixTypography = (text: string) => {
+  const prepositions = [
+    "в",
+    "без",
+    "до",
+    "из",
+    "к",
+    "ко",
+    "на",
+    "по",
+    "о",
+    "от",
+    "при",
+    "с",
+    "у",
+    "над",
+    "под",
+    "про",
+    "за",
+    "и",
+    "а",
+    "но",
+    "да",
+    "или",
+  ];
+
+  let fixedText = text;
+
+  prepositions.forEach((prep) => {
+    const regex = new RegExp(`(^|\\s|\\()(${prep})\\s+`, "gi");
+    fixedText = fixedText.replace(regex, `$1$2\u00A0`);
+  });
+
+  return fixedText;
+};
+
+const fix = <T>(data: T): T => {
+  if (typeof data === "string") return fixTypography(data) as any;
+  if (Array.isArray(data)) return data.map(fix) as any;
+  if (data !== null && typeof data === "object") {
+    const result: any = {};
+    for (const key in data) {
+      result[key] = fix((data as any)[key]);
+    }
+    return result;
+  }
+  return data;
+};
+
+export const heroItems: HeroItem[] = fix([
   {
     img: "/icons/hero-arr-1.svg",
     span: "Консалтинговая компания,",
@@ -37,9 +86,9 @@ export const heroItems: HeroItem[] = [
     span: "Спортивная корпоративная лига",
     link: "/springle",
   },
-];
+]);
 
-export const homeNavItems: NavItem[] = [
+export const homeNavItems: NavItem[] = fix([
   {
     href: "/frank-rg",
     text: "Frank RG",
@@ -60,9 +109,9 @@ export const homeNavItems: NavItem[] = [
     text: "Springle",
     img: "/icons/home_nav-arr-3.svg",
   },
-];
+]);
 
-export const mainProjects: ProjectCardData[] = [
+export const mainProjects: ProjectCardData[] = fix([
   {
     label: "Основатель, СЕО и руководитель Frank RG",
     image: "/images/img-1.png",
@@ -92,14 +141,15 @@ export const mainProjects: ProjectCardData[] = [
   {
     label: "Сооснователь и продюсер студии и киношколы ЦЕХ",
     image: "/images/img-4.png",
-    intro: "ЦЕХ — это экосистема! <br /> Мы сами снимаем кино и учим этому других.",
+    intro:
+      "ЦЕХ — это экосистема! <br /> Мы сами снимаем кино и учим этому других.",
     href: "https://tseh.company",
     description:
       "Родившись как идея для бизнеса на съемочной площадке фильма «ЭТАЖИзнь», ЦЕХ стал творческим крылом экосистемы Frank. Студия ЦЕХ помогает упаковывать идеи и сообщения Frank RG, Frank Media и Springle в увлекательный видео-продукт. А киношкола взращивает молодое поколение кинематографистов.",
   },
-];
+]);
 
-export const publications: PublicationItem[] = [
+export const publications: PublicationItem[] = fix([
   {
     img: "/images/small-card-1.png",
     tag_1: "Бизнес",
@@ -173,9 +223,9 @@ export const publications: PublicationItem[] = [
     link: "https://www.forbes.ru/finansy-i-investicii/345535-ot-chistogo-serdca-doydut-li-pozhertvovannye-dengi-do-bolnyh-i-bezdomnyh ",
     button: "Читать",
   },
-];
+]);
 
-export const books: BookItem[] = [
+export const books: BookItem[] = fix([
   {
     year: "2025",
     img: "/images/book-1.png",
@@ -196,17 +246,17 @@ export const books: BookItem[] = [
     img: "/images/book-4.png",
     link: "https://vc.ru/books/580954-knigi-prochitannye-v-2022-godu",
   },
-];
+]);
 
-export const frankMediaLogos: PartnerLogo[] = [
+export const frankMediaLogos: PartnerLogo[] = fix([
   { img: "/icons/logo-1.svg" },
   { img: "/icons/logo-2.svg" },
   { img: "/icons/logo-3.svg" },
   { img: "/icons/logo-4.svg" },
   { img: "/icons/logo-5.svg" },
-];
+]);
 
-export const editors: EditorItem[] = [
+export const editors: EditorItem[] = fix([
   {
     tag: "Редактор",
     title: "Татьяна Воронова",
@@ -225,9 +275,9 @@ export const editors: EditorItem[] = [
     deck: "Главный редактор Frank Media с 2018 по 2019 год. Запустила проект, заложила ключевые принципы и стандарты работы редкации. Благодаря Елене с первых дней редакция была независима от бизнеса и издателя (т.е. меня). <br/> <br/> До Frank Media Елена работала в ведущих деловых СМИ: Forbes, РБК и  РБК-ТВ.",
     img: "/images/ed-3.png",
   },
-];
+]);
 
-export const mediaCards: MediaItem[] = [
+export const mediaCards: MediaItem[] = fix([
   {
     img: "/images/media_cards-1.png",
     tags: ["Сбербанк", "Санкции", "Банки Росии"],
@@ -252,10 +302,9 @@ export const mediaCards: MediaItem[] = [
     date: "18 сентября 2023, frankmedia.ru",
     link: "https://frankmedia.ru/139019",
   },
-];
+]);
 
-// Группа стандартов 1 (верхняя)
-export const standardsGroup1: StandardItem[] = [
+export const standardsGroup1: StandardItem[] = fix([
   {
     icon: "/icons/s-1.svg",
     title: "Точность и объективность",
@@ -266,10 +315,9 @@ export const standardsGroup1: StandardItem[] = [
     title: "Конфиденциальность",
     text: "Наши источники надежно скрыты, но мы тщательно проверяем, чтобы они не были связаны между собой. Мы никому и никогда не раскрываем наши источники, в том числе властям.",
   },
-];
+]);
 
-// Группа стандартов 2 (средняя)
-export const standardsGroup2: StandardItem[] = [
+export const standardsGroup2: StandardItem[] = fix([
   {
     icon: "/icons/s-3.svg",
     title: "Плюрализм",
@@ -285,10 +333,9 @@ export const standardsGroup2: StandardItem[] = [
     title: "Честность",
     text: "Мы не платим за информацию и не берем никаких взяток, включая информационные.",
   },
-];
+]);
 
-// Группа стандартов 3 (нижняя)
-export const standardsGroup3: StandardItem[] = [
+export const standardsGroup3: StandardItem[] = fix([
   {
     icon: "/icons/s-6.svg",
     title: "Точность и объективность",
@@ -299,9 +346,9 @@ export const standardsGroup3: StandardItem[] = [
     title: "Конфиденциальность",
     text: "Наши источники надежно скрыты, но мы тщательно проверяем, чтобы они не были связаны между собой. Мы никому и никогда не раскрываем наши источники, в том числе властям.",
   },
-];
+]);
 
-export const frankRgAdvantages: AdvantageItem[] = [
+export const frankRgAdvantages: AdvantageItem[] = fix([
   {
     img: "/icons/advantages-1.svg",
     number: "17",
@@ -322,9 +369,9 @@ export const frankRgAdvantages: AdvantageItem[] = [
     number: "500+",
     text: "млн рублей выручка в 2025 г.",
   },
-];
+]);
 
-export const frankRgProducts: ProductItem[] = [
+export const frankRgProducts: ProductItem[] = fix([
   {
     title: "Frank 360",
     text: "Масштабный срез рынка, который проводится раз в год. Идея проекта — объединить многочисленные исследования, которые банки привыкли заказывать у разных профильных экспертов, и самостоятельно свести их в единый отчёт.",
@@ -337,9 +384,9 @@ export const frankRgProducts: ProductItem[] = [
     title: "Индивидуальный проект",
     text: "Исследования неочевидных сегментов. Выявление рыночных и технологических трендов на банковском рынке, оценка перспектив и возможностей, анализ предпочтения клиентов, а также обучение работе с информацией и развитие профессионального сообщества для обмена опытом и идеями.",
   },
-];
+]);
 
-export const frankRgAwards: AwardItem[] = [
+export const frankRgAwards: AwardItem[] = fix([
   {
     id: 1,
     text: 'Победа в категории - "Human Resources" Cannes Corporate Media & TV Awards (2019, Франция, Канны)',
@@ -364,10 +411,9 @@ export const frankRgAwards: AwardItem[] = [
     id: 6,
     text: "Лучшая музыка - Indian Cine Film Festival (2019, Индия, Мумбаи)",
   },
-];
+]);
 
-// Товары: Верхний ряд (2 шт)
-export const merchGroupTop: MerchItem[] = [
+export const merchGroupTop: MerchItem[] = fix([
   {
     img: "/images/p-1.png",
     title: "Frank RG поло",
@@ -378,19 +424,17 @@ export const merchGroupTop: MerchItem[] = [
     title: "Frank RG пакет",
     subtitle: "Коллекция 2019 г.",
   },
-];
+]);
 
-// Товары: Средний ряд (1 шт)
-export const merchGroupMiddle: MerchItem[] = [
+export const merchGroupMiddle: MerchItem[] = fix([
   {
     img: "/images/p-3.png",
     title: "Frank RG Love is...",
     subtitle: "Коллекция 2022 г.",
   },
-];
+]);
 
-// Товары: Нижний ряд (3 шт)
-export const merchGroupBottom: MerchItem[] = [
+export const merchGroupBottom: MerchItem[] = fix([
   {
     img: "/images/p-4.png",
     title: "Frank RG диск",
@@ -406,9 +450,9 @@ export const merchGroupBottom: MerchItem[] = [
     title: "Frank RG значки",
     subtitle: "Коллекция 2018 г.",
   },
-];
+]);
 
-export const springleProducts: SpringleProductItem[] = [
+export const springleProducts: SpringleProductItem[] = fix([
   {
     img: "/icons/spr-1.svg",
     title: "Организация внутрикорпоративных турниров",
@@ -424,22 +468,22 @@ export const springleProducts: SpringleProductItem[] = [
     title: "Организация любительского чемпионата",
     text: "Календарь игр алтимат фрисби на 7-8 месяцев для 15-20 команд",
   },
-];
+]);
 
-export const springleBusinessValues: SpringleValueItem[] = [
+export const springleBusinessValues: SpringleValueItem[] = fix([
   { text: "Равенство, равные возможности" },
   { text: "Здоровая конкуренция, лидерство" },
   { text: "Развитие, ответственность, вовлечение" },
   { text: "Демократичность, инициатива, меритократия" },
   { text: "Открытость, доверие" },
   { text: "Позитивные отношения в команде" },
-];
+]);
 
-export const springleFrisbeeValues: SpringleValueItem[] = [
+export const springleFrisbeeValues: SpringleValueItem[] = fix([
   { text: "Гендерно-смешанные команды" },
   { text: "Уважение к соперникам" },
   { text: "Самоорганизация команд" },
   { text: "Отсутствие судей" },
   { text: "Честная игра" },
   { text: "Неконтактный спорт" },
-];
+]);
