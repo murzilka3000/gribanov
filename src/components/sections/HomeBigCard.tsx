@@ -35,14 +35,19 @@ const HomeBigCard = ({
 
           <div className={s.bottom_cont}>
             <div>
-              <p>{intro}</p>
+              <p dangerouslySetInnerHTML={{ __html: intro }} />
               <Link href={href} target="_blank" rel="noopener noreferrer">
                 Перейти на сайт
               </Link>
             </div>
             <div>
               <p>{description}</p>
-              <Link className={s.mob_link} href={href} target="_blank" rel="noopener noreferrer">
+              <Link
+                className={s.mob_link}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Перейти на сайт
               </Link>
             </div>
