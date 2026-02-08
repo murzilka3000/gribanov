@@ -26,6 +26,7 @@
   margin-bottom: 120px;
   @media screen and (max-width: 767px) {
     padding-top: 77px;
+    margin-bottom: 60px;
   }
   h2 {
     font-weight: 500;
@@ -209,10 +210,16 @@
 
 .figure_section {
   margin-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
 }
 
 .editors {
   margin-bottom: 120px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
@@ -304,6 +311,9 @@
 
 .standards {
   margin-bottom: 120px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
@@ -391,6 +401,9 @@
 
 .video_media {
   margin-bottom: 120px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 60px;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
@@ -496,11 +509,19 @@
     letter-spacing: -0.02em;
     color: #675c51;
     margin-bottom: 60px;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+      margin-bottom: 33px;
+    }
   }
 
   .socials__grid {
     display: flex;
     gap: 20px;
+    @media screen and (max-width: 948px) {
+      flex-direction: column;
+      gap: 10px;
+    }
     & > :first-child {
       flex: 1;
     }
@@ -517,18 +538,31 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+      @media screen and (max-width: 948px) {
+        gap: 10px;
+      }
       & > :first-child,
       & > :last-child {
         flex: 1;
       }
+
       .social_card {
         position: relative;
         padding: 30px;
         min-height: 351px;
+        @media screen and (max-width: 948px) {
+          min-height: auto;
+        }
+        @media screen and (max-width: 767px) {
+          padding: 20px;
+        }
         img {
           position: absolute;
           bottom: 0;
           right: 0;
+          @media screen and (max-width: 948px) {
+            max-width: 110px;
+          }
         }
       }
     }
@@ -537,6 +571,9 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+      @media screen and (max-width: 948px) {
+        gap: 10px;
+      }
       & > :first-child {
         flex: 3.4;
       }
@@ -557,6 +594,14 @@
   margin-bottom: 10px;
   display: inline-block;
   text-decoration: none;
+  span {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 22px;
+  }
 }
 
 .social_card__desc {
@@ -565,6 +610,9 @@
   line-height: 122%;
   color: #c5c5c5;
   margin-bottom: 10px;
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
 }
 
 .social_card__handle {
@@ -572,17 +620,32 @@
   font-size: 18px;
   line-height: 122%;
   color: #616161;
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
 }
 
 .social_card_y {
   display: flex;
   justify-content: space-between;
   padding: 30px;
+  @media screen and (max-width: 767px) {
+    padding: 20px 4px 20px 20px;
+  }
+  img {
+    @media screen and (max-width: 948px) {
+      max-width: 130px;
+    }
+  }
 }
 
 .socials__subgrid {
   display: flex;
   gap: 20px;
+  @media screen and (max-width: 948px) {
+    flex-direction: column;
+    gap: 10px;
+  }
   & > :first-child {
     flex: 1;
   }
@@ -594,10 +657,17 @@
 .social_card_z {
   position: relative;
   padding: 30px;
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+  }
+
   img {
     position: absolute;
     bottom: 0;
     right: 0;
+    @media screen and (max-width: 948px) {
+      max-width: 100px;
+    }
   }
 }
 
@@ -605,6 +675,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media screen and (max-width: 948px) {
+    gap: 10px;
+  }
   & > :first-child {
     flex: 1;
   }
@@ -618,6 +691,14 @@
 
     .social_card__info {
       padding: 30px;
+      @media screen and (max-width: 767px) {
+        padding: 20px;
+      }
+    }
+    img {
+      @media screen and (max-width: 948px) {
+        max-width: 110px;
+      }
     }
   }
 }
@@ -625,10 +706,19 @@
 .social_card_rut {
   padding: 30px;
   position: relative;
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+  }
   img {
     position: absolute;
     bottom: 0;
     right: 0;
+    @media screen and (max-width: 948px) {
+      max-width: 110px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    padding: 20px;
   }
 }
 

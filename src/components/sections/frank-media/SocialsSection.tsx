@@ -17,7 +17,7 @@ export const SocialsSection = () => {
                   rel="noopener noreferrer"
                   className={s.social_card__link}
                 >
-                  Telegram финансы
+                  Telegram <span>финансы</span>
                 </a>
                 <p className={s.social_card__desc}>Канал про финансы</p>
                 <p className={s.social_card__handle}>@frank_media</p>
@@ -34,7 +34,7 @@ export const SocialsSection = () => {
                   rel="noopener noreferrer"
                   className={s.social_card__link}
                 >
-                  Telegram инвестиции
+                  Telegram <span>инвестиции</span>
                 </a>
                 <p className={s.social_card__desc}>Канал про инвестиции</p>
                 <p className={s.social_card__handle}>@fm_invest</p>
