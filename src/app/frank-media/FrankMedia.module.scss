@@ -249,6 +249,7 @@
       @media screen and (max-width: 767px) {
         flex-direction: column-reverse;
         gap: 0;
+        padding: 20px;
       }
       & > :first-child {
         flex: 1;
@@ -306,6 +307,10 @@
   padding: 40px 50px;
   @media screen and (max-width: 880px) {
     padding: 20px;
+  }
+  @media screen and (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -726,6 +731,9 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (max-width: 767px) {
+    border-radius: 12px;
+  }
 }
 
 .editors_tag_deck {
