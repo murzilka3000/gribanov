@@ -1,14 +1,12 @@
-import React from "react";
 import clsx from "clsx";
-import Image from "next/image";
 import s from "@/app/frank-media/FrankMedia.module.scss";
 
 export const QuoteSection = () => {
   return (
-    <section className={clsx(s.figure_section, "section-padding")}>
+    <section className={clsx(s.figure_section, "section_padding")}>
       <div className="wrapper">
         <div className={s.blockquote_cont}>
-          <Image src="/images/block.png" alt="" width={50} height={50} />
+          <img src="/images/block.png" alt="" />
           <figure className={s.quote}>
             <blockquote>
               <p>

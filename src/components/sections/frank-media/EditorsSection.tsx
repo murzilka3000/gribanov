@@ -6,7 +6,7 @@ import { EditorCard } from "@/components/ui/EditorCard";
 
 export const EditorsSection = () => {
   return (
-    <section className={clsx(s.editors, "section-padding")}>
+    <section className={clsx(s.editors, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>Редакторы Frank Media</h2>

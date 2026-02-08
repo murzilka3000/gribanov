@@ -6,7 +6,7 @@ import { StandardCard } from "@/components/ui/StandardCard";
 
 export const StandardsSection = () => {
   return (
-    <section className={clsx(s.standards, "section-padding")}>
+    <section className={clsx(s.standards, "section_padding")}>
       <div className="wrapper">
         <div className={s.standards__inner}>
           <h2 className={s.standards__title}>Стандарты и ценности</h2>

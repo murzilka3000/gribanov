@@ -1,12 +1,10 @@
-import React from "react";
 import clsx from "clsx";
-import Image from "next/image";
 import s from "@/app/frank-media/FrankMedia.module.scss";
 import { frankMediaLogos } from "@/lib/data";
 
 export const AboutSection = () => {
   return (
-    <section className={clsx(s.about, "section-padding")}>
+    <section className={clsx(s.about, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>О Frank Media</h2>
@@ -34,13 +32,7 @@ export const AboutSection = () => {
             </div>
             <div className={s.logos_grid}>
               {frankMediaLogos.map((t, index) => (
-                <Image
-                  key={index}
-                  src={t.img}
-                  alt="Логотип партнера"
-                  width={100}
-                  height={50}
-                />
+                <img key={index} src={t.img} alt="Логотип партнера" />
               ))}
             </div>
           </div>

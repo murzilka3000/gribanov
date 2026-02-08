@@ -4,7 +4,7 @@ import s from "@/app/frank-media/FrankMedia.module.scss";
 
 export const SocialsSection = () => {
   return (
-    <section className={s.socials}>
+    <section className={clsx(s.socials, "section_padding")}>
       <div className="wrapper">
         <div className={s.socials__inner}>
           <h2 className={s.socials__title}>Наши социальные сети</h2>
