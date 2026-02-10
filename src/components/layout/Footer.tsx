@@ -15,7 +15,7 @@ const footer = [
     text: "ВКонтакте",
   },
   {
-    href: "https://vkvideo.ru/@gribanov_channel",
+    href: "https://t.me/+WbUPnCLcqLxjM2Fi",
     img: "/icons/f-3.svg",
     text: "Telegram",
   },
@@ -49,7 +49,12 @@ const Footer = ({ background }: FooterProps) => {
           <div className={s.footer_links}>
             {footer.map((t) => {
               return (
-                <a href={t.href} key={t.text}>
+                <a
+                  href={t.href}
+                  key={t.text}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img src={t.img} alt="" />
                   <p>{t.text}</p>
                 </a>

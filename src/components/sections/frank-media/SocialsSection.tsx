@@ -49,7 +49,7 @@ export const SocialsSection = () => {
               <div className={s.socials__subgrid}>
                 <div className={clsx(s.social_card, s.social_card_z)}>
                   <a
-                    href=""
+                    href="https://dzen.ru/frankmedia"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={s.social_card__link}
@@ -68,7 +68,7 @@ export const SocialsSection = () => {
                   <div className={clsx(s.social_card, s.social_card_vk)}>
                     <div className={s.social_card__info}>
                       <a
-                        href=""
+                        href="https://vk.com/frankmedia"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={s.social_card__link}
@@ -86,7 +86,7 @@ export const SocialsSection = () => {
 
                   <div className={clsx(s.social_card, s.social_card_rut)}>
                     <a
-                      href=""
+                      href="https://rutube.ru/channel/27181809/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={s.social_card__link}
@@ -106,7 +106,7 @@ export const SocialsSection = () => {
               <div className={clsx(s.social_card, s.social_card_y)}>
                 <div className={s.social_card__info}>
                   <a
-                    href=""
+                    href="https://www.youtube.com/@frankmedia_ru"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={s.social_card__link}
