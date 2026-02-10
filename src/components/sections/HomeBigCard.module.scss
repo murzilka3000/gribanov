@@ -107,3 +107,17 @@
 //     margin-bottom: 12px;
 //   }
 // }
+.mobile_image {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .desktop_image {
+    display: none !important;
+  }
+  .mobile_image {
+    display: block !important;
+    width: 100%;
+    height: auto;
+  }
+}

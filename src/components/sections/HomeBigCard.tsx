@@ -5,6 +5,7 @@ import Link from "next/link";
 
 interface HomeBigCardProps {
   image: string;
+  imageMobile?: string;
   label?: string;
   intro: string;
   href: string;
@@ -13,6 +14,7 @@ interface HomeBigCardProps {
 
 const HomeBigCard = ({
   image,
+  imageMobile,
   label,
   intro,
   href,
@@ -28,8 +30,21 @@ const HomeBigCard = ({
             width={0}
             height={0}
             sizes="100vw"
+            className={clsx(imageMobile && s.desktop_image)}
             style={{ width: "100%", height: "auto" }}
           />
+
+          {imageMobile && (
+            <Image
+              src={imageMobile}
+              alt={label || ""}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className={s.mobile_image}
+              style={{ width: "100%", height: "auto" }}
+            />
+          )}
 
           {label && <p className={s.sm_text}>{label}</p>}
 

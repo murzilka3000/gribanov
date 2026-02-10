@@ -7,21 +7,25 @@ import { EditorsSection } from "@/components/sections/frank-media/EditorsSection
 import { StandardsSection } from "@/components/sections/frank-media/StandardsSection";
 import { VideoMediaSection } from "@/components/sections/frank-media/VideoMediaSection";
 import { SocialsSection } from "@/components/sections/frank-media/SocialsSection";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
-    <main>
-      <HeroMediaSection />
+    <>
+      <main>
+        <HeroMediaSection />
 
-      <div className={s.bg}>
-        <AboutSection />
-        <QuoteSection />
-        <EditorsSection />
-        <StandardsSection />
-        <VideoMediaSection />
-        <SocialsSection />
-      </div>
-    </main>
+        <div className={s.bg}>
+          <AboutSection />
+          <QuoteSection />
+          <EditorsSection />
+          <StandardsSection />
+          <VideoMediaSection />
+          <SocialsSection />
+        </div>
+      </main>
+      <Footer background="rgba(103, 92, 81, 1)" />
+    </>
   );
 };
 

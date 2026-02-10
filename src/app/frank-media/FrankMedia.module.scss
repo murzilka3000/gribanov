@@ -50,6 +50,7 @@
       color: #2b2a29;
       @media screen and (max-width: 767px) {
         font-size: 27px;
+        line-height: 120%;
       }
     }
   }
@@ -122,6 +123,7 @@
   @media screen and (max-width: 767px) {
     margin-top: 60px;
     gap: 40px;
+  
   }
   & > :first-child {
     flex: 1.2;
@@ -154,6 +156,7 @@
     color: #000;
     @media screen and (max-width: 767px) {
       font-size: 27px;
+        line-height: 120%;
     }
   }
 }
@@ -305,6 +308,10 @@
 
 .editors_item_left {
   padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   @media screen and (max-width: 880px) {
     padding: 20px;
   }

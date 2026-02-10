@@ -15,11 +15,11 @@ export const AboutSection = () => {
             <div className={s.about_right}>
               <div className={s.about_right_cont}>
                 <p>ТОП-2</p>
-                <p>самых цитируемых СМИ в тематике</p>
+                <p>самых цитируемых <br /> СМИ в тематике</p>
               </div>
               <div className={s.about_right_cont}>
                 <p>350+</p>
-                <p>тыс. читателей в 2025 г.</p>
+                <p>тыс. читателей <br /> в 2025 г.</p>
               </div>
             </div>
           </div>
