@@ -163,6 +163,11 @@
     letter-spacing: -0.02em;
     color: #fe5a00;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 767px) {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
   }
   .corporate_sport__subtitle {
     font-weight: 600;
@@ -170,6 +175,10 @@
     line-height: 130%;
     color: #000;
     margin-bottom: 60px;
+    @media screen and (max-width: 767px) {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
   }
 
   .corporate_sport__column {
@@ -186,6 +195,12 @@
   .corporate_sport__content {
     display: flex;
     gap: 73px;
+    @media screen and (max-width: 1244px) {
+      gap: 23px;
+    }
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
     & > :last-child {
       flex: 5;
       h3 {
@@ -219,11 +234,18 @@
     height: 124px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1244px) {
+      font-size: 27px;
+      height: 111px;
+    }
   }
 }
 
 .corporate_sport {
   padding-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    padding-bottom: 33px;
+  }
 }
 
 .springle_info {
@@ -333,6 +355,10 @@
   margin-top: -30px;
   position: relative;
   z-index: 2;
+  @media screen and (max-width: 767px) {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
   .last_spr__container {
     display: flex;
     align-items: center;
@@ -343,6 +369,9 @@
       flex: 1;
     }
     .last_spr__image_wrapper {
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
       img {
         width: 100%;
       }
@@ -354,6 +383,10 @@
       letter-spacing: -0.02em;
       color: #fe5a00;
       margin-bottom: 120px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
     }
 
     .last_spr__name {
@@ -363,6 +396,10 @@
       letter-spacing: -0.02em;
       color: #fff;
       margin-bottom: 10px;
+      @media screen and (max-width: 767px) {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
     }
 
     .last_spr__position {
@@ -371,6 +408,10 @@
       line-height: 130%;
       color: #616161;
       margin-bottom: 30px;
+      @media screen and (max-width: 767px) {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
     }
 
     .last_spr__phone {
@@ -381,6 +422,10 @@
       text-decoration: none;
       display: inline-block;
       margin-bottom: 150px;
+      @media screen and (max-width: 767px) {
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
     }
 
     .last_spr__link {
@@ -393,8 +438,91 @@
       border: 1px solid #fe5a00;
       border-radius: 40px;
       padding: 10px 48px;
+      @media screen and (max-width: 767px) {
+        font-size: 14px;
+        padding: 5px 20px;
+      }
     }
   }
 }
 
+.img_333 {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
 
+.comparison__header {
+  & > :first-child {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    border-radius: 12px 12px 12px 0;
+    p {
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 120%;
+      letter-spacing: -0.02em;
+      color: #fe5a00;
+    }
+  }
+  & > :last-child {
+    border-radius: 12px 12px 0 12px;
+    padding: 10px 20px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    p {
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 120%;
+      letter-spacing: -0.02em;
+      color: #675c51;
+    }
+  }
+}
+
+.comparison__row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  & > :last-child {
+    border-radius: 12px 12px 0 12px;
+    padding: 10px 20px;
+    background: #fff;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+    text-align: right;
+    color: #675c51;
+  }
+
+  & > :first-child {
+    border-radius: 12px 12px 12px 0;
+    padding: 10px 20px;
+    background: #fff;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+    color: #fe5a00;
+  }
+}
+
+.comparison__body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.comparison {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}

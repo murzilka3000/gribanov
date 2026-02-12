@@ -13,6 +13,15 @@ export const ContactSpringleSection = () => {
             <div className={s.last_spr__header}>
               <h2 className={s.last_spr__title}>Свяжитесь с нами</h2>
             </div>
+            <Image
+              src="/images/last-spr.png"
+              alt="Галина Губанова"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              className={s.img_333}
+            />
             <div className={s.last_spr__contact}>
               <p className={s.last_spr__name}>Галина Губанова</p>
               <p className={s.last_spr__position}>Руководитель проекта</p>

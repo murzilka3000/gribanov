@@ -39,6 +39,69 @@ export const CorporateSportSection = () => {
               ))}
             </div>
           </div>
+          <div className={s.comparison}>
+            <div className={s.comparison__header}>
+              <div className={s.comparison__header_item}>
+                <p className={s.comparison__header_title}>Бизнес</p>
+                <img
+                  className={s.comparison__header_icon}
+                  src="./images/r.svg"
+                  alt=""
+                />
+              </div>
+              <div className={s.comparison__header_item}>
+                <img
+                  className={s.comparison__header_icon}
+                  src="./images/l.svg"
+                  alt=""
+                />
+                <p className={s.comparison__header_title}>Фрисби</p>
+              </div>
+            </div>
+            <div className={s.comparison__body}>
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>
+                  Равенство, равные <br /> возможности
+                </p>
+                <p className={s.comparison__cell}>
+                  Гендерно- <br /> смешанные команды
+                </p>
+              </div>
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>
+                  Здоровая конкуренция, <br /> лидерство
+                </p>
+                <p className={s.comparison__cell}>
+                  Уважение <br /> к соперникам
+                </p>
+              </div>
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>
+                  Развитие, <br /> ответственность, <br /> вовлечение
+                </p>
+                <p className={s.comparison__cell}>
+                  Самоорганизация <br /> команд
+                </p>
+              </div>
+              
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>
+                  Демократичность, <br /> инициатива, <br /> меритократия
+                </p>
+                <p className={s.comparison__cell}>Отсутствие судей</p>
+              </div>
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>Открытость, доверие</p>
+                <p className={s.comparison__cell}>Честная игра</p>
+              </div>
+              <div className={s.comparison__row}>
+                <p className={s.comparison__cell}>
+                  Позитивные отношения <br /> в команде
+                </p>
+                <p className={s.comparison__cell}>Неконтактный спорт</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

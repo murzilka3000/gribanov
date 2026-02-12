@@ -7,22 +7,26 @@ import { MovementSection } from "@/components/sections/springle/MovementSection"
 import { VideoSpringleSection } from "@/components/sections/springle/VideoSpringleSection";
 import { GalleryStripSection } from "@/components/sections/springle/GalleryStripSection";
 import { ContactSpringleSection } from "@/components/sections/springle/ContactSpringleSection";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
-    <main>
-      <HeroSpringleSection />
+    <>
+      <main>
+        <HeroSpringleSection />
 
-      <div className={s.bg_orange}>
-        <UltimateStorySection />
-        <SpringleProductsSection />
-        {/* <CorporateSportSection /> */}
-        <MovementSection />
-        <VideoSpringleSection />
-        <GalleryStripSection />
-        <ContactSpringleSection />
-      </div>
-    </main>
+        <div className={s.bg_orange}>
+          <UltimateStorySection />
+          <SpringleProductsSection />
+          <CorporateSportSection />
+          <MovementSection />
+          <VideoSpringleSection />
+          <GalleryStripSection />
+          <ContactSpringleSection />
+        </div>
+      </main>
+      <Footer background="#fe5a00"/>
+    </>
   );
 };
 
