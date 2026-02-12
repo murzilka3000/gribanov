@@ -6,7 +6,7 @@ import { SpringleProductCard } from "@/components/ui/SpringleProductCard";
 
 export const SpringleProductsSection = () => {
   return (
-    <section className={clsx(s.spr_prod, "section-padding")}>
+    <section className={clsx(s.spr_prod, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>Продукты</h2>

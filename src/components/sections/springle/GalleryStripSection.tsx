@@ -13,6 +13,16 @@ export const GalleryStripSection = () => {
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
+          className="img_1"
+        />
+        <Image
+          src="/images/img-441.png"
+          alt="Фото с игры"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+          className="img_mob_1"
         />
       </div>
     </section>

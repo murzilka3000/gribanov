@@ -5,6 +5,11 @@
   border-radius: 0 0 20px 20px;
   position: relative;
   z-index: 2;
+  @media screen and (max-width: 767px) {
+    padding-top: 108px;
+    padding-bottom: 42px;
+    border-radius: 0 0 25px 25px;
+  }
   * {
     color: #fff !important;
     border-color: #fff !important;
@@ -19,11 +24,18 @@
 .ultimate {
   padding-top: 130px;
   padding-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
 }
 
 .ultimate__container {
   display: flex;
   gap: 20px;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
   & > :first-child {
     flex: 1;
   }
@@ -42,6 +54,10 @@
     letter-spacing: -0.02em;
     color: #fe5a00;
     margin-bottom: 40px;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+      margin-bottom: 40px;
+    }
   }
   .ultimate__quote {
     display: flex;
@@ -52,6 +68,9 @@
       font-size: 32px;
       line-height: 130%;
       color: #24282e;
+      @media screen and (max-width: 767px) {
+        font-size: 22px;
+      }
     }
   }
   figcaption {
@@ -61,11 +80,17 @@
     color: #616161;
     margin-top: 30px;
     display: inline-block;
+    @media screen and (max-width: 767px) {
+      font-size: 22px;
+    }
   }
 }
 
 .spr_prod {
   padding-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    padding-bottom: 70px;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
@@ -73,12 +98,23 @@
     letter-spacing: -0.02em;
     color: #fe5a00;
     margin-bottom: 60px;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+      margin-bottom: 40px;
+    }
   }
 
   .spr_prod_cont {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    @media screen and (max-width: 1274px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media screen and (max-width: 767px) {
+      gap: 20px;
+    }
     div {
       border-radius: 16px;
       padding: 40px;
@@ -87,17 +123,33 @@
       flex-direction: column;
       gap: 20px;
       align-items: flex-start;
+      img {
+        @media screen and (max-width: 767px) {
+          max-width: 20%;
+          margin-bottom: 10px;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        font-size: 10px;
+        padding: 20px;
+      }
       h3 {
         font-weight: 600;
         font-size: 32px;
         line-height: 130%;
         color: #24282e;
+        @media screen and (max-width: 767px) {
+          font-size: 22px;
+        }
       }
       p {
         font-weight: 600;
         font-size: 18px;
         line-height: 122%;
         color: #24282e;
+        @media screen and (max-width: 767px) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -176,22 +228,34 @@
 
 .springle_info {
   padding-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    padding-bottom: 60px;
+  }
   h3 {
     font-weight: 500;
     font-size: 52px;
     line-height: 100%;
     letter-spacing: -0.02em;
     color: #fe5a00;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+    }
   }
   p {
     font-weight: 600;
     font-size: 32px;
     line-height: 130%;
     color: #24282e;
+    @media screen and (max-width: 767px) {
+      font-size: 22px;
+    }
   }
   .springle_info__block {
     display: flex;
     gap: 20px;
+    @media screen and (max-width: 1333px) {
+      flex-direction: column;
+    }
     & > :first-child {
       flex: 1;
     }
@@ -203,6 +267,9 @@
   .springle_info__container {
     & > :first-child {
       margin-bottom: 140px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 50px;
+      }
     }
   }
 
@@ -210,6 +277,9 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    @media screen and (max-width: 767px) {
+      gap: 20px;
+    }
   }
 }
 
@@ -232,6 +302,9 @@
 
 .video {
   margin-bottom: 140px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 90px;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
@@ -239,6 +312,10 @@
     letter-spacing: -0.02em;
     color: #fe5a00;
     margin-bottom: 60px;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -319,3 +396,5 @@
     }
   }
 }
+
+

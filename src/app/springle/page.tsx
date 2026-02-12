@@ -16,7 +16,7 @@ const Page = () => {
       <div className={s.bg_orange}>
         <UltimateStorySection />
         <SpringleProductsSection />
-        <CorporateSportSection />
+        {/* <CorporateSportSection /> */}
         <MovementSection />
         <VideoSpringleSection />
         <GalleryStripSection />

@@ -4,7 +4,7 @@ import s from "@/app/springle/Springle.module.scss";
 
 export const VideoSpringleSection = () => {
   return (
-    <section className={clsx(s.video, "section-padding")}>
+    <section className={clsx(s.video, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>Видео</h2>

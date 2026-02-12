@@ -52,3 +52,20 @@ h5,
 h6 {
   text-wrap: balance;
 }
+
+
+
+
+.img_mob_1 {
+  display: none!important;
+}
+
+@media screen and (max-width: 767px) {
+  .img_1 {
+    display: none!important;
+  }
+
+  .img_mob_1 {
+    display: block!important;
+  }
+}
