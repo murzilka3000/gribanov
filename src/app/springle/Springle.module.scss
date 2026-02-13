@@ -57,6 +57,7 @@
     @media screen and (max-width: 767px) {
       font-size: 27px;
       margin-bottom: 40px;
+      line-height: 120%;
     }
   }
   .ultimate__quote {
@@ -261,6 +262,8 @@
     color: #fe5a00;
     @media screen and (max-width: 767px) {
       font-size: 27px;
+      line-height: 120%;
+
     }
   }
   p {
@@ -277,6 +280,7 @@
     gap: 20px;
     @media screen and (max-width: 1333px) {
       flex-direction: column;
+      
     }
     & > :first-child {
       flex: 1;
@@ -478,6 +482,7 @@
     gap: 15px;
     margin-top: 10px;
     margin-bottom: 40px;
+    justify-content: flex-end;
     p {
       font-weight: 500;
       font-size: 30px;
@@ -521,6 +526,13 @@
 }
 
 .comparison {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+.brmob {
   display: none;
   @media screen and (max-width: 767px) {
     display: block;

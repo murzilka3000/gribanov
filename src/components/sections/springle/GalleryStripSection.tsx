@@ -5,7 +5,6 @@ import s from "@/app/springle/Springle.module.scss";
 export const GalleryStripSection = () => {
   return (
     <section className={s.img_7}>
-      <div className="wrapper2">
         <Image
           src="/images/img-7.png"
           alt="Фото с игры"
@@ -24,7 +23,6 @@ export const GalleryStripSection = () => {
           style={{ width: "100%", height: "auto" }}
           className="img_mob_1"
         />
-      </div>
     </section>
   );
 };

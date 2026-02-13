@@ -10,7 +10,8 @@ export const CorporateSportSection = () => {
         <div className={s.corporate_sport__container}>
           <div className={s.corporate_sport__header}>
             <h2 className={s.corporate_sport__title}>
-              Алтимат фрисби — идеальный корпоративный спорт
+              Алтимат фрисби — <br className={s.brmob} /> идеальный
+              корпоративный <br className={s.brmob} /> спорт
             </h2>
             <p className={s.corporate_sport__subtitle}>
               Ценности алтимат фрисби идеально коррелируют с представлениями о
@@ -83,7 +84,7 @@ export const CorporateSportSection = () => {
                   Самоорганизация <br /> команд
                 </p>
               </div>
-              
+
               <div className={s.comparison__row}>
                 <p className={s.comparison__cell}>
                   Демократичность, <br /> инициатива, <br /> меритократия

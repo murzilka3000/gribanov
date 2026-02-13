@@ -10,10 +10,11 @@ export const VideoSpringleSection = () => {
           <h2>Видео</h2>
           <div className={s.video_container}>
             <iframe
-              src="https://www.youtube.com/embed/..." // Добавь ссылку
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
+              src="https://vk.com/video_ext.php?oid=-215365218&id=456239037&hd=2"
+              width="100%"
+              height="360"
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+              frameBorder="0"
               allowFullScreen
             ></iframe>
           </div>
