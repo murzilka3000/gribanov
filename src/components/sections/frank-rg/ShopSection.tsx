@@ -6,7 +6,7 @@ import { MerchCard } from "@/components/ui/MerchCard";
 
 export const ShopSection = () => {
   return (
-    <section className={clsx(s.shop, "section-padding")}>
+    <section className={clsx(s.shop, "section_padding")}>
       <div className="wrapper">
         <div className={s.shop_cont}>
           <h2>

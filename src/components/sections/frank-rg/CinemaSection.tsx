@@ -2,10 +2,11 @@ import React from "react";
 import s from "@/app/frank-rg/FrankRg.module.scss";
 import { frankRgAwards } from "@/lib/data";
 import { AwardCard } from "@/components/ui/AwardCard";
+import clsx from "clsx";
 
 export const CinemaSection = () => {
   return (
-    <section className={s.video}>
+    <section className={clsx(s.video, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>Кино Frank RG</h2>

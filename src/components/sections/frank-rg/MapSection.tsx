@@ -5,7 +5,7 @@ import s from "@/app/frank-rg/FrankRg.module.scss";
 
 export const MapSection = () => {
   return (
-    <section className={clsx(s.map, "section-padding")}>
+    <section className={clsx(s.map)}>
       <div className="wrapper">
         <div className={s.map_cont}>
           <div className={s.map_left}>
@@ -23,14 +23,24 @@ export const MapSection = () => {
             </div>
           </div>
           <div>
-            <Image
+            <img
               src="/images/map.png"
               alt="Карта офисов"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
+              className={s.img_desc_12}
             />
+            <img
+              src="/images/mob-map.png"
+              alt="Карта офисов"
+              className={s.img_mob_12}
+            />
+          </div>
+          <div className={clsx(s.map_bottom, s.map_bottom_2)}>
+            <p>
+              <span>2</span> офиса -- в Москве и в Орле
+            </p>
+            <p>
+              <span>129</span> человек работают в компании
+            </p>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { frankRgProducts } from "@/lib/data";
 
 export const ProductsSection = () => {
   return (
-    <section className={clsx(s.products, "section-padding")}>
+    <section className={clsx(s.products, "section_padding")}>
       <div className="wrapper">
         <div>
           <h2>Продукты</h2>

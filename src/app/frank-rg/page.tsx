@@ -7,20 +7,24 @@ import { CultureSection } from "@/components/sections/frank-rg/CultureSection";
 import { ShopSection } from "@/components/sections/frank-rg/ShopSection";
 import { TeamGameSection } from "@/components/sections/frank-rg/TeamGameSection";
 import { CinemaSection } from "@/components/sections/frank-rg/CinemaSection";
+import Footer from "@/components/layout/Footer";
 
 const Page = () => {
   return (
-    <main>
-      <HeroRgSection />
-      <MapSection />
-      <AdvantagesSection />
-      <ProductsSection />
-      <PremiumAwardSection />
-      <CultureSection />
-      <ShopSection />
-      <TeamGameSection />
-      <CinemaSection />
-    </main>
+    <>
+      <main>
+        <HeroRgSection />
+        <MapSection />
+        <AdvantagesSection />
+        <ProductsSection />
+        <PremiumAwardSection />
+        <CultureSection />
+        <ShopSection />
+        <TeamGameSection />
+        <CinemaSection />
+      </main>
+      <Footer background="#173969" />
+    </>
   );
 };
 

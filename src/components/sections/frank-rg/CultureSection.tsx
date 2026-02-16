@@ -5,7 +5,7 @@ import s from "@/app/frank-rg/FrankRg.module.scss";
 
 export const CultureSection = () => {
   return (
-    <section className={clsx(s.cult, "section-padding")}>
+    <section className={clsx(s.cult, "section_padding")}>
       <div className="wrapper">
         <div className={s.cult_cont}>
           <h2>Корпоративная культура</h2>

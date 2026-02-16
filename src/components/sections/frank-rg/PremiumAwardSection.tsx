@@ -5,12 +5,21 @@ import s from "@/app/frank-rg/FrankRg.module.scss";
 
 export const PremiumAwardSection = () => {
   return (
-    <section className={clsx(s.black_section, "section-padding")}>
+    <section className={clsx(s.black_section, "section_padding")}>
       <div className="wrapper">
         <div className={s.black_section_cont}>
           <div>
-            <div>
+            <div className={s.flex_2322}>
               <h2>Frank Premium Banking Award</h2>
+              <Image
+                src="/images/bl-img.png"
+                alt="Award"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+                className={s.img_mob_541}
+              />
               <p>
                 Единственный рейтинг банков сегмента премиального обслуживания в
                 России.
