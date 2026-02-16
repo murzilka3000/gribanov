@@ -8,6 +8,8 @@ import { ShopSection } from "@/components/sections/frank-rg/ShopSection";
 import { TeamGameSection } from "@/components/sections/frank-rg/TeamGameSection";
 import { CinemaSection } from "@/components/sections/frank-rg/CinemaSection";
 import Footer from "@/components/layout/Footer";
+import s from './FrankRg.module.scss'
+import clsx from "clsx";
 
 const Page = () => {
   return (
@@ -18,6 +20,68 @@ const Page = () => {
         <AdvantagesSection />
         <ProductsSection />
         <PremiumAwardSection />
+
+        <section className={clsx(s.about_award, "section_padding")}>
+          <div className={`wrapper ${s.about_award__container}`}>
+            <div className={s.about_award__inner}>
+              <div className={s.about_award__header}>
+                <img
+                  className={s.about_award__header_icon}
+                  src="/images/zap-101.svg"
+                  alt=""
+                />
+                <p className={s.about_award__header_title}>
+                  Чем Frank Award <br /> примечательна и важна?{" "}
+                </p>
+              </div>
+              <div className={s.about_award__content}>
+                <p className={s.about_award__description}>
+                  Frank Award — воплощение духа Frank RG: честности и
+                  аналитического подхода. Победители — действительно лучшие
+                  банки и лучшие продукты для клиентов. А премия — лучший знак
+                  качества на рынке финансовых услуг, который может получить
+                  российский банк или финансовая компания.
+                </p>
+                <div className={s.about_award__features}>
+                  <div className={s.about_award__feature}>
+                    <img
+                      className={s.about_award__feature_icon}
+                      src="/images/img-101.svg"
+                      alt=""
+                    />
+                    <p className={s.about_award__feature_text}>
+                      Мы не берем деньги за участие в номинациях и не продаем
+                      места
+                    </p>
+                  </div>
+                  <div className={s.about_award__feature}>
+                    <img
+                      className={s.about_award__feature_icon}
+                      src="/images/img-102.svg"
+                      alt=""
+                    />
+                    <p className={s.about_award__feature_text}>
+                      У нас нет экспертных советов и прочих серых зон при
+                      определении победителей
+                    </p>
+                  </div>
+                  <div className={s.about_award__feature}>
+                    <img
+                      className={s.about_award__feature_icon}
+                      src="/images/img-103.svg"
+                      alt=""
+                    />
+                    <p className={s.about_award__feature_text}>
+                      Статуэтка Frank RG — результат рейтингов по сотням
+                      показателей
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <CultureSection />
         <ShopSection />
         <TeamGameSection />
