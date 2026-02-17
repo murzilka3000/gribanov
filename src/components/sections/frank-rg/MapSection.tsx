@@ -29,7 +29,7 @@ export const MapSection = () => {
               className={s.img_desc_12}
             />
             <img
-              src="/images/mob-map.png"
+              src="/images/map.png"
               alt="Карта офисов"
               className={s.img_mob_12}
             />

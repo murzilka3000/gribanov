@@ -698,9 +698,8 @@
   .img_mob_12 {
     display: block;
     width: 100%;
-    margin-top: -400px;
     @media screen and (max-width: 767px) {
-      margin-top: -150px;
+      margin-bottom: 30px;
     }
   }
 
@@ -711,6 +710,9 @@
   .map_bottom_2 {
     display: flex !important;
     gap: 50px;
+    @media screen and (max-width: 767px) {
+      gap: 25px;
+    }
     p {
       @media screen and (max-width: 767px) {
         font-size: 22px !important;

@@ -24,23 +24,17 @@ const HomeBigCard = ({
     <section className={clsx(s.home_big_card, "section_padding")}>
       <div className="wrapper">
         <div className={s.home_big_card_cont}>
-          <Image
+          <img
             src={image}
             alt={label || ""}
-            width={0}
-            height={0}
-            sizes="100vw"
             className={clsx(imageMobile && s.desktop_image)}
             style={{ width: "100%", height: "auto" }}
           />
 
           {imageMobile && (
-            <Image
+            <img
               src={imageMobile}
               alt={label || ""}
-              width={0}
-              height={0}
-              sizes="100vw"
               className={s.mobile_image}
               style={{ width: "100%", height: "auto" }}
             />
