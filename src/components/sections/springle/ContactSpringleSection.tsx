@@ -25,9 +25,7 @@ export const ContactSpringleSection = () => {
             <div className={s.last_spr__contact}>
               <p className={s.last_spr__name}>Галина Губанова</p>
               <p className={s.last_spr__position}>Руководитель проекта</p>
-              <a href="tel:+79030099874" className={s.last_spr__phone}>
-                +7 903 009 98 74
-              </a>
+             
             </div>
             <div className={s.last_spr__cta_wrapper}>
               <Link

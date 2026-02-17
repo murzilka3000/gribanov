@@ -15,10 +15,10 @@ export const MapSection = () => {
             </div>
             <div className={s.map_bottom}>
               <p>
-                <span>2</span> офиса -- в Москве и в Орле
+                <span>2</span> офиса - <br /> в Москве <br /> и в Орле
               </p>
               <p>
-                <span>129</span> человек работают в компании
+                <span>129</span> человек работают <br /> в компании
               </p>
             </div>
           </div>
@@ -36,10 +36,10 @@ export const MapSection = () => {
           </div>
           <div className={clsx(s.map_bottom, s.map_bottom_2)}>
             <p>
-              <span>2</span> офиса -- в Москве и в Орле
+              <span>2</span> офиса - <br /> в Москве <br /> и в Орле
             </p>
             <p>
-              <span>129</span> человек работают в компании
+              <span>129</span> человек работают <br /> в компании
             </p>
           </div>
         </div>

@@ -3,6 +3,8 @@
   padding-top: 154px;
   padding-bottom: 67px;
   border-radius: 0 0 20px 20px;
+  position: relative;
+  z-index: 2;
   @media screen and (max-width: 767px) {
     padding-top: 108px;
     padding-bottom: 42px;
@@ -16,26 +18,33 @@
 
 .map {
   padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 60px;
 }
 
 .map_cont {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 50px;
+
   @media screen and (max-width: 1228px) {
     flex-direction: column;
     gap: 0;
+    align-items: flex-start;
   }
   & > :first-child,
   & > :nth-child(2) {
     flex: 1;
   }
-  & > :first-child {
-    margin-top: 132px;
-    @media screen and (max-width: 1208px) {
-      margin-top: 60px;
-    }
+  & > :nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
   }
+  // & > :first-child {
+  //   @media screen and (max-width: 1208px) {
+
+  //   }
+  // }
 
   & > :nth-child(2) {
     width: 100%;
@@ -152,9 +161,9 @@
 }
 
 .products {
-  margin-bottom: 120px;
+  padding-bottom: 150px;
   @media screen and (max-width: 767px) {
-    margin-bottom: 90px;
+    padding-bottom: 120px;
   }
   h2 {
     font-weight: 500;
@@ -219,6 +228,7 @@
   border-radius: 35px 35px 0 0;
   padding-top: 74px;
   padding-bottom: 126px;
+  margin-top: -30px;
   @media screen and (max-width: 767px) {
     padding-top: 50px;
     padding-bottom: 60px;
@@ -240,6 +250,7 @@
     font-size: 32px;
     line-height: 130%;
     color: #fff;
+    max-width: 503px;
     @media screen and (max-width: 767px) {
       font-size: 22px;
     }
@@ -295,17 +306,21 @@
 
 .cult {
   background: #e9edf1;
-  padding-top: 30px;
+  padding-top: 100px;
   padding-bottom: 80px;
   margin-top: -30px;
   border-radius: 35px 35px 0 0;
+  @media screen and (max-width: 767px) {
+    padding-top: 50px;
+    border-radius: 24px 24px 0 0;
+  }
   h2 {
     font-weight: 500;
     font-size: 52px;
     line-height: 100%;
     letter-spacing: -0.02em;
     color: #173969;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     @media screen and (max-width: 767px) {
       font-size: 27px;
       margin-bottom: 40px;
@@ -671,6 +686,10 @@
   width: 100%;
 }
 
+.img_desc_12 {
+  max-width: 376px;
+}
+
 .map_bottom_2 {
   display: none !important;
 }
@@ -744,7 +763,7 @@
   .about_award__header {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 60px;
     margin-bottom: 54px;
     @media screen and (max-width: 767px) {
       font-size: 27px;
@@ -820,4 +839,10 @@
       }
     }
   }
+}
+
+.bg_4342 {
+  background: #e9edf1;
+  margin-top: -30px;
+  padding-top: 30px;
 }

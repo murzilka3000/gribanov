@@ -8,7 +8,7 @@ import { ShopSection } from "@/components/sections/frank-rg/ShopSection";
 import { TeamGameSection } from "@/components/sections/frank-rg/TeamGameSection";
 import { CinemaSection } from "@/components/sections/frank-rg/CinemaSection";
 import Footer from "@/components/layout/Footer";
-import s from './FrankRg.module.scss'
+import s from "./FrankRg.module.scss";
 import clsx from "clsx";
 
 const Page = () => {
@@ -16,9 +16,11 @@ const Page = () => {
     <>
       <main>
         <HeroRgSection />
-        <MapSection />
-        <AdvantagesSection />
-        <ProductsSection />
+        <div className={s.bg_4342}>
+          <MapSection />
+          <AdvantagesSection />
+          <ProductsSection />
+        </div>
         <PremiumAwardSection />
 
         <section className={clsx(s.about_award, "section_padding")}>
