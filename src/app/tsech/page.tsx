@@ -13,6 +13,7 @@ import Logos from "@/components/sections/tsech/Logos";
 import Achievements from "@/components/sections/tsech/Achievements";
 import Socials from "@/components/sections/tsech/Socials";
 import Footer from "@/components/layout/Footer";
+import Kino from "@/components/sections/tsech/Kino";
 
 const page = () => {
   return (
@@ -22,6 +23,9 @@ const page = () => {
         <div className={s.bg}>
           <Projects />
           <Studio />
+
+          <Kino />
+
           <StudioKv />
           <Location />
           <Team />
@@ -30,7 +34,7 @@ const page = () => {
           <Socials />
         </div>
       </main>
-      <Footer background="#1e1e1e"/>
+      <Footer background="#1e1e1e" />
     </>
   );
 };

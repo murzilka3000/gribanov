@@ -24,11 +24,14 @@ const Studio = () => {
           <div className={s.video_container}>
             <iframe
               className={s.studio__iframe}
-              src="https://www.youtube.com/embed/..."
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
+
+              src="https://rutube.ru/play/embed/bd1a88f2934af131ce1f49d1b4a69b7c/"
+              title="Antent & Nectry - Places We'll Go"
+              frameBorder="0"
+              allow="clipboard-write; autoplay"
               allowFullScreen
+              width="100%"
+              height="100%"
             ></iframe>
           </div>
         </div>

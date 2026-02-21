@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 const slides = [
-  { id: 1, url: "/images/slide-1.png" },
-  { id: 2, url: "/images/slide-1.png" },
-  { id: 3, url: "/images/slide-1.png" },
+  { id: 1, url: "/images/1.webp" },
+  { id: 2, url: "/images/2.webp" },
+  { id: 3, url: "/images/3.webp" },
 ];
 
 const Location = () => {
@@ -14,7 +14,7 @@ const Location = () => {
     <section className={clsx(s.location, "section_padding")}>
       <div className="wrapper">
         <div className={s.location__container}>
-          <h2 className={s.location__title}>Локация «Гэтсби»</h2>
+          <h2 className={s.location__title}>Локация «Редакция»</h2>
           <div className={s.location__slider_wrapper}>
             <Swiper
               modules={[Navigation, Pagination]}
