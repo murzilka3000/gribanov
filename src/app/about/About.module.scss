@@ -1,0 +1,482 @@
+.about {
+  background-image: url("/images/about.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 767px) {
+    background-image: url("/images/img-342.png");
+  }
+}
+
+.bg {
+  background: #e9edf1;
+  margin-top: -30px;
+}
+
+.founder {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  @media screen and (max-width: 767px) {
+    padding-top: 80px;
+  }
+  .founder__inner {
+    display: flex;
+    gap: 47px;
+    @media screen and (max-width: 1316px) {
+      flex-direction: column;
+      gap: 74px;
+    }
+    & > :first-child {
+      flex: 1.1;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 130%;
+      color: #1e1e1e;
+      @media screen and (max-width: 767px) {
+        font-size: 22px;
+      }
+    }
+    & > :last-child {
+      flex: 1;
+      p {
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        color: #173969;
+        margin-top: 38px;
+        @media screen and (max-width: 767px) {
+          font-size: 30px;
+          margin-top: 30px;
+        }
+      }
+      img {
+        @media screen and (max-width: 767px) {
+          width: 37px;
+        }
+      }
+    }
+  }
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+
+.root {
+  background-color: #e9eff4;
+  position: relative;
+}
+
+.sticky {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  width: 50%;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #173969;
+  margin-bottom: 45px;
+}
+
+.contentStack {
+  position: relative;
+  min-height: 400px;
+}
+
+.contentItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.mainText {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #1e1e1e;
+  margin-bottom: 30px;
+}
+
+.subText {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 122%;
+  color: #1e1e1e;
+}
+
+.right {
+  width: 40%;
+  height: 420px; // 3 года по 140px
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.timelineViewport {
+  height: 140px; // Высота одного активного элемента
+  width: 100%;
+  position: relative;
+  // Мы не ставим overflow: hidden здесь, чтобы было видно соседние года
+}
+
+.trackLine {
+  position: absolute;
+  left: 5px;
+  top: -37vh;
+  bottom: -37vh;
+  width: 2px;
+  background-color: #d1d9e0;
+}
+
+.progressLine {
+  position: absolute;
+  left: 5px;
+  top: 70px;
+  height: calc(100% * 3);
+  width: 2px;
+  background-color: #1a3668;
+  z-index: 2;
+  transform-origin: top;
+  scale: 0;
+}
+
+.yearsMovingList {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.yearItem {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #b1b1b1;
+  opacity: 0.2;
+  transform: scale(0.8);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.dotWrapper {
+  width: 12px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  z-index: 9999999;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #d1d9e0;
+  border-radius: 50%;
+  border: 2px solid #d1d9e0;
+  transition: all 0.3s ease;
+}
+
+.yearValue {
+  padding-left: 60px;
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+.values__item {
+  border-radius: 24px;
+  padding: 30px 37px 30px 40px;
+  background: #fff;
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #173969;
+    margin-bottom: 10px;
+    @media screen and (max-width: 767px) {
+      font-size: 22px;
+    }
+  }
+  p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 122%;
+    color: #616161;
+    @media screen and (max-width: 767px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.values__column {
+  display: flex;
+  gap: 20px;
+}
+
+.values__column_1 {
+  & > :first-child {
+    flex: 1;
+  }
+  & > :last-child {
+    flex: 1;
+  }
+}
+
+.values__column_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  @media screen and (max-width: 967px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.values__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 52px;
+  @media screen and (max-width: 967px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #173969;
+    @media screen and (max-width: 767px) {
+      font-size: 27px;
+    }
+  }
+  div {
+    flex: 1;
+  }
+  p {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000;
+    flex: 1;
+    @media screen and (max-width: 767px) {
+      font-size: 22px;
+    }
+  }
+}
+
+.values {
+  padding-top: 160px;
+  padding-bottom: 130px;
+}
+
+.benefits {
+  background: #fff;
+  padding-top: 90px;
+  border-radius: 35px 35px 0 0;
+  @media screen and (max-width: 767px) {
+    padding-top: 40px;
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+.benefits__inner {
+  display: flex;
+  gap: 38px;
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
+
+  @media screen and (max-width: 767px) {
+    gap: 30px;
+  }
+  & > :first-child {
+    flex: 1;
+  }
+  & > :last-child {
+    flex: 1;
+  }
+}
+
+.benefits__inner img {
+  width: 100%;
+}
+
+.benefits__inner h2 {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #173969;
+  margin-bottom: 162px;
+  @media screen and (max-width: 1027px) {
+    margin-bottom: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 27px;
+    margin-bottom: 40px;
+  }
+}
+
+.benefits__inner p {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #000;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 30px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 22px;
+  }
+}
+
+.benefits__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.benefits {
+  padding-bottom: 153px;
+}
+
+.benefits__inner a {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: #24282e;
+  display: inline-block;
+  border: 1px solid #24282e;
+  border-radius: 40px;
+  padding: 8px 54px;
+  text-decoration: none;
+  @media screen and (max-width: 767px) {
+    padding: 8px 48px;
+    font-size: 14px;
+  }
+}
+
+.tg_home_2 {
+  margin-top: 0 !important;
+}
+
+.m153 {
+  height: 153px;
+  @media screen and (max-width: 767px) {
+    height: 80px;
+  }
+}
+
+.m120 {
+  height: 120px;
+  @media screen and (max-width: 1120px) {
+    display: none;
+  }
+}
+
+.section_11 h2 {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #173969;
+  margin: 38px 0;
+  br {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+.section_11 img {
+  @media screen and (max-width: 767px) {
+    width: 37px;
+  }
+}
+.section_11 {
+  @media screen and (max-width: 1100px) {
+    margin-top: 80px;
+  }
+}
+
+.section_11 p {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #000;
+  @media screen and (max-width: 767px) {
+    font-size: 22px;
+  }
+}
+
+.benefits__title_mob {
+  display: none;
+  @media screen and (max-width: 900px) {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .benefits__title {
+    display: none;
+  }
+}

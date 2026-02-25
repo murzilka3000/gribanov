@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export const CharitySection = () => {
   return (
-    <section className={clsx(s.mob_445, "section_padding")}>
+    <section className={clsx("section_padding")}>
       <div className="wrapper">
         <div className={s.home_text_cont}>
           <h2>
