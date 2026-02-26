@@ -55,3 +55,175 @@
     }
   }
 }
+
+.header {
+  position: fixed;
+  top: 30px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999;
+}
+
+.burger {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.header_cont {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.header_cont a {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-decoration: none;
+  &.dark_text {
+    color: #000000;
+  }
+}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* Добавь это к существующему классу .header_cont, если там нет */
+.header_cont {
+  position: relative;
+  // твои текущие стили...
+}
+
+.burger {
+  // твои текущие стили кнопки...
+  position: relative;
+  z-index: 20; // Бургер всегда выше попапа
+  transition: transform 0.3s ease;
+
+  img {
+    display: block; // Убираем лишние отступы
+  }
+}
+
+/* Стили попапа */
+.popup {
+  position: absolute;
+  top: -20px; // Небольшой отступ вверх, чтобы перекрыть шапку или создать "воздух" как на макете
+  left: -20px; // Смещение влево
+  z-index: 10;
+
+  width: 426px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 108px 43px 32px 43px; // Большой padding-top, чтобы не перекрывать крестик (бургер)
+
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup_label {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 122%;
+  color: #24282e;
+  margin-bottom: 7px;
+}
+
+.popup_nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    border-bottom: 2px solid #173969;
+
+    &:last-child {
+      border-bottom: 2px solid #fe5a00; // Оранжевая линия для последнего
+    }
+    &:nth-child(3) {
+      border-bottom: 2px solid #24282e; // Оранжевая линия для последнего
+    }
+  }
+}
+
+.nav_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s;
+
+  // &:hover {
+  //   opacity: 0.7;
+  // }
+
+  &.blue {
+    color: #173969;
+  }
+  &.black {
+    color: #24282e;
+  }
+  &.orange {
+    color: #fe5a00;
+    border-bottom-color: #fe5a00;
+  }
+}
+
+.popup_footer {
+  display: flex;
+  gap: 18px;
+  margin-top: 200px;
+}
+
+.btn_outline {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  text-align: center;
+  color: #24282e !important;
+  text-decoration: none;
+  border: 1px solid #24282e;
+  border-radius: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

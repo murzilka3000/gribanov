@@ -18,7 +18,7 @@ const page = () => {
         <section className={clsx(s.about, "section_padding")}></section>
         <div className={s.bg}>
           <Founder />
-          {/* <Slider /> */}
+          <Slider />
           <Values />
           <Benefits />
           <BooksSection />
