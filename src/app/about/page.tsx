@@ -17,20 +17,12 @@ import Section_11 from "@/components/sections/about/Section_11";
 const Page = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
-    // 1. Помечаем, что компонент смонтирован (чтобы избежать ошибок гидратации Next.js)
     setIsMounted(true);
-
     const handleResize = () => {
-      // 2. Проверяем ширину (768px - стандартная граница планшета/мобилки)
       setIsMobile(window.innerWidth < 768);
     };
-
-    // Проверяем сразу при загрузке
     handleResize();
-
-    // Слушаем изменение размера окна
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -42,8 +34,6 @@ const Page = () => {
         <div className={s.bg}>
           <Founder />
 
-          {/* ИЗМЕНЕНИЕ ЗДЕСЬ: Рендерим ТОЛЬКО один компонент */}
-          {/* Пока JS не загрузился (isMounted false), не показываем ничего, чтобы не было скачков */}
           {isMounted && (isMobile ? <SliderMob /> : <Slider />)}
 
           <Values />

@@ -427,10 +427,13 @@ export default function Chronology() {
   return (
     <section className={clsx("section_padding", s.slider_mob)}>
       <div ref={rootRef} className={clsx(s.root, "")}>
+        
         <div className={s.sticky}>
+          
           <div className={s.container}>
-            {/* Таймлайн - на мобилке будет сверху через order */}
+            
             <div className={s.right}>
+              <h2 className={s.title}>Хронология событий</h2>
               <div className={s.timelineViewport}>
                 <div className={s.trackLine} />
                 <div ref={progressLineRef} className={s.progressLine} />
@@ -450,7 +453,6 @@ export default function Chronology() {
 
             {/* Контент - на мобилке будет снизу через order */}
             <div className={s.left}>
-              <h2 className={s.title}>Хронология событий</h2>
               <div className={s.contentStack}>
                 {DATA.map((item, i) => (
                   <div
