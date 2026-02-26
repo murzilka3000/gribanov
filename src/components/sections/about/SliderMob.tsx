@@ -1,16 +1,14 @@
 "use client";
-
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import s from "./Slider.module.scss";
+import s from "./SliderMob.module.scss";
 import clsx from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const DATA = [
-  // ... ваши данные массива DATA (оставляем без изменений)
   {
     year: "1998",
     content: (
@@ -46,11 +44,11 @@ const DATA = [
     year: "2003",
     content: (
       <div className={s.itemContent}>
-        <p className={s.mainText}>Закончил университет с красным дипломом</p>
+        <p className={s.mainText}>Закончил университет  с красным дипломом</p>
         <p className={s.subText}>
-          Я начал карьеру разработчика в таких компаниях, как eHouse и МТС, но
+          Я начал карьеру разработчика в таких компаниях, как eHouse и МТС,  но
           очень быстро понял, что вокруг меня множество более талантливых ребят,
-          которые пишут код быстрее и качественнее. Я начал искать возможности
+          которые пишут код быстрее и качественнее.  Я начал искать возможности
           для смены работы.
         </p>
       </div>
@@ -77,11 +75,11 @@ const DATA = [
     content: (
       <div className={s.itemContent}>
         <p className={s.mainText}>
-          Начал работать в Home Credit and Finance Bank
+          Начал работать в Home Credit  and Finance Bank
         </p>
         <p className={s.subText}>
           Я был единственным аналитиком с консалтинговым опытом, и мне поручили
-          сделать так, чтобы менеджеры получали отчёты о конкурентной среде. В
+          сделать так, чтобы менеджеры получали отчёты  о конкурентной среде. В
           результате я сделал подразделение рыночной аналитики, которое работает
           до сих пор.
         </p>
@@ -93,13 +91,13 @@ const DATA = [
     content: (
       <div className={s.itemContent}>
         <p className={s.mainText}>
-          Получил внешний заказ от ВТБ24 на региональное исследование рынка
+          Получил внешний заказ от ВТБ24  на региональное исследование рынка
           кредитов наличными
         </p>
         <p className={s.subText}>
           Когда я получил первый заказ, передо мной встала дилемма – остаться в
           банке или рискнуть и уйти развивать свою компанию. Выбор дался легко.
-          Я на физическом уровне почувствовал, что пора уходить. Так появилась
+          Я на физическом уровне почувствовал, что пора уходить.  Так появилась
           Frank RG.
         </p>
       </div>
@@ -123,8 +121,8 @@ const DATA = [
         <p className={s.mainText}>Открыли офис Frank RG в Москве</p>
         <p className={s.subText}>
           Мы арендовали офис площадью 18 кв. м. и наняли первого сотрудника.
-          Было очень страшно, так как денег на аренду и зарплату было всего на 3
-          месяца.
+          Было очень страшно, так как денег на аренду и зарплату было всего  на
+          3 месяца.
         </p>
         <div>
           <img src="/images/2010.png" alt="" />
@@ -149,7 +147,7 @@ const DATA = [
       <div className={s.itemContent}>
         <p className={s.mainText}>
           Впервые вручили награды Frank Award. А ещё увеличили выручку в два
-          раза: с 22 млн руб. до 39 млн руб.
+          раза:  с 22 млн руб. до 39 млн руб.
         </p>
         <div>
           <img src="/images/2015.png" alt="" />
@@ -185,13 +183,14 @@ const DATA = [
         <p className={s.mainText}>Создали Frank Media</p>
         <p className={s.subText}>
           Наши клиенты часто делились «болью», что качество индустриального
-          специализированного контента упало. Количество банковских медиа
-          сократилось до одного лишь «Банковского обозрения», остальные либо
-          умерли, либо превратились в пустышки.
+          специализированного контента упало.  Количество банковских медиа
+          сократилось до одного лишь «Банковского обозрения», остальные либо
+          умерли, либо превратились в пустышки.
         </p>
       </div>
     ),
   },
+
   {
     year: "2018",
     content: (
@@ -206,16 +205,18 @@ const DATA = [
       </div>
     ),
   },
+
   {
     year: "2019",
     content: (
       <div className={s.itemContent}>
         <p className={s.mainText}>
-          Годовая выручка Frank RG превысила 100 млн руб.
+          Годовая выручка Frank RG  превысила 100 млн руб.
         </p>
       </div>
     ),
   },
+
   {
     year: "2021",
     content: (
@@ -227,6 +228,7 @@ const DATA = [
       </div>
     ),
   },
+
   {
     year: "2022",
     content: (
@@ -247,24 +249,110 @@ const DATA = [
   },
 ];
 
-export default function ChronologyDesktop() {
+export default function Chronology() {
   const rootRef = useRef(null);
   const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      // Ждём пока DOM обновится
+      if (typeof window === "undefined") return;
 
-      // Запускаем ТОЛЬКО на экранах от 768px и шире
-      mm.add("(min-width: 768px)", () => {
-        const contents = gsap.utils.toArray(`.${s.contentItem}`);
-        const years = gsap.utils.toArray(`.${s.yearItem}`);
-        const dots = gsap.utils.toArray(`.${s.dot}`);
+      const contents = gsap.utils.toArray(`.${s.contentItem}`);
+      const years = gsap.utils.toArray(`.${s.yearItem}`);
+      const dots = gsap.utils.toArray(`.${s.dot}`);
+      const totalSteps = DATA.length;
 
-        if (years.length === 0) return;
+      // Очищаем предыдущие ScrollTrigger
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-        const totalSteps = DATA.length;
+      if (isMobile) {
+        // === МОБИЛЬНАЯ ВЕРСИЯ (горизонтальный таймлайн) ===
+        const yearWidth = 120; // ширина одного года
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: rootRef.current,
+            start: "top top",
+            end: `+=${totalSteps * 60}%`,
+            pin: true,
+            scrub: 0.5,
+            anticipatePin: 1,
+          },
+        });
+
+        // Анимация прогресс-бара (горизонтальная линия)
+        tl.to(
+          progressLineRef.current,
+          {
+            scaleX: 1,
+            ease: "none",
+            duration: totalSteps,
+          },
+          0,
+        );
+
+        years.forEach((_, i) => {
+          // Смещение списка лет по горизонтали
+          tl.to(
+            yearsListRef.current,
+            {
+              x: -i * yearWidth,
+              ease: "power2.inOut",
+            },
+            i,
+          );
+
+          // Анимация контента
+          if (i > 0) {
+            tl.to(
+              contents[i - 1],
+              { opacity: 0, y: -20, pointerEvents: "none", display: "none" },
+              i,
+            );
+            tl.to(
+              contents[i],
+              { opacity: 1, y: 0, pointerEvents: "auto", display: "block" },
+              i,
+            );
+          }
+
+          tl.to(years[i], { opacity: 1, color: "#1a3668", scale: 1 }, i);
+          tl.to(
+            dots[i],
+            { backgroundColor: "#1a3668", scale: 1.3, borderColor: "#1a3668" },
+            i,
+          );
+
+          if (i > 0) {
+            tl.to(
+              years[i - 1],
+              { opacity: 0.4, color: "#b1b1b1", scale: 0.85 },
+              i,
+            );
+            tl.to(
+              dots[i - 1],
+              { backgroundColor: "#d1d9e0", scale: 1, borderColor: "#d1d9e0" },
+              i,
+            );
+          }
+        });
+      } else {
+        // === ДЕСКТОПНАЯ ВЕРСИЯ (вертикальный таймлайн) ===
+        const yearHeight = years[0].offsetHeight;
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -273,23 +361,26 @@ export default function ChronologyDesktop() {
             end: `+=${totalSteps * 100}%`,
             pin: true,
             scrub: true,
-            invalidateOnRefresh: true, // Заставляет пересчитывать расчеты, если размер окна изменился
           },
         });
 
-        // Анимация прогресс-бара (линии)
+        // Анимация прогресс-бара (вертикальная линия)
         tl.to(
           progressLineRef.current,
-          { scaleY: 1, ease: "none", duration: totalSteps },
+          {
+            scaleY: 1,
+            ease: "none",
+            duration: totalSteps,
+          },
           0,
         );
 
         years.forEach((_, i) => {
-          // ДИНАМИЧЕСКИЙ расчет высоты: спасет, если стили загрузились позже GSAP
+          // Смещение списка лет по вертикали
           tl.to(
             yearsListRef.current,
             {
-              y: () => -i * (years[0].offsetHeight || 50),
+              y: -i * yearHeight,
               ease: "power2.inOut",
             },
             i,
@@ -326,57 +417,54 @@ export default function ChronologyDesktop() {
             );
           }
         });
-      });
+      }
+
+      ScrollTrigger.refresh();
     },
-    { scope: rootRef },
+    { scope: rootRef, dependencies: [isMobile] },
   );
 
   return (
-    <section className={clsx("section_padding", s.sliderdesc)}>
-      <div className="wrapper">
-        <div ref={rootRef} className={s.root}>
-          <div className={s.sticky}>
-            <div className={s.container}>
-              <div className={s.left}>
-                <h2 className={s.title}>
-                  Хронология
-                  <br />
-                  событий
-                </h2>
-                <div className={s.contentStack}>
+    <section className={clsx("section_padding", s.slider_mob)}>
+      <div ref={rootRef} className={clsx(s.root, "")}>
+        <div className={s.sticky}>
+          <div className={s.container}>
+            {/* Таймлайн - на мобилке будет сверху через order */}
+            <div className={s.right}>
+              <div className={s.timelineViewport}>
+                <div className={s.trackLine} />
+                <div ref={progressLineRef} className={s.progressLine} />
+
+                <div ref={yearsListRef} className={s.yearsMovingList}>
                   {DATA.map((item, i) => (
-                    <div
-                      key={i}
-                      className={s.contentItem}
-                      style={{
-                        opacity: i === 0 ? 1 : 0,
-                        transform:
-                          i === 0 ? "translateY(0)" : "translateY(30px)",
-                      }}
-                    >
-                      {item.content}
+                    <div key={i} className={s.yearItem}>
+                      <span className={s.yearValue}>{item.year}</span>
+                      <div className={s.dotWrapper}>
+                        <div className={s.dot} />
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
 
-              <div className={s.right}>
-                <div className={s.timelineViewport}>
-                  {/* Линии */}
-                  <div className={s.trackLine} />
-                  <div ref={progressLineRef} className={s.progressLine} />
-
-                  <div ref={yearsListRef} className={s.yearsMovingList}>
-                    {DATA.map((item, i) => (
-                      <div key={i} className={s.yearItem}>
-                        <div className={s.dotWrapper}>
-                          <div className={s.dot} />
-                        </div>
-                        <span className={s.yearValue}>{item.year}</span>
-                      </div>
-                    ))}
+            {/* Контент - на мобилке будет снизу через order */}
+            <div className={s.left}>
+              <h2 className={s.title}>Хронология событий</h2>
+              <div className={s.contentStack}>
+                {DATA.map((item, i) => (
+                  <div
+                    key={i}
+                    className={s.contentItem}
+                    style={{
+                      opacity: i === 0 ? 1 : 0,
+                      transform: i === 0 ? "translateY(0)" : "translateY(30px)",
+                      display: i === 0 ? "block" : "none",
+                    }}
+                  >
+                    {item.content}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
