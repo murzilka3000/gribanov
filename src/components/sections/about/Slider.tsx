@@ -258,9 +258,11 @@ export default function ChronologyDesktop() {
 
       // Запускаем ТОЛЬКО на экранах от 768px и шире
       mm.add("(min-width: 768px)", () => {
-        const contents = gsap.utils.toArray(`.${s.contentItem}`);
-        const years = gsap.utils.toArray(`.${s.yearItem}`);
-        const dots = gsap.utils.toArray(`.${s.dot}`);
+        const contents = gsap.utils.toArray(
+          `.${s.contentItem}`,
+        ) as HTMLElement[];
+        const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
+        const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
 
         if (years.length === 0) return;
 

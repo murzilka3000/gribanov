@@ -271,9 +271,9 @@ export default function Chronology() {
       // Ждём пока DOM обновится
       if (typeof window === "undefined") return;
 
-      const contents = gsap.utils.toArray(`.${s.contentItem}`);
-      const years = gsap.utils.toArray(`.${s.yearItem}`);
-      const dots = gsap.utils.toArray(`.${s.dot}`);
+      const contents = gsap.utils.toArray(`.${s.contentItem}`) as HTMLElement[];
+      const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
+      const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
       const totalSteps = DATA.length;
 
       // Очищаем предыдущие ScrollTrigger
@@ -427,11 +427,8 @@ export default function Chronology() {
   return (
     <section className={clsx("section_padding", s.slider_mob)}>
       <div ref={rootRef} className={clsx(s.root, "")}>
-        
         <div className={s.sticky}>
-          
           <div className={s.container}>
-            
             <div className={s.right}>
               <h2 className={s.title}>Хронология событий</h2>
               <div className={s.timelineViewport}>
