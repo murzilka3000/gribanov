@@ -117,6 +117,9 @@
   top: 0;
   left: 0;
   width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .mainText {
@@ -132,6 +135,7 @@
   font-size: 18px;
   line-height: 122%;
   color: #1e1e1e;
+  margin-bottom: 40px;
 }
 
 .right {
@@ -209,9 +213,10 @@
 }
 
 .yearValue {
+  font-family: "Manrope";
   padding-left: 60px;
   font-size: 110px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1;
 }
 

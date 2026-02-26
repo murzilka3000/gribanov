@@ -8,29 +8,51 @@ import s from "./layout.module.scss";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Создаем ссылку на контейнер попапа
+  const pathname = usePathname();
+  const lastScrollY = useRef(0);
   const popupRef = useRef<HTMLDivElement>(null);
-  // Создаем ссылку на кнопку бургера (чтобы клик по ней не считался "кликом вне")
   const burgerRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
-  // 1. Блокировка скролла
+  // 1. Логика скролла (Hide/Show + Background)
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Определяем, прокручена ли страница (для появления белого фона)
+      setIsScrolled(currentScrollY > 20);
+
+      // Если попап открыт, не прячем шапку
+      if (isOpen) return;
+
+      // Логика направления: прячем при скролле вниз, показываем при скролле вверх
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
+
+  // 2. Блокировка скролла при открытом меню
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // 2. Логика закрытия при клике вне области (только для ПК)
+  // 3. Закрытие при клике вне области (ПК)
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -44,11 +66,8 @@ const Header = () => {
         closeMenu();
       }
     };
-
     document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isOpen]);
 
   const isHome = pathname === "/";
@@ -60,18 +79,31 @@ const Header = () => {
     { title: "Springle", href: "/springle", color: "#FE5A00" },
   ];
 
+  // ЛОГИКА ИКОНКИ:
+  // Если открыто -> крестик
+  // Если главная -> ВСЕГДА черный бургер
+  // Если не главная -> белый сверху, черный при скролле
   const burgerIcon = isOpen
     ? "/images/close.svg"
     : isHome
       ? "/images/burger-b.svg"
-      : "/images/w-burger.svg";
+      : isScrolled
+        ? "/images/burger-b.svg"
+        : "/images/w-burger.svg";
 
   return (
-    <header className={clsx(s.header, "section_padding")}>
+    <header
+      className={clsx(
+        s.header,
+        "section_padding",
+        !isVisible && s.header_hidden,
+        (isScrolled || isOpen) && s.header_scrolled,
+      )}
+    >
       <div className="wrapper">
         <div className={s.header_cont}>
           <button
-            ref={burgerRef} // Привязываем реф к кнопке
+            ref={burgerRef}
             className={clsx(s.burger, isOpen && s.active)}
             onClick={toggleMenu}
           >
@@ -80,7 +112,13 @@ const Header = () => {
 
           <Link
             href="/"
-            className={clsx(s.logo_link, isHome && s.dark_text)}
+            // ЛОГИКА ЦВЕТА ТЕКСТА:
+            // Если главная -> всегда dark_text
+            // Если не главная -> dark_text только при скролле или открытом меню
+            className={clsx(
+              s.logo_link,
+              (isHome || isScrolled || isOpen) && s.dark_text,
+            )}
             onClick={closeMenu}
           >
             Юрий <br /> Грибанов
@@ -88,14 +126,11 @@ const Header = () => {
 
           {isOpen && (
             <div className={s.popup} ref={popupRef}>
-              {" "}
-              {/* Привязываем реф к попапу */}
               <div className={s.popup_content}>
                 <div>
                   <span className={s.popup_label}>
                     Все проекты и направления:
                   </span>
-
                   <nav className={s.popup_nav}>
                     <ul>
                       {menuItems.map((item, index) => (
@@ -112,7 +147,6 @@ const Header = () => {
                               height="30"
                               viewBox="0 0 33 30"
                               fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M0.841869 15.0292H30.1"
@@ -133,7 +167,6 @@ const Header = () => {
                     </ul>
                   </nav>
                 </div>
-
                 <div className={s.popup_footer}>
                   <Link href="/" className={s.btn_outline} onClick={closeMenu}>
                     Главная

@@ -123,7 +123,9 @@ const DATA = [
           Было очень страшно, так как денег на аренду и зарплату было всего  на
           3 месяца.
         </p>
-        <div>{/* {/* <img src="" alt="" /> */}</div>
+        <div>
+          <img src="/images/2010.png" alt="" />
+        </div>
       </div>
     ),
   },
@@ -132,7 +134,9 @@ const DATA = [
     content: (
       <div className={s.itemContent}>
         <p className={s.mainText}>Открыли филиал Frank RG в Орле</p>
-        <div>{/* <img src="" alt="" /> */}</div>
+        <div>
+          <img src="/images/2012.png" alt="" />
+        </div>
       </div>
     ),
   },
@@ -144,7 +148,9 @@ const DATA = [
           Впервые вручили награды Frank Award. А ещё увеличили выручку в два
           раза:  с 22 млн руб. до 39 млн руб.
         </p>
-        <div>{/* <img src="" alt="" /> */}</div>
+        <div>
+          <img src="/images/2015.png" alt="" />
+        </div>
       </div>
     ),
   },
@@ -192,7 +198,9 @@ const DATA = [
           Сняли корпоративный фильм «ЭТАЖИзнь». А ещё создали продакшн-студию и
           киношколу ЦЕХ
         </p>
-        <div>{/* <img src="" alt="" /> */}</div>
+        <div>
+             <img src="/images/2018.png" alt="" />
+        </div>
       </div>
     ),
   },
