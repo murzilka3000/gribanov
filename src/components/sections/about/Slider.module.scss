@@ -1,3 +1,17 @@
+/* Slider.module.scss */
+
+// Определение анимации пульсации
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
 .root {
   background-color: #e9eff4;
   position: relative;
@@ -165,7 +179,7 @@
   }
 }
 
-// === НОВЫЕ СТИЛИ ДЛЯ ФИКСИРОВАННЫХ 2-х ГОДОВ ===
+// === СТИЛИ ДЛЯ ЛЕТ ===
 
 .yearsFixed {
   display: flex;
@@ -196,10 +210,36 @@
     background-color: #1a3668;
     border-color: #1a3668;
     transform: scale(1.4);
-    position: relative; // Важно для позиционирования
     z-index: 1;
+  }
+}
 
-    // Псевдо-элемент для пульсации
+// Следующий год (внизу - неактивный)
+.yearNext {
+  opacity: 0.5; // Базовая прозрачность для неактивного года
+  color: #8fa8c4;
+  cursor: pointer;
+  transform: scale(0.85);
+  transform-origin: left center;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #5a7a9e;
+
+    .dot {
+      background-color: #5a7a9e;
+      border-color: #5a7a9e;
+    }
+  }
+
+  // Анимация пульсации для точки неактивного года
+  .dot {
+    position: relative;
+    z-index: 1;
+    background-color: #b0c2d4;
+    border-color: #b0c2d4;
+
     &::after {
       content: "";
       position: absolute;
@@ -208,30 +248,10 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: #1a3668;
+      border: 1px solid #5a7a9e; // Цвет пульсирующего кольца
       z-index: -1;
       transform: translate(-50%, -50%);
-      animation: pulse-animation 2s infinite
-        cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-  }
-}
-
-// Следующий год (внизу)
-.yearNext {
-  opacity: 0.4;
-  color: #b1b1b1;
-  cursor: pointer;
-  transform: scale(0.85);
-  transform-origin: left center;
-
-  &:hover {
-    opacity: 0.65;
-    color: #5a7a9e;
-
-    .dot {
-      background-color: #8fa8c4;
-      border-color: #8fa8c4;
+      animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
     }
   }
 }
