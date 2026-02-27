@@ -144,15 +144,10 @@
 .trackLine {
   position: absolute;
   left: 5px;
-  top: -37vh;
-  bottom: -37vh;
+  top: 5.7vh;
+  bottom: 5.7vh;
   width: 2px;
   background-color: #d1d9e0;
-  @media screen and (max-width: 767px) {
-    top: -100px;
-    bottom: -100px;
-    left: 4px;
-  }
 }
 
 .progressLine {
@@ -161,7 +156,7 @@
   top: 0;
   height: 100%;
   width: 2px;
-  background-color: #1a3668;
+  background-color: transparent;
   z-index: 2;
   transform-origin: top;
   transform: scaleY(0);
@@ -192,7 +187,7 @@
 .yearCurrent {
   color: #1a3668;
   cursor: default;
-  
+
   &:hover {
     opacity: 0.85;
   }
@@ -216,7 +211,8 @@
       background-color: #1a3668;
       z-index: -1;
       transform: translate(-50%, -50%);
-      animation: pulse-animation 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: pulse-animation 2s infinite
+        cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
   }
 }
@@ -291,6 +287,3 @@
     display: none;
   }
 }
-
-
-
