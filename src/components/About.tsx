@@ -44,6 +44,7 @@ const Page = () => {
           <Section_11 />
           <div className={s.m120}></div>
           <TelegramSection />
+          <div className={s.m60}></div>
         </div>
       </main>
       <Footer background="#173969" />
