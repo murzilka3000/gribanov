@@ -255,6 +255,10 @@
         justify-content: space-between;
         align-items: center;
         text-decoration: none;
+        transition: all ease 0.3s;
+        &:hover {
+          opacity: 0.6;
+        }
         p {
           font-weight: 500;
           font-size: 52px;
@@ -350,6 +354,10 @@
     text-decoration: none;
     border-bottom: 3px solid #24282e;
     gap: 20px;
+    transition: all ease 0.3s;
+    &:hover {
+      opacity: 0.6;
+    }
     @media screen and (max-width: 767px) {
       border-bottom: 2px solid #24282e;
     }
@@ -536,7 +544,7 @@
     border-radius: 40px;
     padding: 10px 61px;
     margin-top: 25px;
-    transition: all ease .3s;
+    transition: all ease 0.3s;
     &:hover {
       background: #fff;
       color: #24282e;
@@ -680,7 +688,7 @@
       border-radius: 40px;
       padding: 7px 53px;
       text-decoration: none;
-        transition: all 0.3s ease;
+      transition: all 0.3s ease;
       &:hover {
         color: #e9edf1 !important;
         background: #24282e !important;
@@ -811,5 +819,12 @@
   }
   .mob_gal_last {
     max-width: 230px;
+  }
+}
+
+.hero__item {
+  transition: all ease 0.3s;
+  &:hover {
+    opacity: 0.6;
   }
 }

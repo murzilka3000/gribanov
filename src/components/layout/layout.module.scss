@@ -121,6 +121,16 @@
     font-size: 27px;
   }
 }
+
+.header_cont {
+  li {
+    transition: all ease .3s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
 //
 //
 //
@@ -298,7 +308,7 @@
   color: #fff;
   margin-bottom: 20px;
   @media screen and (max-width: 686px) {
-    display: none!important;
+    display: none !important;
   }
 }
 
@@ -306,8 +316,8 @@
   font-weight: 600;
   font-size: 16px;
   color: #fff;
-  display: none!important;
+  display: none !important;
   @media screen and (max-width: 686px) {
-    display: block!important;
+    display: block !important;
   }
 }
