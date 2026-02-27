@@ -246,99 +246,95 @@ const DATA = [
 
 export default function ChronologyDesktop() {
   const rootRef = useRef(null);
-  const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
+  const currentYearRef = useRef<HTMLDivElement>(null);
+  const nextYearRef = useRef<HTMLDivElement>(null);
 
-  // Состояние для активного года
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Вычисляем текущий и следующий год
+  const currentYear = DATA[activeIndex]?.year;
+  const nextYear = DATA[activeIndex + 1]?.year;
+  const hasNext = activeIndex < DATA.length - 1;
+  const hasPrev = activeIndex > 0;
 
   useGSAP(
     () => {
       const contents = gsap.utils.toArray(`.${s.contentItem}`) as HTMLElement[];
-      const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
-      const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
-
-      if (years.length === 0) return;
-
-      const yearHeight = years[0].offsetHeight || 50;
       const totalSteps = DATA.length;
 
-      // 1. Анимация смещения списка лет (активный всегда по центру)
-      gsap.to(yearsListRef.current, {
-        y: -activeIndex * yearHeight,
-        duration: 0.6,
-        ease: "power3.inOut",
-      });
-
-      // 2. Анимация прогресс-бара (заливки линии)
+      // 1. Анимация прогресс-бара
       gsap.to(progressLineRef.current, {
-        scaleY: activeIndex / (totalSteps - 1), // От 0 (первый) до 1 (последний)
-        duration: 0.6,
+        scaleY: activeIndex / (totalSteps - 1),
+        duration: 0.8,
         ease: "power3.inOut",
       });
 
-      // 3. Анимация каждого элемента
-      years.forEach((_, i) => {
+      // 2. Анимация смены текущего года
+      if (currentYearRef.current) {
+        gsap.fromTo(
+          currentYearRef.current,
+          { opacity: 0, y: -30, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" },
+        );
+      }
+
+      // 3. Анимация смены следующего года
+      if (nextYearRef.current) {
+        gsap.fromTo(
+          nextYearRef.current,
+          { opacity: 0, y: 30, scale: 0.85 },
+          {
+            opacity: 0.4,
+            y: 0,
+            scale: 0.85,
+            duration: 0.6,
+            ease: "power3.out",
+            delay: 0.1,
+          },
+        );
+      }
+
+      // 4. Анимация контента (левая часть)
+      contents.forEach((content, i) => {
         const isActive = i === activeIndex;
-        // Вычисляем дистанцию от текущего года до активного (0 - сам год, 1 - соседи, 2+ - остальные)
-        const distance = Math.abs(i - activeIndex);
 
-        // Контент (левая часть)
-        gsap.to(contents[i], {
+        gsap.to(content, {
           opacity: isActive ? 1 : 0,
-          y: isActive ? 0 : i < activeIndex ? -30 : 30, // Уходят вверх/вниз
+          y: isActive ? 0 : i < activeIndex ? -40 : 40,
           pointerEvents: isActive ? "auto" : "none",
-          duration: 0.6,
-          ease: "power3.inOut",
-        });
-
-        // ЛОГИКА ПРОЗРАЧНОСТИ: Видно только 3 года
-        let itemOpacity = 0;
-        if (distance === 0)
-          itemOpacity = 1; // Центральный год (100%)
-        else if (distance === 1)
-          itemOpacity = 0.4; // Соседи сверху и снизу (40%)
-        else itemOpacity = 0; // Остальные скрыты (0%)
-
-        // Года (размер, цвет и прозрачность всей строки)
-        gsap.to(years[i], {
-          opacity: itemOpacity,
-          color: isActive ? "#1a3668" : "#b1b1b1",
-          scale: isActive ? 1 : 0.8,
-          // Блокируем клики по невидимым годам, чтобы не было "слепых" нажатий
-          pointerEvents: distance <= 1 ? "auto" : "none",
-          duration: 0.6,
-          ease: "power3.inOut",
-        });
-
-        // Точки (размер и цвет)
-        gsap.to(dots[i], {
-          backgroundColor: isActive ? "#1a3668" : "#d1d9e0",
-          borderColor: isActive ? "#1a3668" : "#d1d9e0",
-          scale: isActive ? 1.5 : 1,
-          duration: 0.6,
-          ease: "power3.inOut",
+          duration: 0.7,
+          ease: "power3.out",
         });
       });
     },
     {
       scope: rootRef,
-      dependencies: [activeIndex], // Перезапускает анимации при смене активного года
+      dependencies: [activeIndex],
     },
   );
+
+  // Навигация
+  const goToNext = () => {
+    if (hasNext) {
+      setActiveIndex((prev) => prev + 1);
+    }
+  };
+
+  const goToPrev = () => {
+    if (hasPrev) {
+      setActiveIndex((prev) => prev - 1);
+    }
+  };
 
   return (
     <section className={clsx("section_padding", s.sliderdesc)}>
       <div className="wrapper">
         <div ref={rootRef} className={s.root}>
           <div className={s.container}>
-            {/* ЛЕВАЯ ЧАСТЬ: Контент */}
+            {/* Левая часть - контент */}
             <div className={s.left}>
-              <h2 className={s.title}>
-                Хронология
-                <br />
-                событий
-              </h2>
+              <h2 className={s.title}>Хронология событий</h2>
               <div className={s.contentStack}>
                 {DATA.map((item, i) => (
                   <div
@@ -346,7 +342,6 @@ export default function ChronologyDesktop() {
                     className={s.contentItem}
                     style={{
                       opacity: i === 0 ? 1 : 0,
-                      transform: i === 0 ? "translateY(0)" : "translateY(30px)",
                       position: i === 0 ? "relative" : "absolute",
                       top: 0,
                       left: 0,
@@ -359,31 +354,49 @@ export default function ChronologyDesktop() {
               </div>
             </div>
 
-            {/* ПРАВАЯ ЧАСТЬ: Таймлайн с годами */}
+            {/* Правая часть - только 2 года */}
             <div className={s.right}>
               <div className={s.timelineViewport}>
+                {/* Трек-линия */}
                 <div className={s.trackLine} />
 
+                {/* Прогресс-линия */}
                 <div
                   ref={progressLineRef}
                   className={s.progressLine}
                   style={{ transformOrigin: "top center" }}
                 />
 
-                <div ref={yearsListRef} className={s.yearsMovingList}>
-                  {DATA.map((item, i) => (
+                {/* Фиксированные 2 года */}
+                <div className={s.yearsFixed}>
+                  {/* Текущий год - ВВЕРХУ */}
+                  <div
+                    ref={currentYearRef}
+                    key={`current-${activeIndex}`} // key для перезапуска анимации
+                    className={clsx(s.yearItem, s.yearCurrent)}
+                    onClick={goToPrev}
+                    style={{ cursor: hasPrev ? "pointer" : "default" }}
+                  >
+                    <div className={s.dotWrapper}>
+                      <div className={clsx(s.dot, s.dotActive)} />
+                    </div>
+                    <span className={s.yearValue}>{currentYear}</span>
+                  </div>
+
+                  {/* Следующий год - ВНИЗУ */}
+                  {hasNext && (
                     <div
-                      key={i}
-                      className={s.yearItem}
-                      onClick={() => setActiveIndex(i)}
-                      style={{ cursor: "pointer" }}
+                      ref={nextYearRef}
+                      key={`next-${activeIndex + 1}`} // key для перезапуска анимации
+                      className={clsx(s.yearItem, s.yearNext)}
+                      onClick={goToNext}
                     >
                       <div className={s.dotWrapper}>
                         <div className={s.dot} />
                       </div>
-                      <span className={s.yearValue}>{item.year}</span>
+                      <span className={s.yearValue}>{nextYear}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
