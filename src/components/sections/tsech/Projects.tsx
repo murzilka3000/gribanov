@@ -24,7 +24,12 @@ const Projects = () => {
                   src="/icons/a-w.svg"
                   alt=""
                 />
-                <a className={s.projects__link} href="https://tseh.studio/">
+                <a
+                  className={s.projects__link}
+                  href="https://tseh.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Подробнее
                 </a>
               </div>
@@ -49,6 +54,8 @@ const Projects = () => {
                 <a
                   className={s.projects__link}
                   href="https://kvartirnik.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Подробнее
                 </a>
@@ -71,7 +78,12 @@ const Projects = () => {
                   src="/icons/a-w.svg"
                   alt=""
                 />
-                <a className={s.projects__link} href="https://kino.school/">
+                <a
+                  className={s.projects__link}
+                  href="https://kino.school/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Подробнее
                 </a>
               </div>
@@ -83,7 +95,7 @@ const Projects = () => {
                   ЦЕХ <span>Практикум</span>
                 </h3>
                 <p className={s.projects__item_text}>
-                  Киношкола для взрослых: никакой теории, все обучение —  через
+                  Киношкола для взрослых: никакой теории, все обучение — через
                   практику
                 </p>
               </div>
@@ -93,7 +105,12 @@ const Projects = () => {
                   src="/icons/a-w.svg"
                   alt=""
                 />
-                <a className={s.projects__link} href="https://practicum.school">
+                <a
+                  className={s.projects__link}
+                  href="https://practicum.school"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Подробнее
                 </a>
               </div>

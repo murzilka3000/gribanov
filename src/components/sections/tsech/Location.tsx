@@ -8,6 +8,7 @@ const slides = [
   { id: 1, url: "/images/1.webp" },
   { id: 2, url: "/images/2.webp" },
   { id: 3, url: "/images/3.webp" },
+  { id: 4, url: "/images/4.webp" }
 ];
 
 const Location = () => {

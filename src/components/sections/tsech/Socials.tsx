@@ -1,6 +1,5 @@
 import s from "@/app/tsech/Tsech.module.scss";
 import clsx from "clsx";
-
 const Socials = () => {
   return (
     <section className={clsx(s.socials, "section_padding")}>
@@ -13,6 +12,8 @@ const Socials = () => {
                 <a
                   href="https://vk.com/kinoschool.tseh"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ВКонтакте
                 </a>
@@ -26,6 +27,8 @@ const Socials = () => {
                 <a
                   href="https://vk.com/tseh.kvartirnik"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   ВКонтакте
                 </a>
@@ -41,6 +44,8 @@ const Socials = () => {
                 <a
                   href="https://t.me/kinoschooltseh"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Telegram
                 </a>
@@ -54,6 +59,8 @@ const Socials = () => {
                 <a
                   href="https://www.youtube.com/@kino.school"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   YouTube
                 </a>
@@ -67,6 +74,8 @@ const Socials = () => {
                 <a
                   href="https://www.youtube.com/@tsehstudio"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   YouTube
                 </a>
@@ -84,6 +93,8 @@ const Socials = () => {
                 <a
                   href="https://vk.com/kinoschool.tseh"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   VK
                 </a>
@@ -99,6 +110,8 @@ const Socials = () => {
                 <a
                   href="https://vk.com/tseh.kvartirnik"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   VK
                 </a>
@@ -116,6 +129,8 @@ const Socials = () => {
                 <a
                   href="https://t.me/kinoschooltseh"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Telegram
                 </a>
@@ -131,6 +146,8 @@ const Socials = () => {
                 <a
                   href="https://www.youtube.com/@kino.school"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   YouTube
                 </a>
@@ -146,6 +163,8 @@ const Socials = () => {
                 <a
                   href="https://www.youtube.com/@tsehstudio"
                   className={s.socials__link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   YouTube
                 </a>
@@ -162,5 +181,4 @@ const Socials = () => {
     </section>
   );
 };
-
 export default Socials;
