@@ -19,18 +19,13 @@ const Header = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
-  // 1. Логика скролла (Hide/Show + Background)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Определяем, прокручена ли страница (для появления белого фона)
       setIsScrolled(currentScrollY > 20);
 
-      // Если попап открыт, не прячем шапку
       if (isOpen) return;
 
-      // Логика направления: прячем при скролле вниз, показываем при скролле вверх
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
       } else {
@@ -44,7 +39,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isOpen]);
 
-  // 2. Блокировка скролла при открытом меню
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -52,7 +46,6 @@ const Header = () => {
     };
   }, [isOpen]);
 
-  // 3. Закрытие при клике вне области (ПК)
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -70,7 +63,7 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isOpen]);
 
-  const isHome = pathname === "/";
+  const isDarkPage = pathname === "/" || pathname === "/privacy";
 
   const menuItems = [
     { title: "Frank RG", href: "/frank-rg", color: "#173969" },
@@ -79,13 +72,9 @@ const Header = () => {
     { title: "Springle", href: "/springle", color: "#FE5A00" },
   ];
 
-  // ЛОГИКА ИКОНКИ:
-  // Если открыто -> крестик
-  // Если главная -> ВСЕГДА черный бургер
-  // Если не главная -> белый сверху, черный при скролле
   const burgerIcon = isOpen
     ? "/images/close.svg"
-    : isHome
+    : isDarkPage
       ? "/images/burger-b.svg"
       : isScrolled
         ? "/images/burger-b.svg"
@@ -112,12 +101,9 @@ const Header = () => {
 
           <Link
             href="/"
-            // ЛОГИКА ЦВЕТА ТЕКСТА:
-            // Если главная -> всегда dark_text
-            // Если не главная -> dark_text только при скролле или открытом меню
             className={clsx(
               s.logo_link,
-              (isHome || isScrolled || isOpen) && s.dark_text,
+              (isDarkPage || isScrolled || isOpen) && s.dark_text,
             )}
             onClick={closeMenu}
           >
