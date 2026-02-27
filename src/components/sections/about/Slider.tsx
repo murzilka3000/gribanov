@@ -252,7 +252,6 @@ export default function ChronologyDesktop() {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Вычисляем текущий и следующий год
   const currentYear = DATA[activeIndex]?.year;
   const nextYear = DATA[activeIndex + 1]?.year;
   const hasNext = activeIndex < DATA.length - 1;
@@ -263,42 +262,54 @@ export default function ChronologyDesktop() {
       const contents = gsap.utils.toArray(`.${s.contentItem}`) as HTMLElement[];
       const totalSteps = DATA.length;
 
-      // 1. Анимация прогресс-бара
+      // 1. Прогресс-бар
       gsap.to(progressLineRef.current, {
         scaleY: activeIndex / (totalSteps - 1),
         duration: 0.8,
         ease: "power3.inOut",
       });
 
-      // 2. Анимация смены текущего года
+      // === ИЗМЕНЕНИЯ ЗДЕСЬ ===
+      // Мы анимируем только ТЕКСТ (yearValue), а не весь контейнер.
+      // Точка меняется автоматически через CSS transition классов yearCurrent/yearNext
+
+      // Анимация текста текущего года
       if (currentYearRef.current) {
-        gsap.fromTo(
-          currentYearRef.current,
-          { opacity: 0, y: -30, scale: 0.9 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" },
-        );
+        const textEl = currentYearRef.current.querySelector(`.${s.yearValue}`);
+        
+        // Сброс анимации контейнера (на всякий случай, если остались стили)
+        gsap.set(currentYearRef.current, { y: 0, opacity: 1, scale: 1 });
+        
+        // Анимация только цифр
+        if (textEl) {
+          gsap.fromTo(
+            textEl,
+            { opacity: 0, y: -40 }, // Текст выезжает сверху
+            { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+          );
+        }
       }
 
-      // 3. Анимация смены следующего года
+      // Анимация текста следующего года
       if (nextYearRef.current) {
-        gsap.fromTo(
-          nextYearRef.current,
-          { opacity: 0, y: 30, scale: 0.85 },
-          {
-            opacity: 0.4,
-            y: 0,
-            scale: 0.85,
-            duration: 0.6,
-            ease: "power3.out",
-            delay: 0.1,
-          },
-        );
+        const textEl = nextYearRef.current.querySelector(`.${s.yearValue}`);
+        
+         // Сброс анимации контейнера
+        gsap.set(nextYearRef.current, { y: 0, opacity: 1, scale: 1 });
+
+        // Анимация только цифр
+        if (textEl) {
+          gsap.fromTo(
+            textEl,
+            { opacity: 0, y: 40 }, // Текст выезжает снизу
+            { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 0.1 }
+          );
+        }
       }
 
-      // 4. Анимация контента (левая часть)
+      // 4. Анимация контента (слева) - без изменений
       contents.forEach((content, i) => {
         const isActive = i === activeIndex;
-
         gsap.to(content, {
           opacity: isActive ? 1 : 0,
           y: isActive ? 0 : i < activeIndex ? -40 : 40,
@@ -311,20 +322,15 @@ export default function ChronologyDesktop() {
     {
       scope: rootRef,
       dependencies: [activeIndex],
-    },
+    }
   );
 
-  // Навигация
   const goToNext = () => {
-    if (hasNext) {
-      setActiveIndex((prev) => prev + 1);
-    }
+    if (hasNext) setActiveIndex((prev) => prev + 1);
   };
 
   const goToPrev = () => {
-    if (hasPrev) {
-      setActiveIndex((prev) => prev - 1);
-    }
+    if (hasPrev) setActiveIndex((prev) => prev - 1);
   };
 
   return (
@@ -332,7 +338,6 @@ export default function ChronologyDesktop() {
       <div className="wrapper">
         <div ref={rootRef} className={s.root}>
           <div className={s.container}>
-            {/* Левая часть - контент */}
             <div className={s.left}>
               <h2 className={s.title}>Хронология событий</h2>
               <div className={s.contentStack}>
@@ -343,9 +348,6 @@ export default function ChronologyDesktop() {
                     style={{
                       opacity: i === 0 ? 1 : 0,
                       position: i === 0 ? "relative" : "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
                     }}
                   >
                     {item.content}
@@ -354,25 +356,20 @@ export default function ChronologyDesktop() {
               </div>
             </div>
 
-            {/* Правая часть - только 2 года */}
             <div className={s.right}>
               <div className={s.timelineViewport}>
-                {/* Трек-линия */}
                 <div className={s.trackLine} />
-
-                {/* Прогресс-линия */}
                 <div
                   ref={progressLineRef}
                   className={s.progressLine}
                   style={{ transformOrigin: "top center" }}
                 />
 
-                {/* Фиксированные 2 года */}
                 <div className={s.yearsFixed}>
-                  {/* Текущий год - ВВЕРХУ */}
+                  {/* Current Year */}
                   <div
                     ref={currentYearRef}
-                    key={`current-${activeIndex}`} // key для перезапуска анимации
+                    key={`current-${activeIndex}`}
                     className={clsx(s.yearItem, s.yearCurrent)}
                     onClick={goToPrev}
                     style={{ cursor: hasPrev ? "pointer" : "default" }}
@@ -380,14 +377,15 @@ export default function ChronologyDesktop() {
                     <div className={s.dotWrapper}>
                       <div className={clsx(s.dot, s.dotActive)} />
                     </div>
+                    {/* Класс yearValue важен для поиска через querySelector */}
                     <span className={s.yearValue}>{currentYear}</span>
                   </div>
 
-                  {/* Следующий год - ВНИЗУ */}
+                  {/* Next Year */}
                   {hasNext && (
                     <div
                       ref={nextYearRef}
-                      key={`next-${activeIndex + 1}`} // key для перезапуска анимации
+                      key={`next-${activeIndex + 1}`}
                       className={clsx(s.yearItem, s.yearNext)}
                       onClick={goToNext}
                     >

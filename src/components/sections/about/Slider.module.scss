@@ -1,6 +1,5 @@
 /* Slider.module.scss */
 
-// Определение анимации пульсации
 @keyframes pulse-ring {
   0% {
     transform: translate(-50%, -50%) scale(0.8);
@@ -179,7 +178,7 @@
   }
 }
 
-// === СТИЛИ ДЛЯ ЛЕТ ===
+// === СТИЛИ ЛЕТ И ТОЧЕК ===
 
 .yearsFixed {
   display: flex;
@@ -194,35 +193,35 @@
   display: flex;
   align-items: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease; // Анимация только прозрачности контейнера
 }
 
-// Текущий активный год (вверху)
+// 1. Текущий активный год (верхний)
 .yearCurrent {
   color: #1a3668;
   cursor: default;
-
-  &:hover {
-    opacity: 0.85;
-  }
+  opacity: 1;
 
   .dot {
     background-color: #1a3668;
     border-color: #1a3668;
-    transform: scale(1.4);
+    transform: scale(1.4); // Увеличиваем только точку
     z-index: 1;
+  }
+
+  // Текст текущего года
+  .yearValue {
+    // Можно добавить специфичные стили если нужно
   }
 }
 
-// Следующий год (внизу - неактивный)
+// 2. Следующий год (нижний, неактивный)
 .yearNext {
-  opacity: 0.5; // Базовая прозрачность для неактивного года
   color: #8fa8c4;
   cursor: pointer;
-  transform: scale(0.85);
-  transform-origin: left center;
-  transition: opacity 0.3s ease;
+  opacity: 0.6; // Полупрозрачный контейнер
 
+  // При наведении на весь блок
   &:hover {
     opacity: 1;
     color: #5a7a9e;
@@ -233,13 +232,13 @@
     }
   }
 
-  // Анимация пульсации для точки неактивного года
+  // Точка в неактивном состоянии
   .dot {
-    position: relative;
-    z-index: 1;
     background-color: #b0c2d4;
     border-color: #b0c2d4;
+    transform: scale(1); // Обычный размер
 
+    // Пульсация только у неактивной точки
     &::after {
       content: "";
       position: absolute;
@@ -248,12 +247,16 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1px solid #5a7a9e; // Цвет пульсирующего кольца
+      border: 1px solid #5a7a9e;
       z-index: -1;
       transform: translate(-50%, -50%);
       animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
     }
   }
+
+  // Текст следующего года - можно сделать поменьше через transform,
+  // но лучше через font-size, чтобы не конфликтовать с GSAP.
+  // Или просто оставить как есть (размер шрифта наследуется из .yearValue)
 }
 
 .dotWrapper {
@@ -277,7 +280,9 @@
   background-color: #d1d9e0;
   border-radius: 50%;
   border: 2px solid #d1d9e0;
-  transition: all 0.3s ease;
+  position: relative;
+  // Важно: плавный переход свойств точки (размер, цвет) при смене класса родителем
+  transition: all 0.4s ease;
   @media screen and (max-width: 767px) {
     width: 10px;
     height: 10px;
@@ -291,6 +296,8 @@
   font-weight: 400;
   line-height: 1;
   user-select: none;
+  // Важно: position relative для корректной работы GSAP transform
+  position: relative;
   @media screen and (max-width: 950px) {
     font-size: 80px;
     padding-left: 40px;
