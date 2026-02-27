@@ -1,4 +1,3 @@
-import React from "react";
 import HomeBigCard from "../HomeBigCard";
 import s from "@/app/tsech/Tsech.module.scss";
 

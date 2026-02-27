@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./FrankMedia.module.scss";
 import { HeroMediaSection } from "@/components/sections/frank-media/HeroMediaSection";
 import { AboutSection } from "@/components/sections/frank-media/AboutSection";
@@ -8,6 +7,18 @@ import { StandardsSection } from "@/components/sections/frank-media/StandardsSec
 import { VideoMediaSection } from "@/components/sections/frank-media/VideoMediaSection";
 import { SocialsSection } from "@/components/sections/frank-media/SocialsSection";
 import Footer from "@/components/layout/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Юрий Грибанов — издатель СМИ Frank Media",
+  description:
+    "Frank Media — деловое издание о финансах и экономике. Последние  новости из мира банков и финансовых рынков в России и мире.",
+  openGraph: {
+    title: "Юрий Грибанов — издатель СМИ Frank Media",
+    description:
+    "Frank Media — деловое издание о финансах и экономике. Последние  новости из мира банков и финансовых рынков в России и мире.",
+  },
+};
 
 const Page = () => {
   return (

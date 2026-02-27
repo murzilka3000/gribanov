@@ -8,6 +8,18 @@ import { VideoSpringleSection } from "@/components/sections/springle/VideoSpring
 import { GalleryStripSection } from "@/components/sections/springle/GalleryStripSection";
 import { ContactSpringleSection } from "@/components/sections/springle/ContactSpringleSection";
 import Footer from "@/components/layout/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Юрий Грибанов — сооснователь корпоративной лиги Springle",
+  description:
+    "Springle — проект по организации корпоративных турниров по алтимат фрисби. Алтимат фрисби — идеальный корпоративный вид спорта.",
+  openGraph: {
+    title: "Юрий Грибанов — сооснователь корпоративной лиги Springle",
+    description:
+      "Springle — проект по организации корпоративных турниров по алтимат фрисби. Алтимат фрисби — идеальный корпоративный вид спорта.",
+  },
+};
 
 const Page = () => {
   return (
@@ -25,7 +37,7 @@ const Page = () => {
           <ContactSpringleSection />
         </div>
       </main>
-      <Footer background="#fe5a00"/>
+      <Footer background="#fe5a00" />
     </>
   );
 };

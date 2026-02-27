@@ -1,4 +1,4 @@
-"use client";
+
 import s from "./Tsech.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,6 +14,18 @@ import Achievements from "@/components/sections/tsech/Achievements";
 import Socials from "@/components/sections/tsech/Socials";
 import Footer from "@/components/layout/Footer";
 import Kino from "@/components/sections/tsech/Kino";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
+  description:
+    "ЦЕХ — это экосистема проектов в сфере медиа-контента: продакшн полного цикла, дополнительное образование в сфере кино, аренда съёмочных локаций.",
+  openGraph: {
+    title: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
+    description:
+      "ЦЕХ — это экосистема проектов в сфере медиа-контента: продакшн полного цикла, дополнительное образование в сфере кино, аренда съёмочных локаций.",
+  },
+};
 
 const page = () => {
   return (

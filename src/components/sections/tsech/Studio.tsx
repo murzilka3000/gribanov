@@ -1,4 +1,3 @@
-import React from "react";
 import s from "@/app/tsech/Tsech.module.scss";
 import clsx from "clsx";
 

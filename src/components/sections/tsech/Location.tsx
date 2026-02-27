@@ -1,3 +1,4 @@
+"use client";
 import s from "@/app/tsech/Tsech.module.scss";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";

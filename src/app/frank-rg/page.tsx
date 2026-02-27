@@ -10,6 +10,18 @@ import { CinemaSection } from "@/components/sections/frank-rg/CinemaSection";
 import Footer from "@/components/layout/Footer";
 import s from "./FrankRg.module.scss";
 import clsx from "clsx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Юрий Грибанов — основатель и генеральный директор Frank RG",
+  description:
+    "Frank RG — аналитическая консалтинговая компания, эксперт в области исследований конкурентной среды российского рынка финансовых услуг. ",
+  openGraph: {
+    title: "Юрий Грибанов — издатель СМИ Frank Media",
+    description:
+      "Frank RG — аналитическая консалтинговая компания, эксперт в области исследований конкурентной среды российского рынка финансовых услуг. ",
+  },
+};
 
 const Page = () => {
   return (

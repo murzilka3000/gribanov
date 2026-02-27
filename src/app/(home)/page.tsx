@@ -9,6 +9,18 @@ import { BooksSection } from "@/components/sections/home/BooksSection";
 import { TelegramSection } from "@/components/sections/home/TelegramSection";
 import clsx from "clsx";
 import Footer from "@/components/layout/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Юрий Грибанов — серийный предприниматель",
+  description:
+    "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
+  openGraph: {
+    title: "О компании | Frank RG",
+    description:
+      "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
+  },
+};
 
 const Page = () => {
   return (
