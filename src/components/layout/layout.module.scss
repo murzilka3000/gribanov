@@ -285,3 +285,28 @@
     height: 100%;
   }
 }
+
+.flex__fdg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pol {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  @media screen and (max-width: 686px) {
+    display: none!important;
+  }
+}
+
+.pol_mob {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  display: none!important;
+  @media screen and (max-width: 686px) {
+    display: block!important;
+  }
+}

@@ -43,9 +43,14 @@ const Footer = ({ background }: FooterProps) => {
     >
       <div className="wrapper">
         <div className={s.footer_cont}>
-          <p className={s.footer_text}>
-            Подписывайтесь <br /> на мои соцсети
-          </p>
+          <div className={s.flex__fdg}>
+            <p className={s.footer_text}>
+              Подписывайтесь <br /> на мои соцсети
+            </p>
+            <a className={s.pol} href="/privacy" target="_blank" rel="noopener noreferrer">
+            Политика конфиденциальности
+            </a>
+          </div>
           <div className={s.footer_links}>
             {footer.map((t) => {
               return (
@@ -60,6 +65,9 @@ const Footer = ({ background }: FooterProps) => {
                 </a>
               );
             })}
+            <a className={s.pol_mob} href="/privacy" target="_blank" rel="noopener noreferrer">
+            Политика конфиденциальности
+            </a>
           </div>
         </div>
       </div>
