@@ -26,7 +26,7 @@ const footer = [
   },
   {
     href: "https://rutube.ru/channel/28464322/",
-    img: "/icons/f-5.svg",
+    img: "/images/rutube.svg",
     text: "Rutube",
   },
   {
