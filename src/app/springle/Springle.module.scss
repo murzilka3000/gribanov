@@ -14,6 +14,13 @@
     color: #fff !important;
     border-color: #fff !important;
   }
+  a {
+    &:hover {
+      background: #24282e !important;
+      color: #fff !important;
+      border-color: #24282e !important;
+    }
+  }
 }
 
 .bg_orange {
@@ -440,7 +447,7 @@
       border: 1px solid #fe5a00;
       border-radius: 40px;
       padding: 10px 48px;
-      transition: all ease .3s;
+      transition: all ease 0.3s;
       &:hover {
         background-color: #fe5a00;
         color: #fff;

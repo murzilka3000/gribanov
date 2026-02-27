@@ -14,6 +14,13 @@
     color: #fff !important;
     border-color: #fff !important;
   }
+  a {
+    &:hover {
+      background: #24282e !important;
+      color: #fff !important;
+      border-color: #24282e !important;
+    }
+  }
 }
 
 .map {
@@ -265,7 +272,7 @@
     padding: 10px 48px;
     text-decoration: none;
     display: inline-block;
-    transition: all ease .3s;
+    transition: all ease 0.3s;
     &:hover {
       color: #24282e;
       background-color: #ae9765;

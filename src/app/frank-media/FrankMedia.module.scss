@@ -14,6 +14,13 @@
     color: #fff !important;
     border-color: #fff !important;
   }
+  a {
+    &:hover {
+      background: #24282e !important;
+      color: #fff !important;
+      border-color: #24282e !important;
+    }
+  }
 }
 
 .bg {
@@ -492,7 +499,7 @@
       border-radius: 40px;
       padding: 10px 49px;
       margin-top: 20px;
-      transition: all ease .3s;
+      transition: all ease 0.3s;
       &:hover {
         background: #24282e;
         color: #fff;
