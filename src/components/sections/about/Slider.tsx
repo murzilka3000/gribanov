@@ -6,8 +6,6 @@ import { useGSAP } from "@gsap/react";
 import s from "./Slider.module.scss";
 import clsx from "clsx";
 
-
-
 const DATA = [
   // ... ваши данные массива DATA (оставляем без изменений)
   {
@@ -251,7 +249,7 @@ export default function ChronologyDesktop() {
   const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
 
-  // Добавляем состояние для активного года
+  // Состояние для активного года
   const [activeIndex, setActiveIndex] = useState(0);
 
   useGSAP(
@@ -265,7 +263,7 @@ export default function ChronologyDesktop() {
       const yearHeight = years[0].offsetHeight || 50;
       const totalSteps = DATA.length;
 
-      // 1. Анимация смещения списка лет
+      // 1. Анимация смещения списка лет (активный всегда по центру)
       gsap.to(yearsListRef.current, {
         y: -activeIndex * yearHeight,
         duration: 0.6,
@@ -279,24 +277,36 @@ export default function ChronologyDesktop() {
         ease: "power3.inOut",
       });
 
-      // 3. Анимация каждого элемента (текст, года, точки)
+      // 3. Анимация каждого элемента
       years.forEach((_, i) => {
         const isActive = i === activeIndex;
+        // Вычисляем дистанцию от текущего года до активного (0 - сам год, 1 - соседи, 2+ - остальные)
+        const distance = Math.abs(i - activeIndex);
 
-        // Контент (появляется активный, остальные уходят вверх/вниз)
+        // Контент (левая часть)
         gsap.to(contents[i], {
           opacity: isActive ? 1 : 0,
-          y: isActive ? 0 : i < activeIndex ? -30 : 30, // Прошлые уходят вверх, будущие - вниз
+          y: isActive ? 0 : i < activeIndex ? -30 : 30, // Уходят вверх/вниз
           pointerEvents: isActive ? "auto" : "none",
           duration: 0.6,
           ease: "power3.inOut",
         });
 
-        // Года (размер и цвет)
+        // ЛОГИКА ПРОЗРАЧНОСТИ: Видно только 3 года
+        let itemOpacity = 0;
+        if (distance === 0)
+          itemOpacity = 1; // Центральный год (100%)
+        else if (distance === 1)
+          itemOpacity = 0.4; // Соседи сверху и снизу (40%)
+        else itemOpacity = 0; // Остальные скрыты (0%)
+
+        // Года (размер, цвет и прозрачность всей строки)
         gsap.to(years[i], {
-          opacity: isActive ? 1 : 0.2,
+          opacity: itemOpacity,
           color: isActive ? "#1a3668" : "#b1b1b1",
           scale: isActive ? 1 : 0.8,
+          // Блокируем клики по невидимым годам, чтобы не было "слепых" нажатий
+          pointerEvents: distance <= 1 ? "auto" : "none",
           duration: 0.6,
           ease: "power3.inOut",
         });
@@ -313,7 +323,7 @@ export default function ChronologyDesktop() {
     },
     {
       scope: rootRef,
-      dependencies: [activeIndex], // GSAP перезапускает анимации каждый раз, когда меняется activeIndex
+      dependencies: [activeIndex], // Перезапускает анимации при смене активного года
     },
   );
 
@@ -337,8 +347,6 @@ export default function ChronologyDesktop() {
                     style={{
                       opacity: i === 0 ? 1 : 0,
                       transform: i === 0 ? "translateY(0)" : "translateY(30px)",
-                      // Важно: абсолютное позиционирование для стека контента,
-                      // чтобы блоки накладывались друг на друга, а не шли списком (если это еще не задано в вашем CSS)
                       position: i === 0 ? "relative" : "absolute",
                       top: 0,
                       left: 0,
@@ -359,7 +367,7 @@ export default function ChronologyDesktop() {
                 <div
                   ref={progressLineRef}
                   className={s.progressLine}
-                  style={{ transformOrigin: "top center" }} // Чтобы линия росла сверху вниз
+                  style={{ transformOrigin: "top center" }}
                 />
 
                 <div ref={yearsListRef} className={s.yearsMovingList}>
@@ -367,8 +375,8 @@ export default function ChronologyDesktop() {
                     <div
                       key={i}
                       className={s.yearItem}
-                      onClick={() => setActiveIndex(i)} // Клик по году переключает слайд
-                      style={{ cursor: "pointer" }} // Делаем очевидным, что года кликабельны
+                      onClick={() => setActiveIndex(i)}
+                      style={{ cursor: "pointer" }}
                     >
                       <div className={s.dotWrapper}>
                         <div className={s.dot} />
