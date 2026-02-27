@@ -1,12 +1,10 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+
+import { useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import s from "./SliderMob.module.scss";
 import clsx from "clsx";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const DATA = [
   {
@@ -249,179 +247,75 @@ const DATA = [
   },
 ];
 
-export default function Chronology() {
+export default function SliderMob() {
   const rootRef = useRef(null);
   const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 767);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  // Добавляем состояние для активного года
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useGSAP(
     () => {
-      // Ждём пока DOM обновится
-      if (typeof window === "undefined") return;
-
       const contents = gsap.utils.toArray(`.${s.contentItem}`) as HTMLElement[];
       const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
       const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
+
+      if (years.length === 0) return;
+
+      const yearWidth = 120; // Ширина одного года из вашего старого кода
       const totalSteps = DATA.length;
 
-      // Очищаем предыдущие ScrollTrigger
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // 1. Смещение списка лет по горизонтали
+      gsap.to(yearsListRef.current, {
+        x: -activeIndex * yearWidth,
+        duration: 0.5,
+        ease: "power3.inOut",
+      });
 
-      if (isMobile) {
-        // === МОБИЛЬНАЯ ВЕРСИЯ (горизонтальный таймлайн) ===
-        const yearWidth = 120; // ширина одного года
+      // 2. Анимация горизонтального прогресс-бара
+      gsap.to(progressLineRef.current, {
+        scaleX: activeIndex / (totalSteps - 1),
+        duration: 0.5,
+        ease: "power3.inOut",
+      });
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top top",
-            end: `+=${totalSteps * 60}%`,
-            pin: true,
-            scrub: 0.5,
-            anticipatePin: 1,
-          },
+      // 3. Анимация элементов (контент, точки, года)
+      years.forEach((_, i) => {
+        const isActive = i === activeIndex;
+
+        // Контент (плавно появляется и исчезает, меняя display, чтобы высота подстраивалась)
+        gsap.to(contents[i], {
+          opacity: isActive ? 1 : 0,
+          y: isActive ? 0 : i < activeIndex ? -20 : 20,
+          display: isActive ? "block" : "none",
+          duration: 0.5,
+          ease: "power3.inOut",
         });
 
-        // Анимация прогресс-бара (горизонтальная линия)
-        tl.to(
-          progressLineRef.current,
-          {
-            scaleX: 1,
-            ease: "none",
-            duration: totalSteps,
-          },
-          0,
-        );
-
-        years.forEach((_, i) => {
-          // Смещение списка лет по горизонтали
-          tl.to(
-            yearsListRef.current,
-            {
-              x: -i * yearWidth,
-              ease: "power2.inOut",
-            },
-            i,
-          );
-
-          // Анимация контента
-          if (i > 0) {
-            tl.to(
-              contents[i - 1],
-              { opacity: 0, y: -20, pointerEvents: "none", display: "none" },
-              i,
-            );
-            tl.to(
-              contents[i],
-              { opacity: 1, y: 0, pointerEvents: "auto", display: "block" },
-              i,
-            );
-          }
-
-          tl.to(years[i], { opacity: 1, color: "#1a3668", scale: 1 }, i);
-          tl.to(
-            dots[i],
-            { backgroundColor: "#1a3668", scale: 1.3, borderColor: "#1a3668" },
-            i,
-          );
-
-          if (i > 0) {
-            tl.to(
-              years[i - 1],
-              { opacity: 0.4, color: "#b1b1b1", scale: 0.85 },
-              i,
-            );
-            tl.to(
-              dots[i - 1],
-              { backgroundColor: "#d1d9e0", scale: 1, borderColor: "#d1d9e0" },
-              i,
-            );
-          }
-        });
-      } else {
-        // === ДЕСКТОПНАЯ ВЕРСИЯ (вертикальный таймлайн) ===
-        const yearHeight = years[0].offsetHeight;
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top top",
-            end: `+=${totalSteps * 100}%`,
-            pin: true,
-            scrub: true,
-          },
+        // Года
+        gsap.to(years[i], {
+          opacity: isActive ? 1 : 0.4,
+          color: isActive ? "#1a3668" : "#b1b1b1",
+          scale: isActive ? 1 : 0.85,
+          duration: 0.5,
+          ease: "power3.inOut",
         });
 
-        // Анимация прогресс-бара (вертикальная линия)
-        tl.to(
-          progressLineRef.current,
-          {
-            scaleY: 1,
-            ease: "none",
-            duration: totalSteps,
-          },
-          0,
-        );
-
-        years.forEach((_, i) => {
-          // Смещение списка лет по вертикали
-          tl.to(
-            yearsListRef.current,
-            {
-              y: -i * yearHeight,
-              ease: "power2.inOut",
-            },
-            i,
-          );
-
-          // Анимация контента
-          if (i > 0) {
-            tl.to(
-              contents[i - 1],
-              { opacity: 0, y: -30, pointerEvents: "none" },
-              i,
-            );
-            tl.to(contents[i], { opacity: 1, y: 0, pointerEvents: "auto" }, i);
-          }
-
-          // Анимация года и точки
-          tl.to(years[i], { opacity: 1, color: "#1a3668", scale: 1 }, i);
-          tl.to(
-            dots[i],
-            { backgroundColor: "#1a3668", scale: 1.5, borderColor: "#1a3668" },
-            i,
-          );
-
-          if (i > 0) {
-            tl.to(
-              years[i - 1],
-              { opacity: 0.2, color: "#b1b1b1", scale: 0.8 },
-              i,
-            );
-            tl.to(
-              dots[i - 1],
-              { backgroundColor: "#d1d9e0", scale: 1, borderColor: "#d1d9e0" },
-              i,
-            );
-          }
+        // Точки
+        gsap.to(dots[i], {
+          backgroundColor: isActive ? "#1a3668" : "#d1d9e0",
+          borderColor: isActive ? "#1a3668" : "#d1d9e0",
+          scale: isActive ? 1.3 : 1,
+          duration: 0.5,
+          ease: "power3.inOut",
         });
-      }
-
-      ScrollTrigger.refresh();
+      });
     },
-    { scope: rootRef, dependencies: [isMobile] },
+    {
+      scope: rootRef,
+      dependencies: [activeIndex], // Перезапускаем при каждом клике
+    },
   );
 
   return (
@@ -429,15 +323,27 @@ export default function Chronology() {
       <div ref={rootRef} className={clsx(s.root, "")}>
         <div className={s.sticky}>
           <div className={s.container}>
+            {/* ТАЙМЛАЙН (Горизонтальный на мобилках) */}
             <div className={s.right}>
               <h2 className={s.title}>Хронология событий</h2>
               <div className={s.timelineViewport}>
                 <div className={s.trackLine} />
-                <div ref={progressLineRef} className={s.progressLine} />
+
+                {/* scaleX растет слева направо */}
+                <div
+                  ref={progressLineRef}
+                  className={s.progressLine}
+                  style={{ transformOrigin: "left center" }}
+                />
 
                 <div ref={yearsListRef} className={s.yearsMovingList}>
                   {DATA.map((item, i) => (
-                    <div key={i} className={s.yearItem}>
+                    <div
+                      key={i}
+                      className={s.yearItem}
+                      onClick={() => setActiveIndex(i)} // Делаем кликабельным
+                      style={{ cursor: "pointer" }}
+                    >
                       <span className={s.yearValue}>{item.year}</span>
                       <div className={s.dotWrapper}>
                         <div className={s.dot} />
@@ -448,7 +354,7 @@ export default function Chronology() {
               </div>
             </div>
 
-            {/* Контент - на мобилке будет снизу через order */}
+            {/* КОНТЕНТ (Отображается под таймлайном) */}
             <div className={s.left}>
               <div className={s.contentStack}>
                 {DATA.map((item, i) => (
@@ -457,8 +363,8 @@ export default function Chronology() {
                     className={s.contentItem}
                     style={{
                       opacity: i === 0 ? 1 : 0,
-                      transform: i === 0 ? "translateY(0)" : "translateY(30px)",
-                      display: i === 0 ? "block" : "none",
+                      transform: i === 0 ? "translateY(0)" : "translateY(20px)",
+                      display: i === 0 ? "block" : "none", // Изначально видим только первый
                     }}
                   >
                     {item.content}

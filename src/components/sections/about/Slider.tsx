@@ -1,13 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import s from "./Slider.module.scss";
 import clsx from "clsx";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 const DATA = [
   // ... ваши данные массива DATA (оставляем без изменений)
@@ -252,132 +251,131 @@ export default function ChronologyDesktop() {
   const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
 
+  // Добавляем состояние для активного года
+  const [activeIndex, setActiveIndex] = useState(0);
+
   useGSAP(
     () => {
-      let mm = gsap.matchMedia();
+      const contents = gsap.utils.toArray(`.${s.contentItem}`) as HTMLElement[];
+      const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
+      const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
 
-      // Запускаем ТОЛЬКО на экранах от 768px и шире
-      mm.add("(min-width: 768px)", () => {
-        const contents = gsap.utils.toArray(
-          `.${s.contentItem}`,
-        ) as HTMLElement[];
-        const years = gsap.utils.toArray(`.${s.yearItem}`) as HTMLElement[];
-        const dots = gsap.utils.toArray(`.${s.dot}`) as HTMLElement[];
+      if (years.length === 0) return;
 
-        if (years.length === 0) return;
+      const yearHeight = years[0].offsetHeight || 50;
+      const totalSteps = DATA.length;
 
-        const totalSteps = DATA.length;
+      // 1. Анимация смещения списка лет
+      gsap.to(yearsListRef.current, {
+        y: -activeIndex * yearHeight,
+        duration: 0.6,
+        ease: "power3.inOut",
+      });
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top top",
-            end: `+=${totalSteps * 100}%`,
-            pin: true,
-            scrub: true,
-            invalidateOnRefresh: true, // Заставляет пересчитывать расчеты, если размер окна изменился
-          },
+      // 2. Анимация прогресс-бара (заливки линии)
+      gsap.to(progressLineRef.current, {
+        scaleY: activeIndex / (totalSteps - 1), // От 0 (первый) до 1 (последний)
+        duration: 0.6,
+        ease: "power3.inOut",
+      });
+
+      // 3. Анимация каждого элемента (текст, года, точки)
+      years.forEach((_, i) => {
+        const isActive = i === activeIndex;
+
+        // Контент (появляется активный, остальные уходят вверх/вниз)
+        gsap.to(contents[i], {
+          opacity: isActive ? 1 : 0,
+          y: isActive ? 0 : i < activeIndex ? -30 : 30, // Прошлые уходят вверх, будущие - вниз
+          pointerEvents: isActive ? "auto" : "none",
+          duration: 0.6,
+          ease: "power3.inOut",
         });
 
-        // Анимация прогресс-бара (линии)
-        tl.to(
-          progressLineRef.current,
-          { scaleY: 1, ease: "none", duration: totalSteps },
-          0,
-        );
+        // Года (размер и цвет)
+        gsap.to(years[i], {
+          opacity: isActive ? 1 : 0.2,
+          color: isActive ? "#1a3668" : "#b1b1b1",
+          scale: isActive ? 1 : 0.8,
+          duration: 0.6,
+          ease: "power3.inOut",
+        });
 
-        years.forEach((_, i) => {
-          // ДИНАМИЧЕСКИЙ расчет высоты: спасет, если стили загрузились позже GSAP
-          tl.to(
-            yearsListRef.current,
-            {
-              y: () => -i * (years[0].offsetHeight || 50),
-              ease: "power2.inOut",
-            },
-            i,
-          );
-
-          // Анимация контента
-          if (i > 0) {
-            tl.to(
-              contents[i - 1],
-              { opacity: 0, y: -30, pointerEvents: "none" },
-              i,
-            );
-            tl.to(contents[i], { opacity: 1, y: 0, pointerEvents: "auto" }, i);
-          }
-
-          // Анимация года и точки
-          tl.to(years[i], { opacity: 1, color: "#1a3668", scale: 1 }, i);
-          tl.to(
-            dots[i],
-            { backgroundColor: "#1a3668", scale: 1.5, borderColor: "#1a3668" },
-            i,
-          );
-
-          if (i > 0) {
-            tl.to(
-              years[i - 1],
-              { opacity: 0.2, color: "#b1b1b1", scale: 0.8 },
-              i,
-            );
-            tl.to(
-              dots[i - 1],
-              { backgroundColor: "#d1d9e0", scale: 1, borderColor: "#d1d9e0" },
-              i,
-            );
-          }
+        // Точки (размер и цвет)
+        gsap.to(dots[i], {
+          backgroundColor: isActive ? "#1a3668" : "#d1d9e0",
+          borderColor: isActive ? "#1a3668" : "#d1d9e0",
+          scale: isActive ? 1.5 : 1,
+          duration: 0.6,
+          ease: "power3.inOut",
         });
       });
     },
-    { scope: rootRef },
+    {
+      scope: rootRef,
+      dependencies: [activeIndex], // GSAP перезапускает анимации каждый раз, когда меняется activeIndex
+    },
   );
 
   return (
     <section className={clsx("section_padding", s.sliderdesc)}>
       <div className="wrapper">
         <div ref={rootRef} className={s.root}>
-          <div className={s.sticky}>
-            <div className={s.container}>
-              <div className={s.left}>
-                <h2 className={s.title}>
-                  Хронология
-                  <br />
-                  событий
-                </h2>
-                <div className={s.contentStack}>
+          <div className={s.container}>
+            {/* ЛЕВАЯ ЧАСТЬ: Контент */}
+            <div className={s.left}>
+              <h2 className={s.title}>
+                Хронология
+                <br />
+                событий
+              </h2>
+              <div className={s.contentStack}>
+                {DATA.map((item, i) => (
+                  <div
+                    key={i}
+                    className={s.contentItem}
+                    style={{
+                      opacity: i === 0 ? 1 : 0,
+                      transform: i === 0 ? "translateY(0)" : "translateY(30px)",
+                      // Важно: абсолютное позиционирование для стека контента,
+                      // чтобы блоки накладывались друг на друга, а не шли списком (если это еще не задано в вашем CSS)
+                      position: i === 0 ? "relative" : "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                    }}
+                  >
+                    {item.content}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ПРАВАЯ ЧАСТЬ: Таймлайн с годами */}
+            <div className={s.right}>
+              <div className={s.timelineViewport}>
+                <div className={s.trackLine} />
+
+                <div
+                  ref={progressLineRef}
+                  className={s.progressLine}
+                  style={{ transformOrigin: "top center" }} // Чтобы линия росла сверху вниз
+                />
+
+                <div ref={yearsListRef} className={s.yearsMovingList}>
                   {DATA.map((item, i) => (
                     <div
                       key={i}
-                      className={s.contentItem}
-                      style={{
-                        opacity: i === 0 ? 1 : 0,
-                        transform:
-                          i === 0 ? "translateY(0)" : "translateY(30px)",
-                      }}
+                      className={s.yearItem}
+                      onClick={() => setActiveIndex(i)} // Клик по году переключает слайд
+                      style={{ cursor: "pointer" }} // Делаем очевидным, что года кликабельны
                     >
-                      {item.content}
+                      <div className={s.dotWrapper}>
+                        <div className={s.dot} />
+                      </div>
+                      <span className={s.yearValue}>{item.year}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              <div className={s.right}>
-                <div className={s.timelineViewport}>
-                  {/* Линии */}
-                  <div className={s.trackLine} />
-                  <div ref={progressLineRef} className={s.progressLine} />
-
-                  <div ref={yearsListRef} className={s.yearsMovingList}>
-                    {DATA.map((item, i) => (
-                      <div key={i} className={s.yearItem}>
-                        <div className={s.dotWrapper}>
-                          <div className={s.dot} />
-                        </div>
-                        <span className={s.yearValue}>{item.year}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>

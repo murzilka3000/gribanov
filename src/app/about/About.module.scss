@@ -157,6 +157,10 @@
 .values {
   padding-top: 160px;
   padding-bottom: 130px;
+  @media screen and (max-width: 767px) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+  }
 }
 
 .benefits {
