@@ -265,6 +265,11 @@
     padding: 10px 48px;
     text-decoration: none;
     display: inline-block;
+    transition: all ease .3s;
+    &:hover {
+      color: #24282e;
+      background-color: #ae9765;
+    }
     @media screen and (max-width: 767px) {
       font-size: 14px;
       padding: 5px 20px;

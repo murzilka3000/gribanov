@@ -69,7 +69,6 @@
     transform 0.4s ease,
     background-color 0.3s ease; // Плавность
   background-color: transparent; // Изначально прозрачный
-  
 }
 
 .header_scrolled {
@@ -251,6 +250,11 @@
   border-radius: 40px;
   padding-top: 8px;
   padding-bottom: 8px;
+  transition: all 0.3s ease;
+  &:hover {
+    color: #e9edf1 !important;
+    background: #24282e !important;
+  }
 }
 
 @keyframes fadeIn {

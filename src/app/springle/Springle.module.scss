@@ -263,7 +263,6 @@
     @media screen and (max-width: 767px) {
       font-size: 27px;
       line-height: 120%;
-
     }
   }
   p {
@@ -280,7 +279,6 @@
     gap: 20px;
     @media screen and (max-width: 1333px) {
       flex-direction: column;
-      
     }
     & > :first-child {
       flex: 1;
@@ -442,6 +440,11 @@
       border: 1px solid #fe5a00;
       border-radius: 40px;
       padding: 10px 48px;
+      transition: all ease .3s;
+      &:hover {
+        background-color: #fe5a00;
+        color: #fff;
+      }
       @media screen and (max-width: 767px) {
         font-size: 14px;
         padding: 5px 20px;

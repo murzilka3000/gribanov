@@ -158,8 +158,8 @@
   padding-top: 160px;
   padding-bottom: 130px;
   @media screen and (max-width: 767px) {
-      padding-top: 60px;
-      padding-bottom: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 
@@ -245,6 +245,11 @@
   border-radius: 40px;
   padding: 8px 54px;
   text-decoration: none;
+  transition: all ease 0.3s;
+  &:hover {
+    background: #24282e!important;
+    color: #fff;
+  }
   @media screen and (max-width: 767px) {
     padding: 8px 48px;
     font-size: 14px;

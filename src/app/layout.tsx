@@ -3,6 +3,7 @@ import { Manrope, Inter } from "next/font/google";
 import "./globals.scss";
 
 import Header from "@/components/layout/Header";
+import { TypographyProvider } from "@/components/TypographyProvider";
 
 const manrope = Manrope({
   subsets: ["cyrillic", "latin"],
@@ -30,7 +31,10 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${manrope.variable} ${inter.variable}`}>
         <Header />
-        {children}
+        <TypographyProvider>
+          {children}
+
+        </TypographyProvider>
       </body>
     </html>
   );

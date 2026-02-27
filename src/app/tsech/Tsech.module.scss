@@ -98,6 +98,11 @@
         text-align: center;
         color: #faf5f0;
         padding: 10px 35px;
+        transition: all ease .3s;
+        &:hover {
+          background: #fff;
+          color: #24282e;
+        }
         @media screen and (max-width: 767px) {
           padding: 8px 20px;
         }

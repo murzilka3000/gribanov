@@ -53,6 +53,11 @@
         border-radius: 40px;
         text-decoration: none;
         padding: 10px 54px;
+        transition: all ease .3s;
+        &:hover {
+          background: #fff;
+          color: #24282e!important;
+        }
         @media screen and (max-width: 823px) {
           display: none;
         }
