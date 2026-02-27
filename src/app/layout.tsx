@@ -18,8 +18,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Project Title",
-  description: "Description",
+  metadataBase: new URL("https://your-domain.com"),
+  openGraph: {
+    images: [
+      {
+        url: "/soc.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/soc.png"],
+  },
 };
 
 export default function RootLayout({
@@ -31,10 +45,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${manrope.variable} ${inter.variable}`}>
         <Header />
-        <TypographyProvider>
-          {children}
-
-        </TypographyProvider>
+        <TypographyProvider>{children}</TypographyProvider>
       </body>
     </html>
   );
