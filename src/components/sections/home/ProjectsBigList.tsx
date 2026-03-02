@@ -1,4 +1,3 @@
-import React from "react";
 import s from "@/app/(home)/Home.module.scss";
 import HomeBigCard from "@/components/sections/HomeBigCard";
 import { mainProjects } from "@/lib/data";

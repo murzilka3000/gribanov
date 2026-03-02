@@ -123,7 +123,7 @@ export const mainProjects: ProjectCardData[] = fix([
   },
   {
     label: "Издатель Frank Media",
-    image: "/images/img-2.png",
+    image: "/images/img-4545.png",
     intro:
       "Frank Media — деловое издание о финансах и экономике. Последние новости из мира банков и финансовых рынков в России и мире.",
     href: "https://frankmedia.ru/",
