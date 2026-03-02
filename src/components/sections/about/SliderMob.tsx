@@ -263,28 +263,24 @@ export default function SliderMob() {
 
       if (years.length === 0) return;
 
-      const yearWidth = 120; // Ширина одного года из вашего старого кода
+      const yearWidth = 120;
       const totalSteps = DATA.length;
 
-      // 1. Смещение списка лет по горизонтали
       gsap.to(yearsListRef.current, {
-        x: -activeIndex * yearWidth,
+        x: -Math.max(0, activeIndex - 1) * yearWidth,
         duration: 0.5,
         ease: "power3.inOut",
       });
 
-      // 2. Анимация горизонтального прогресс-бара
       gsap.to(progressLineRef.current, {
         scaleX: activeIndex / (totalSteps - 1),
         duration: 0.5,
         ease: "power3.inOut",
       });
 
-      // 3. Анимация элементов (контент, точки, года)
       years.forEach((_, i) => {
         const isActive = i === activeIndex;
 
-        // Контент (плавно появляется и исчезает, меняя display, чтобы высота подстраивалась)
         gsap.to(contents[i], {
           opacity: isActive ? 1 : 0,
           y: isActive ? 0 : i < activeIndex ? -20 : 20,
@@ -293,7 +289,6 @@ export default function SliderMob() {
           ease: "power3.inOut",
         });
 
-        // Года
         gsap.to(years[i], {
           opacity: isActive ? 1 : 0.4,
           color: isActive ? "#1a3668" : "#b1b1b1",
@@ -302,7 +297,6 @@ export default function SliderMob() {
           ease: "power3.inOut",
         });
 
-        // Точки
         gsap.to(dots[i], {
           backgroundColor: isActive ? "#1a3668" : "#d1d9e0",
           borderColor: isActive ? "#1a3668" : "#d1d9e0",
@@ -314,7 +308,7 @@ export default function SliderMob() {
     },
     {
       scope: rootRef,
-      dependencies: [activeIndex], // Перезапускаем при каждом клике
+      dependencies: [activeIndex],
     },
   );
 
