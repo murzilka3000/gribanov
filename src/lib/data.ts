@@ -249,11 +249,11 @@ export const books: BookItem[] = fix([
 ]);
 
 export const frankMediaLogos: PartnerLogo[] = fix([
-  { img: "/icons/logo-1.svg" },
-  { img: "/icons/logo-2.svg" },
-  { img: "/icons/logo-3.svg" },
-  { img: "/icons/logo-4.svg" },
-  { img: "/icons/logo-5.svg" },
+  { img: "/images/rbk.svg" },
+  { img: "/images/interfax.svg" },
+  { img: "/images/vedomosti.svg" },
+  { img: "/images/reuters.svg" },
+  { img: "/images/kommersant.svg" },
 ]);
 
 export const editors: EditorItem[] = fix([
