@@ -14,7 +14,7 @@ export const AboutSection = () => {
             </div>
             <div className={s.about_right}>
               <div className={s.about_right_cont}>
-                <p>ТОП-2</p>
+                <p>ТОП-3</p>
                 <p>самых цитируемых <br /> СМИ в тематике</p>
               </div>
               <div className={s.about_right_cont}>

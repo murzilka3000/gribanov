@@ -19,7 +19,6 @@ const Benefits = () => {
                 терять годы впустую.
               </p>
             </div>
-            <a href="">Скачать</a>
           </div>
           <div className={s.benefits__image_wrapper}>
             <h2 className={clsx(s.benefits__title, s.benefits__title_mob)}>

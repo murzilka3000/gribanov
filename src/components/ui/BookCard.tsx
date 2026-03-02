@@ -15,7 +15,7 @@ export const BookCard = ({ year, img, link }: BookItem) => {
         style={{ width: "100%", height: "auto" }}
       />
       <a href={link} target="_blank" rel="noopener noreferrer">
-        Читать
+        Подробнее
       </a>
     </article>
   );

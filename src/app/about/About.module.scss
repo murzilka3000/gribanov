@@ -94,6 +94,15 @@
       font-size: 12px;
     }
   }
+  a {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 122%;
+    color: #616161;
+    @media screen and (max-width: 767px) {
+      font-size: 12px;
+    }
+  }
 }
 
 .values__column {
@@ -331,11 +340,8 @@
   }
 }
 
-
-
-
 @media screen and (max-width: 767px) {
-.m60 {
-  height: 60px!important;
-}
+  .m60 {
+    height: 60px !important;
+  }
 }

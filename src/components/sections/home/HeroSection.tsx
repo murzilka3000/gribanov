@@ -23,7 +23,7 @@ export const HeroSection = () => {
                     версии RAEX
                   </p>
                   <p className={s.hero__achievement_text}>
-                    <span>ТОП-2</span> самых цитируемых <br /> финансовых СМИ по версии{" "}
+                    <span>ТОП-3</span> самых цитируемых <br /> финансовых СМИ по версии{" "}
                     <br /> Медиалогии
                   </p>
                 </div>
@@ -35,7 +35,7 @@ export const HeroSection = () => {
                 версии RAEX
               </p>
               <p className={s.hero__achievement_text}>
-                ТОП-2 самых цитируемых <br /> финансовых СМИ по версии <br />{" "}
+                ТОП-3 самых цитируемых <br /> финансовых СМИ по версии <br />{" "}
                 Медиалогии
               </p>
             </div>

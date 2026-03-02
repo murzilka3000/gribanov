@@ -18,21 +18,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"),
+  metadataBase: new URL("https://gribanov.com/"),
+  title: "Заголовок твоего сайта", // Обязательно добавь
+  description: "Юрий Грибанов — серийный предприниматель", // Обязательно добавь
+
   openGraph: {
+    title: "Юрий Грибанов — серийный предприниматель",
+    description: "Юрий Грибанов — серийный предприниматель",
+    url: "https://gribanov.com/",
+    siteName: "Юрий Грибанов — серийный предприниматель",
     images: [
       {
-        url: "/soc.png",
+        url: "/soc.png", // Можно писать просто /soc.png, так как есть metadataBase
         width: 1200,
         height: 630,
+        alt: "Юрий Грибанов — серийный предприниматель", // Полезно для доступности
       },
     ],
     locale: "ru_RU",
     type: "website",
   },
+
+  // Важно для Twitter/X, чтобы картинка была большой
   twitter: {
     card: "summary_large_image",
-    images: ["/soc.png"],
+    title: "Юрий Грибанов — серийный предприниматель",
+    description: "Юрий Грибанов — серийный предприниматель",
+    images: ["/soc.png"], // Берет ту же картинку
   },
 };
 
