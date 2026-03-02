@@ -145,8 +145,15 @@
     img {
       width: 100%;
       max-width: 205px !important;
+      border: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+
+      /* Если это артефакты рендеринга SVG (тонкие линии по бокам) */
+      backface-visibility: hidden;
+      transform: translateZ(0);
     }
-    
+
     @media screen and (max-width: 1137px) {
       max-width: 500px;
     }

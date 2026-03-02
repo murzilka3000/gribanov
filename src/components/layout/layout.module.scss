@@ -156,7 +156,7 @@
 /* Добавь это к существующему классу .header_cont, если там нет */
 .header_cont {
   position: relative;
-  // твои текущие стили...
+
 }
 
 .burger {
@@ -173,7 +173,7 @@
 .popup {
   position: absolute;
   top: -20px;
-  left: -20px;
+  left: 0px;
   z-index: 10;
   width: 426px;
   background-color: #ffffff;
