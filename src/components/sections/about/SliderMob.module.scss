@@ -55,11 +55,9 @@
 .contentStack {
   position: relative;
   min-height: 350px;
-  @media screen and (max-width: 1019px) {
-    min-height: 350px;
-  }
+
   @media screen and (max-width: 767px) {
-    min-height: 300px;
+    min-height: 350px;
 
     &::-webkit-scrollbar {
       width: 4px;

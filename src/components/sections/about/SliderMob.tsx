@@ -267,60 +267,60 @@ export default function SliderMob() {
       const yearWidth = 120;
       const totalSteps = DATA.length;
 
-      // 1. Таймлайн
       gsap.to(yearsListRef.current, {
         x: -Math.max(0, activeIndex - 1) * yearWidth,
         duration: 0.5,
         ease: "power3.inOut",
       });
 
-      // 2. Прогресс бар
       gsap.to(progressLineRef.current, {
         scaleX: activeIndex / (totalSteps - 1),
         duration: 0.5,
         ease: "power3.inOut",
       });
 
-      // 3. Анимация высоты родителя и прозрачности контента
       const activeItem = contents[activeIndex];
-      
+
       if (activeItem) {
-        // Проявляем активный
-        gsap.set(activeItem, { display: "block", position: "absolute", top: 0, left: 0 });
-        
-        // Считаем высоту и плавно меняем её у родителя
+        gsap.set(activeItem, {
+          display: "block",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        });
+
         gsap.to(contentStackRef.current, {
           height: activeItem.offsetHeight,
           duration: 0.4,
           ease: "power2.inOut",
         });
 
-        // Анимация прозрачности БЕЗ сдвигов
-        gsap.fromTo(activeItem, 
-          { opacity: 0, y: 0 }, 
-          { 
-            opacity: 1, 
-            y: 0, 
-            duration: 0.4, 
+        gsap.fromTo(
+          activeItem,
+          { opacity: 0, y: 0 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
             ease: "none",
-            clearProps: "transform" // Чистим за собой
-          }
+            clearProps: "transform",
+          },
         );
       }
 
-      // Скрываем остальные
       contents.forEach((item, i) => {
         if (i !== activeIndex) {
           gsap.to(item, {
             opacity: 0,
             y: 0,
             duration: 0.3,
-            onComplete: () => gsap.set(item, { display: "none" })
+            onComplete: () => {
+              gsap.set(item, { display: "none" });
+            },
           });
         }
       });
 
-      // 4. Года и точки
       years.forEach((_, i) => {
         const isActive = i === activeIndex;
         gsap.to(years[i], {
@@ -340,7 +340,7 @@ export default function SliderMob() {
     {
       scope: rootRef,
       dependencies: [activeIndex],
-    }
+    },
   );
 
   return (
