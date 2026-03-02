@@ -40,19 +40,48 @@ const Header = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.paddingRight = "";
-      document.body.style.overflow = "";
+  if (isOpen) {
+    const scrollY = window.scrollY;
+    
+    // Фиксируем скроллбар на html
+    document.documentElement.style.overflowY = 'scroll';
+    
+    // Фиксируем body
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  } else {
+    const scrollY = document.body.style.top;
+    
+    // Сбрасываем стили
+    document.documentElement.style.overflowY = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    
+    // Восстанавливаем позицию скролла
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
-    return () => {
-      document.body.style.paddingRight = "";
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
+  }
+  
+  return () => {
+    const scrollY = document.body.style.top;
+    document.documentElement.style.overflowY = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY) * -1);
+    }
+  };
+}, [isOpen]);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
