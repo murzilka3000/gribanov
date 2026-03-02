@@ -249,6 +249,7 @@ const DATA = [
 
 export default function SliderMob() {
   const rootRef = useRef(null);
+  const contentStackRef = useRef(null);
   const yearsListRef = useRef(null);
   const progressLineRef = useRef(null);
 
@@ -266,50 +267,80 @@ export default function SliderMob() {
       const yearWidth = 120;
       const totalSteps = DATA.length;
 
+      // 1. Таймлайн
       gsap.to(yearsListRef.current, {
         x: -Math.max(0, activeIndex - 1) * yearWidth,
         duration: 0.5,
         ease: "power3.inOut",
       });
 
+      // 2. Прогресс бар
       gsap.to(progressLineRef.current, {
         scaleX: activeIndex / (totalSteps - 1),
         duration: 0.5,
         ease: "power3.inOut",
       });
 
-      years.forEach((_, i) => {
-        const isActive = i === activeIndex;
-
-        gsap.to(contents[i], {
-          opacity: isActive ? 1 : 0,
-          y: isActive ? 0 : i < activeIndex ? -20 : 20,
-          display: isActive ? "block" : "none",
-          duration: 0.5,
-          ease: "power3.inOut",
+      // 3. Анимация высоты родителя и прозрачности контента
+      const activeItem = contents[activeIndex];
+      
+      if (activeItem) {
+        // Проявляем активный
+        gsap.set(activeItem, { display: "block", position: "absolute", top: 0, left: 0 });
+        
+        // Считаем высоту и плавно меняем её у родителя
+        gsap.to(contentStackRef.current, {
+          height: activeItem.offsetHeight,
+          duration: 0.4,
+          ease: "power2.inOut",
         });
 
+        // Анимация прозрачности БЕЗ сдвигов
+        gsap.fromTo(activeItem, 
+          { opacity: 0, y: 0 }, 
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.4, 
+            ease: "none",
+            clearProps: "transform" // Чистим за собой
+          }
+        );
+      }
+
+      // Скрываем остальные
+      contents.forEach((item, i) => {
+        if (i !== activeIndex) {
+          gsap.to(item, {
+            opacity: 0,
+            y: 0,
+            duration: 0.3,
+            onComplete: () => gsap.set(item, { display: "none" })
+          });
+        }
+      });
+
+      // 4. Года и точки
+      years.forEach((_, i) => {
+        const isActive = i === activeIndex;
         gsap.to(years[i], {
           opacity: isActive ? 1 : 0.4,
           color: isActive ? "#1a3668" : "#b1b1b1",
           scale: isActive ? 1 : 0.85,
-          duration: 0.5,
-          ease: "power3.inOut",
+          duration: 0.4,
         });
-
         gsap.to(dots[i], {
           backgroundColor: isActive ? "#1a3668" : "#d1d9e0",
           borderColor: isActive ? "#1a3668" : "#d1d9e0",
           scale: isActive ? 1.3 : 1,
-          duration: 0.5,
-          ease: "power3.inOut",
+          duration: 0.4,
         });
       });
     },
     {
       scope: rootRef,
       dependencies: [activeIndex],
-    },
+    }
   );
 
   return (
@@ -348,19 +379,10 @@ export default function SliderMob() {
               </div>
             </div>
 
-            {/* КОНТЕНТ (Отображается под таймлайном) */}
             <div className={s.left}>
-              <div className={s.contentStack}>
+              <div ref={contentStackRef} className={s.contentStack}>
                 {DATA.map((item, i) => (
-                  <div
-                    key={i}
-                    className={s.contentItem}
-                    style={{
-                      opacity: i === 0 ? 1 : 0,
-                      transform: i === 0 ? "translateY(0)" : "translateY(20px)",
-                      display: i === 0 ? "block" : "none", // Изначально видим только первый
-                    }}
-                  >
+                  <div key={i} className={s.contentItem}>
                     {item.content}
                   </div>
                 ))}
