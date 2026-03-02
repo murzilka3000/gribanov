@@ -6,7 +6,7 @@ export const HeroMediaSection = () => {
   return (
     <div className={s.hero}>
       <HomeBigCard
-        image="/images/frank-media.png"
+        image="/images/img-4545.png"
         label="Издатель Frank Media"
         intro="Frank Media — деловое издание о финансах и экономике. Последние новости из мира банков и финансовых рынков в России и мире."
         href="https://frankmedia.ru/"
