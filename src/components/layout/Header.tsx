@@ -40,8 +40,16 @@ const Header = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.paddingRight = "";
+      document.body.style.overflow = "";
+    }
     return () => {
+      document.body.style.paddingRight = "";
       document.body.style.overflow = "";
     };
   }, [isOpen]);
@@ -75,10 +83,10 @@ const Header = () => {
   const burgerIcon = isOpen
     ? "/images/close.svg"
     : isDarkPage
-      ? "/images/burger-b.svg"
-      : isScrolled
-        ? "/images/burger-b.svg"
-        : "/images/w-burger.svg";
+    ? "/images/burger-b.svg"
+    : isScrolled
+    ? "/images/burger-b.svg"
+    : "/images/w-burger.svg";
 
   return (
     <header
