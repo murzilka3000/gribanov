@@ -187,7 +187,7 @@
     top: -20px;
     left: 0;
     height: 100vh;
-    padding: 106px 20px 122px 20px;
+    padding: 106px 20px 152px 20px;
   }
 }
 
@@ -249,6 +249,9 @@
   display: flex;
   gap: 18px;
   margin-top: 200px;
+  @media screen and (max-width: 767px) {
+    margin-top: 130px;
+  }
 }
 
 .btn_outline {
