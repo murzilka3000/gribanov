@@ -12,6 +12,7 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gribanov.com/"),
   title: "Юрий Грибанов — серийный предприниматель",
   description:
     "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
@@ -19,6 +20,25 @@ export const metadata: Metadata = {
     title: "О компании | Frank RG",
     description:
       "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
+    url: "https://gribanov.com/",
+    siteName: "Юрий Грибанов — серийный предприниматель",
+    images: [
+      {
+        url: "/soc.png",
+        width: 1200,
+        height: 630,
+        alt: "Юрий Грибанов — серийный предприниматель",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "О компании | Frank RG",
+    description:
+      "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
+    images: ["/soc.png"],
   },
 };
 

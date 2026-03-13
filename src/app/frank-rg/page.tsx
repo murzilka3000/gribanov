@@ -12,7 +12,9 @@ import s from "./FrankRg.module.scss";
 import clsx from "clsx";
 import { Metadata } from "next";
 
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gribanov.com/"),
   title: "Юрий Грибанов — основатель и генеральный директор Frank RG",
   description:
     "Frank RG — аналитическая консалтинговая компания, эксперт в области исследований конкурентной среды российского рынка финансовых услуг. ",
@@ -20,6 +22,24 @@ export const metadata: Metadata = {
     title: "Юрий Грибанов — издатель СМИ Frank Media",
     description:
       "Frank RG — аналитическая консалтинговая компания, эксперт в области исследований конкурентной среды российского рынка финансовых услуг. ",
+    siteName: "Юрий Грибанов — серийный предприниматель",
+    images: [
+      {
+        url: "/soc.png",
+        width: 1200,
+        height: 630,
+        alt: "Юрий Грибанов — основатель и генеральный директор Frank RG",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Юрий Грибанов — издатель СМИ Frank Media",
+    description:
+      "Frank RG — аналитическая консалтинговая компания, эксперт в области исследований конкурентной среды российского рынка финансовых услуг. ",
+    images: ["/soc.png"],
   },
 };
 

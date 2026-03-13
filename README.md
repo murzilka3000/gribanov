@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Инструкция по размещению сайта на хостинге
 
-## Getting Started
+В этом архиве находится готовая сборка сайта (статические файлы: HTML, CSS, JS, изображения). Для работы сайта не требуется база данных или специальный сервер Node.js — подойдет любой стандартный хостинг.
 
-First, run the development server:
+## Состав архива
+Все файлы, необходимые для работы сайта, находятся в папке `out` (или в корне архива, если файлы извлечены).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 установка
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Этот способ подходит для большинства хостинг-провайдеров (Reg.ru, Timeweb, Beget и др.):
+1. Авторизуйтесь в панели управления хостингом.
+2. Откройте «Менеджер файлов» и перейдите в корневую директорию вашего сайта (обычно она называется `public_html`, `www` или `имя_домена.ru`).
+3. Загрузите **все файлы и папки из папки `out`** в эту директорию.
+4. Убедитесь, что файл `index.html` находится прямо в корне сайта, а не во вложенной папке.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Обновление сайта:** Если вы захотите изменить текст или картинки, это нужно делать в исходном коде проекта, после чего заново генерировать папку сборки (`build`) и заменять файлы на хостинге.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Локальный просмотр:** Для корректной проверки сайта на компьютере (без интернета) рекомендуется открывать его через локальный сервер (например, расширение *Live Server* в VS Code), так как браузеры могут блокировать некоторые функции при простом двойном клике по HTML-файлу.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Сайт собран с использованием современных технологий: Next.js (Static Export).*

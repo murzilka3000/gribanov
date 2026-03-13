@@ -16,7 +16,9 @@ import Footer from "@/components/layout/Footer";
 import Kino from "@/components/sections/tsech/Kino";
 import { Metadata } from "next";
 
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gribanov.com/"),
   title: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
   description:
     "ЦЕХ — это экосистема проектов в сфере медиа-контента: продакшн полного цикла, дополнительное образование в сфере кино, аренда съёмочных локаций.",
@@ -24,6 +26,24 @@ export const metadata: Metadata = {
     title: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
     description:
       "ЦЕХ — это экосистема проектов в сфере медиа-контента: продакшн полного цикла, дополнительное образование в сфере кино, аренда съёмочных локаций.",
+    siteName: "Юрий Грибанов — серийный предприниматель",
+    images: [
+      {
+        url: "/soc.png",
+        width: 1200,
+        height: 630,
+        alt: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Юрий Грибанов — сооснователь киношколы и студии ЦЕХ",
+    description:
+      "ЦЕХ — это экосистема проектов в сфере медиа-контента: продакшн полного цикла, дополнительное образование в сфере кино, аренда съёмочных локаций.",
+    images: ["/soc.png"],
   },
 };
 
