@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
   openGraph: {
-    title: "О компании | Frank RG",
+    title: "Юрий Грибанов — серийный предприниматель",
     description:
       "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
     url: "https://gribanov.com/",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "О компании | Frank RG",
+    title: "Юрий Грибанов — серийный предприниматель",
     description:
       "Основатель и генеральный директор Frank RG, издатель Frank Media, сооснователь киношколы и студии ЦЕХ, корпоративной лиги Springle.",
     images: ["/soc.png"],
