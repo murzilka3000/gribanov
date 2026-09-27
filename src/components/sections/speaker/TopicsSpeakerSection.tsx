@@ -24,22 +24,42 @@ export const TopicsSpeakerSection = () => {
               <button
                 ref={topicsPrevRef}
                 type="button"
+                aria-label="Назад"
                 className={clsx(
                   s.topics_speaker__nav_btn,
                   s.topics_speaker__prev,
                 )}
               >
-                <img src="/images/sprev.svg" alt="prev" />
+                <svg
+                  className={s.topics_speaker__nav_icon}
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                >
+                  <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" />
+                  <path d="M29.096 22.983H16.259L19.449 26.173L18.327 27.317L13.08 22.07L18.327 16.823L19.449 17.967L16.281 21.135H29.096V22.983Z" />
+                </svg>
               </button>
               <button
                 ref={topicsNextRef}
                 type="button"
+                aria-label="Вперёд"
                 className={clsx(
                   s.topics_speaker__nav_btn,
                   s.topics_speaker__next,
                 )}
               >
-                <img src="/images/snext.svg" alt="next" />
+                <svg
+                  className={s.topics_speaker__nav_icon}
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                >
+                  <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" />
+                  <path d="M14.08 22.983V21.135H26.895L23.727 17.967L24.849 16.823L30.096 22.07L24.849 27.317L23.727 26.173L26.917 22.983H14.08Z" />
+                </svg>
               </button>
             </div>
           </div>
