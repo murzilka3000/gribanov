@@ -40,48 +40,48 @@ const Header = () => {
   }, [isOpen]);
 
   useEffect(() => {
-  if (isOpen) {
-    const scrollY = window.scrollY;
-    
-    // Фиксируем скроллбар на html
-    document.documentElement.style.overflowY = 'scroll';
-    
-    // Фиксируем body
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
-  } else {
-    const scrollY = document.body.style.top;
-    
-    // Сбрасываем стили
-    document.documentElement.style.overflowY = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    
-    // Восстанавливаем позицию скролла
-    if (scrollY) {
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    if (isOpen) {
+      const scrollY = window.scrollY;
+
+      // Фиксируем скроллбар на html
+      document.documentElement.style.overflowY = "scroll";
+
+      // Фиксируем body
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    } else {
+      const scrollY = document.body.style.top;
+
+      // Сбрасываем стили
+      document.documentElement.style.overflowY = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+
+      // Восстанавливаем позицию скролла
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
-  }
-  
-  return () => {
-    const scrollY = document.body.style.top;
-    document.documentElement.style.overflowY = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    if (scrollY) {
-      window.scrollTo(0, parseInt(scrollY) * -1);
-    }
-  };
-}, [isOpen]);
+
+    return () => {
+      const scrollY = document.body.style.top;
+      document.documentElement.style.overflowY = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY) * -1);
+      }
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -100,7 +100,8 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isOpen]);
 
-  const isDarkPage = pathname === "/" || pathname === "/privacy";
+  const isDarkPage =
+    pathname === "/" || pathname === "/privacy" || pathname === "/speaker";
 
   const menuItems = [
     { title: "Frank RG", href: "/frank-rg", color: "#173969" },
@@ -112,10 +113,10 @@ const Header = () => {
   const burgerIcon = isOpen
     ? "/images/close.svg"
     : isDarkPage
-    ? "/images/burger-b.svg"
-    : isScrolled
-    ? "/images/burger-b.svg"
-    : "/images/w-burger.svg";
+      ? "/images/burger-b.svg"
+      : isScrolled
+        ? "/images/burger-b.svg"
+        : "/images/w-burger.svg";
 
   return (
     <header
@@ -202,6 +203,13 @@ const Header = () => {
                     Обо мне
                   </Link>
                 </div>
+                <Link
+                  href="/speaker"
+                  className={s.btn_outline}
+                  onClick={closeMenu}
+                >
+                  Пригласить спикером
+                </Link>
               </div>
             </div>
           )}

@@ -105,3 +105,31 @@ export interface SpringleProductItem {
 export interface SpringleValueItem {
   text: string;
 }
+
+export interface SpeakerFactItem {
+  text: string;
+}
+
+export interface SpeakerCardItem {
+  title: string;
+  text: string;
+}
+
+export interface SpeakerTalkItem {
+  image: string;
+  type: string;
+  title: string;
+  text: string;
+  link: string;
+}
+
+export interface SpeakerEventItem {
+  org: string;
+  type: string;
+  topic: string;
+}
+
+export interface SpeakerReviewItem {
+  text: string;
+  author: string;
+}

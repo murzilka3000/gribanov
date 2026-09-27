@@ -36,7 +36,6 @@ const PREPOSITIONS = [
   "ли",
 ];
 
-// Маркер чтобы не обрабатывать дважды
 const PROCESSED_ATTR = "data-typography-processed";
 
 const regex = new RegExp(
@@ -45,7 +44,6 @@ const regex = new RegExp(
 );
 
 const processElement = (element: Node) => {
-  // Пропускаем уже обработанные элементы
   if (element instanceof HTMLElement && element.hasAttribute(PROCESSED_ATTR)) {
     return;
   }
@@ -58,7 +56,6 @@ const processElement = (element: Node) => {
   }
 
   textNodes.forEach((node) => {
-    // Пропускаем скрипты, стили, код
     const parent = node.parentElement;
     if (parent?.closest("script, style, code, pre, textarea, input")) {
       return;
@@ -72,7 +69,6 @@ const processElement = (element: Node) => {
     }
   });
 
-  // Помечаем как обработанный
   if (element instanceof HTMLElement) {
     element.setAttribute(PROCESSED_ATTR, "true");
   }
@@ -82,18 +78,14 @@ export const useTypography = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Небольшая задержка чтобы DOM успел отрендериться
     const timeoutId = setTimeout(() => {
-      // Убираем старые маркеры при смене страницы
       document.querySelectorAll(`[${PROCESSED_ATTR}]`).forEach((el) => {
         el.removeAttribute(PROCESSED_ATTR);
       });
 
-      // Обрабатываем весь контент
       processElement(document.body);
     }, 100);
 
-    // Следим за динамическим контентом
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
@@ -116,5 +108,5 @@ export const useTypography = () => {
       clearTimeout(timeoutId);
       observer.disconnect();
     };
-  }, [pathname]); // Перезапускаем при смене страницы
+  }, [pathname]);
 };
