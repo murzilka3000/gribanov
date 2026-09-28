@@ -113,6 +113,7 @@ export interface SpeakerFactItem {
 export interface SpeakerCardItem {
   title: string;
   text: string;
+  plainWrap?: boolean;
 }
 
 export interface SpeakerTalkItem {

@@ -103,7 +103,12 @@ export const TopicsSpeakerSection = () => {
                   <span className={s.topics_speaker__card_number}>
                     {pad(index + 1)}
                   </span>
-                  <h3 className={s.topics_speaker__card_title}>
+                  <h3
+                    className={clsx(
+                      s.topics_speaker__card_title,
+                      topic.plainWrap && s.topics_speaker__card_title_plain,
+                    )}
+                  >
                     {topic.title}
                   </h3>
                   <p className={s.topics_speaker__card_text}>{topic.text}</p>
