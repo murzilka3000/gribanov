@@ -11,7 +11,7 @@
   }
   .footer_cont {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 600fr 732fr;
     @media screen and (max-width: 686px) {
       grid-template-columns: 1fr;
     }
