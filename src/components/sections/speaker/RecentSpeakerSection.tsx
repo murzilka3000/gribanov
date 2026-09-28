@@ -20,7 +20,14 @@ export const RecentSpeakerSection = () => {
                     {talk.type}
                   </span>
                   <h3 className={s.recent_speaker__card_title}>{talk.title}</h3>
-                  <p className={s.recent_speaker__card_text}>{talk.text}</p>
+                  <p
+                    className={clsx(
+                      s.recent_speaker__card_text,
+                      talk.plainWrap && s.recent_speaker__card_text_plain,
+                    )}
+                  >
+                    {talk.text}
+                  </p>
                 </div>
                 <a
                   className={s.recent_speaker__card_link}

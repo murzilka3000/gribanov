@@ -121,6 +121,7 @@ export interface SpeakerTalkItem {
   title: string;
   text: string;
   link: string;
+  plainWrap?: boolean;
 }
 
 export interface SpeakerEventItem {

@@ -498,7 +498,7 @@ export const speakerFacts: SpeakerFactItem[] = fix([
     text: "Основал четыре бизнеса: Frank RG, Frank Media, ЦЕХ и Springle",
   },
   {
-    text: "Основатель и генеральный директор Frank RG с выручкой 500+ млн рублей",
+    text: "Основатель и генеральный директор Frank RG с выручкой 500+ млн рублей",
   },
   {
     text: "20+ лет в банковском и финансовом секторе",
@@ -576,6 +576,7 @@ export const speakerTalks: SpeakerTalkItem[] = fix([
     title: "Финансовый конгресс Банка России",
     text: "«Пилотирование цифрового рубля. Что дальше?»",
     link: "https://vkvideo.ru/video-69314560_456239043",
+    plainWrap: true,
   },
   {
     image: "/images/bg-3.png",
