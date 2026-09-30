@@ -252,6 +252,10 @@
         font-size: 22px;
         min-height: 74px;
       }
+      @media screen and (max-width: 400px) {
+        font-size: 22px;
+        min-height: 100px;
+      }
     }
     p {
       font-weight: 600;
@@ -289,8 +293,14 @@
       font-size: 27px;
       line-height: 112%;
       color: #fff;
+      min-height: 91px;
       @media screen and (max-width: 600px) {
         font-size: 22px;
+        min-height: 74px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 22px;
+        min-height: 100px;
       }
     }
     a {
@@ -304,6 +314,9 @@
       padding: 8px 32px;
       margin-top: 30px;
       transition: all ease 0.3s;
+      @media screen and (max-width: 400px) {
+        margin-top: 18px;
+      }
       &:hover {
         background: #fff;
         color: #24282e;
